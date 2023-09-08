@@ -50,11 +50,34 @@ const forestsSchema = new mongoose.Schema({
   fire_alarm: { type: Boolean, default: false },
 });
 
+const expireAfterForHourly = 10 * 24 * 60 * 60; // 10 days in seconds
+const expireAfterForDaily = 30 * 24 * 60 * 60; // 30 days in seconds
+
+forestsSchema.index(
+  { "temperature.hourly.day": 1 },
+  { expireAfterSeconds: expireAfterForHourly }
+);
+forestsSchema.index(
+  { "temperature.daily.month": 1, "temperature.daily.day": 1 },
+  { expireAfterSeconds: expireAfterForDaily }
+);
+forestsSchema.index(
+  { "wind.hourly.day": 1 },
+  { expireAfterSeconds: expireAfterForHourly }
+);
+forestsSchema.index(
+  { "wind.daily.month": 1, "wind.daily.day": 1 },
+  { expireAfterSeconds: expireAfterForDaily }
+);
+forestsSchema.index(
+  { "humidity.hourly.day": 1 },
+  { expireAfterSeconds: expireAfterForHourly }
+);
+forestsSchema.index(
+  { "humidity.daily.month": 1, "humidity.daily.day": 1 },
+  { expireAfterSeconds: expireAfterForDaily }
+);
 
 
 const Forest = mongoose.model("Forest", forestsSchema);
-
-
-
-
 module.exports = Forest;
