@@ -84,7 +84,10 @@ const verify = async (req, res) => {
     
         const token = jwt.sign(tokenPayload, process.env.JWT_SECRET);
   
-        return res.status(200).json({ message: 'Email verified. You can now log in.', token});
+        return res.status(200).json({ 
+            message: 'Email verified. You can now log in.',
+            token});
+            
       } else {
         return res.status(400).json({ message: 'Invalid verification code' });
       }
@@ -94,7 +97,42 @@ const verify = async (req, res) => {
     }
 };
 
+const login = async (req, res) => {
+    const { email, password } = req.body;
+    try {
+      const user = await User.findOne({ email });
+  
+      if (!user) {
+        return res.status(404).json({ message: 'Email/password incorrect' });
+      }
+  
+      const isValid = await bcrypt.compare(password, user.password);
+  
+      if (!isValid) {
+        return res.status(404).json({ message: 'Email/password incorrect' });
+      }
+  
+      const tokenPayload = {
+        _id: user._id,
+        username: user.username, 
+        email: user.email,
+      };
+  
+      const token = jwt.sign(tokenPayload, process.env.JWT_SECRET);
+  
+      const { password: hashedPassword, ...userInfo } = user.toObject();
+  
+      res.status(200).json({
+        token,
+        user: userInfo,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+};
+  
 
 
 
-module.exports = {checkEmail}
+module.exports = {checkEmail,registerUser,verify,login}
