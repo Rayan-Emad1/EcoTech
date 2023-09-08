@@ -1,15 +1,15 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
 const User = require("../models/users.model")
-
-
+const { sendVerificationEmail } = require("../configs/nodemailer");
 
 const checkEmail = async (req, res) => {
     try {
-      const { email } = req.query;
+      const { email } = req.body;
+      console.log(req.body);
         const existing_user = await User.findOne({ email });
   
-      if (existing_user) {
+      if (existing_user && existing_user.isVerified ) {
         return res.status(200).json({ isUnique: false });
       }
   
@@ -51,9 +51,11 @@ const registerUser = async (req, res) => {
         birthday,
         verificationCode,
       });
-  
+
+      const UserName = `${user.first_name} ${user.last_name}`;
       await user.save();
-      sendVerificationEmail(email, verificationCode);
+
+      sendVerificationEmail(UserName, email, verificationCode);
   
       res.status(201).json({ message: 'User registered. Check your email for verification.' });
     } catch (error) {
@@ -64,15 +66,15 @@ const registerUser = async (req, res) => {
 
 const verify = async (req, res) => {
     try {
-      const { email, verificationCode } = req.query;
+      const { email,verificationCode } = req.body;
       const user = await User.findOne({ email });
   
       if (!user) {
         return res.status(404).json({ message: 'User not found' });
       }
   
-      if (user.verificationCode === verificationCode) {
-        user.isEmailVerified = true;
+      if (user.verificationCode == verificationCode) {
+        user.isVerified = true;
         user.verificationCode = null;
         await user.save();
   
