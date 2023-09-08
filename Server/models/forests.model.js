@@ -15,3 +15,22 @@ const hourlyDataSchema = new mongoose.Schema({
     source: { type: String, enum: ["real", "predicted"], required: true },
   });
 
+  const temperatureSchema = new mongoose.Schema({
+    hourly: [hourlyDataSchema],
+    daily: [dailyDataSchema],
+  });
+  
+  const windSchema = new mongoose.Schema({
+    hourly: [hourlyDataSchema],
+    daily: [dailyDataSchema],
+  });
+  
+  const humiditySchema = new mongoose.Schema({
+    hourly: [hourlyDataSchema],
+    daily: [dailyDataSchema],
+  });
+  
+  
+  
+  module.exports = Forest;
+  
