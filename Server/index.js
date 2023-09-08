@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require('cors');
 const app = express();
+const PORT = process.env.PORT || 8000;
 const mongooseConnect = require("./configs/mongoDB.connect");
 
 app.use(cors());
@@ -11,12 +12,12 @@ app.use("/auth", authRouter);
 
 
 
-app.listen(8000, (err) => {
+app.listen(PORT, (err) => {
   if (err) {
     console.error(err);
     return;
   }
-  console.log("server running on port: ", 8000);
+  console.log(`server running on port: ${PORT} `);
   mongooseConnect();
 
 });
