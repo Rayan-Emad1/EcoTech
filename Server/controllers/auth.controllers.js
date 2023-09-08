@@ -2,6 +2,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
 const User = require("../models/users.model")
 
+
+
 const checkEmail = async (req, res) => {
     try {
       const { email } = req.query;
@@ -18,6 +20,15 @@ const checkEmail = async (req, res) => {
     }
   };
 
+const  generateVerificationCode = () => {
+    const codeLength = 4;
+    let verificationCode = 0;
+      for (let i = 0; i < codeLength; i++) {
+      const digit = Math.floor(Math.random() * 10);
+      verificationCode = verificationCode * 10 + digit;
+    }  
+    return verificationCode;
+}
 
 
 
