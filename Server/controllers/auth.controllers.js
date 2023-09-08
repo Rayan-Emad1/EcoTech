@@ -77,17 +77,17 @@ const verify = async (req, res) => {
         await user.save();
   
         const tokenPayload = {
-          _id: user._id,
-          username: `${first_name} ${last_name}`,
-          email: user.email,
-        };
+            _id: user._id,
+            username: `${user.first_name} ${user.last_name}`,
+            email: user.email,
+          };
     
         const token = jwt.sign(tokenPayload, process.env.JWT_SECRET);
   
         return res.status(200).json({ 
             message: 'Email verified. You can now log in.',
             token});
-            
+
       } else {
         return res.status(400).json({ message: 'Invalid verification code' });
       }
@@ -131,7 +131,6 @@ const login = async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     }
 };
-  
 
 
 
