@@ -10,7 +10,8 @@ app.use(express.json());
 const authRouter = require("./routes/auth.routes");
 app.use("/auth", authRouter);
 
-
+const forestRouter = require("./routes/forest.routes");
+app.use("/forest", forestRouter);
 
 app.listen(PORT, (err) => {
   if (err) {
