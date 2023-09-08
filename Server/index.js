@@ -6,7 +6,8 @@ const mongooseConnect = require("./configs/mongoDB.connect");
 app.use(cors());
 app.use(express.json());
 
-
+const authRouter = require("./routes/auth.routes");
+app.use("/auth", authRouter);
 
 
 
