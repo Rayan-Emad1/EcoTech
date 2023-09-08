@@ -62,6 +62,38 @@ const registerUser = async (req, res) => {
     }
 };
 
+const verify = async (req, res) => {
+    try {
+      const { email, verificationCode } = req.query;
+      const user = await User.findOne({ email });
+  
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      if (user.verificationCode === verificationCode) {
+        user.isEmailVerified = true;
+        user.verificationCode = null;
+        await user.save();
+  
+        const tokenPayload = {
+          _id: user._id,
+          username: `${first_name} ${last_name}`,
+          email: user.email,
+        };
+    
+        const token = jwt.sign(tokenPayload, process.env.JWT_SECRET);
+  
+        return res.status(200).json({ message: 'Email verified. You can now log in.', token});
+      } else {
+        return res.status(400).json({ message: 'Invalid verification code' });
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Verification failed' });
+    }
+};
+
 
 
 
