@@ -2,17 +2,19 @@ const mongoose = require("mongoose");
 
 
 const hourlyDataSchema = new mongoose.Schema({
-    value: { type: Number, required: true },
-    hour: { type: Number, required: true },
-    day: { type: Number, required: true },
-    source: { type: String, enum: ["real", "predicted"], required: true },
+  value: { type: Number, required: true },
+  hour: { type: Number, required: true },
+  day: { type: Number, required: true },
+  source: { type: String, enum: ["real", "predicted"], required: true },
+  timestamp: { type: Date, default: Date.now } 
 });
-  
+
 const dailyDataSchema = new mongoose.Schema({
-    value: { type: Number, required: true },
-    month: { type: Number, required: true },
-    day: { type: Number, required: true },
-    source: { type: String, enum: ["real", "predicted"], required: true },
+  value: { type: Number, required: true },
+  day: { type: Number, required: true },
+  month: { type: Number, required: true },
+  source: { type: String, enum: ["real", "predicted"], required: true },
+  timestamp: { type: Date, default: Date.now } 
 });
 
 const temperatureSchema = new mongoose.Schema({
@@ -51,7 +53,7 @@ const forestsSchema = new mongoose.Schema({
 });
 
 const expireAfterForHourly = 10 * 24 * 60 * 60; // 10 days in seconds
-const expireAfterForDaily = 30 * 24 * 60 * 60; // 30 days in seconds
+const expireAfterForDaily = 6 * 30 * 24 * 60 * 60; // 6 months in seconds
 
 forestsSchema.index(
   { "temperature.hourly.day": 1 },
