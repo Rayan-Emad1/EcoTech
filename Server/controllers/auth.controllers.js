@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken")
-const User = require("../models/users.model")
+const jwt = require("jsonwebtoken");
+const User = require("../models/users.model");
 const { sendVerificationEmail } = require("../configs/nodemailer");
 
 const checkEmail = async (req, res) => {
@@ -105,13 +105,17 @@ const login = async (req, res) => {
       const user = await User.findOne({ email });
   
       if (!user) {
-        return res.status(404).json({ message: 'Email/password incorrect' });
+        return res.status(404).json({ message: 'Email is not found' });
       }
   
-      const isValid = await bcrypt.compare(password, user.password);
+      const isPassword = await bcrypt.compare(password, user.password);
   
-      if (!isValid) {
-        return res.status(404).json({ message: 'Email/password incorrect' });
+      if (!isPassword) {
+        return res.status(404).json({ message: 'Password incorrect' });
+      }
+
+      if(!user.isVerified){
+        return res.status(404).json({ message: 'Email not verified' });
       }
   
       const tokenPayload = {
