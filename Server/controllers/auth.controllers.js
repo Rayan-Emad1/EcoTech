@@ -21,13 +21,13 @@ const checkEmail = async (req, res) => {
 };
 
 const  generateVerificationCode = () => {
-    const codeLength = 4;
-    let verificationCode = 0;
-    for (let i = 0; i < codeLength; i++) {
+    const code_length = 4;
+    let verification_code = 0;
+    for (let i = 0; i < code_length; i++) {
       const digit = Math.floor(Math.random() * 10);
-      verificationCode = verificationCode * 10 + digit;
+      verification_code = verification_code * 10 + digit;
     }  
-    return verificationCode;
+    return verification_code;
 };
 
 const registerUser = async (req, res) => {
@@ -108,9 +108,9 @@ const login = async (req, res) => {
         return res.status(404).json({ message: 'Email is not found' });
       }
   
-      const isPassword = await bcrypt.compare(password, user.password);
+      const is_password = await bcrypt.compare(password, user.password);
   
-      if (!isPassword) {
+      if (!is_password) {
         return res.status(404).json({ message: 'Password incorrect' });
       }
 
