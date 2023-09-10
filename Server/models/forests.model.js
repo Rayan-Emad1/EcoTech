@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 
-
 const hourlyDataSchema = new mongoose.Schema({
   value: { type: Number, required: true },
   hour: { type: Number, required: true },
   day: { type: Number, required: true },
   source: { type: String, enum: ["real", "predicted"], required: true },
-  timestamp: { type: Date, default: Date.now } 
+  timestamp: { type: Date, default: Date.now },
 });
 
 const dailyDataSchema = new mongoose.Schema({
@@ -14,22 +13,22 @@ const dailyDataSchema = new mongoose.Schema({
   day: { type: Number, required: true },
   month: { type: Number, required: true },
   source: { type: String, enum: ["real", "predicted"], required: true },
-  timestamp: { type: Date, default: Date.now } 
+  timestamp: { type: Date, default: Date.now },
 });
 
 const temperatureSchema = new mongoose.Schema({
-    hourly: [hourlyDataSchema],
-    daily: [dailyDataSchema],
+  hourly: [hourlyDataSchema],
+  daily: [dailyDataSchema],
 });
-  
+
 const windSchema = new mongoose.Schema({
-    hourly: [hourlyDataSchema],
-    daily: [dailyDataSchema],
+  hourly: [hourlyDataSchema],
+  daily: [dailyDataSchema],
 });
 
 const humiditySchema = new mongoose.Schema({
-    hourly: [hourlyDataSchema],
-    daily: [dailyDataSchema],
+  hourly: [hourlyDataSchema],
+  daily: [dailyDataSchema],
 });
 
 const forestsSchema = new mongoose.Schema({
@@ -79,7 +78,6 @@ forestsSchema.index(
   { "humidity.daily.month": 1, "humidity.daily.day": 1 },
   { expireAfterSeconds: expireAfterForDaily }
 );
-
 
 const Forest = mongoose.model("Forest", forestsSchema);
 module.exports = Forest;
