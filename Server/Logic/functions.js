@@ -41,18 +41,19 @@ const updateDataField = (data_field, new_data) => {
 };
 
 const updateDataFieldDaily = (data_field, day) => {
+  
   // console.log(data_field);
 
   const daily_values = data_field.hourly.filter((data) => data.day === day);
-
   const real_data = daily_values.filter((data) => data.source === "real");
+
   const sum = real_data.reduce((acc, data) => acc + data.value, 0);
   const average = sum / real_data.length;
 
+  // console.log(`Before update ${data_field.daily}`);
   // console.log("====================================");
   // console.log(sum);
   // console.log(average);
-  // console.log(`Before update ${data_field.daily}`);
   // console.log("====================================");
 
   const timestamp = new Date(real_data[0].timestamp);
@@ -63,7 +64,7 @@ const updateDataFieldDaily = (data_field, day) => {
     day: day,
     month: month,
     timestamp: new Date(),
-    source: real,
+    source: "real",
   });
 
   // console.log(`After update ${data_field.daily}`);
