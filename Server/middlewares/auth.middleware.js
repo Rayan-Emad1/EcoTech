@@ -13,11 +13,12 @@ const auth = async (req, res, next) => {
     req.user = decoded;
     next();
   } catch (err) {
-    return res.status(400).send("Invalid token");
+    return res.status(400).send("unauthenticated");
   }
 };
 
 const checkRole = (roles) => (req, res, next) => {
+
   if (!roles.includes(req.user.role)) {
     return res.status(403).send("Unauthorized");
   }

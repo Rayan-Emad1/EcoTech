@@ -10,7 +10,7 @@ app.use(express.json());
 
 const authLimiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 10 minutes
-  max: 5, // Limit each IP to 5 requests per windowMs
+  max: 500, // Limit each IP to 5 requests per windowMs
 });
 
 const authRouter = require("./routes/auth.routes");
