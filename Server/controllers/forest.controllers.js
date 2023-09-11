@@ -32,15 +32,19 @@ const updateForestData = async (req, res) => {
       return res.status(404).json({ message: "Forest not found" });
     }
 
+    forest.current_temperature = temperature[0];
+    forest.current_humidity = humidity[0];
+    forest.current_wind = wind[0];
+
     if (temperature) {
       updateDataField(forest.temperature, temperature);
     }
-    // if (humidity) {
-    //     updateDataField(forest.humidity, humidity);
-    // }
-    // if (wind) {
-    //     updateDataField(forest.wind, wind);
-    // }
+    if (humidity) {
+      updateDataField(forest.humidity, humidity);
+    }
+    if (wind) {
+      updateDataField(forest.wind, wind);
+    }
 
     await forest.save();
 
