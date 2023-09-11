@@ -100,11 +100,13 @@ const verify = async (req, res) => {
       user.verification_code = null;
       await user.save();
 
-      const token = jwt.sign({ _id: user._id }, jwtSecret);
+      const token = jwt.sign({ _id: user._id, role: user.role }, jwtSecret);
+      const { password: hashedPassword, ...userInfo } = user.toObject();
 
       return res.status(200).json({
         message: "Email verified. You can now log in.",
         token,
+        user: userInfo,
       });
     } else {
       return res.status(400).json({ message: "Invalid verification code" });
@@ -137,11 +139,12 @@ const login = async (req, res) => {
       return res.status(404).json({ message: "Email not verified" });
     }
 
-    const token = jwt.sign({ _id: user._id }, jwtSecret);
+    const token = jwt.sign({ _id: user._id, role: user.role }, jwtSecret);
 
     const { password: hashedPassword, ...userInfo } = user.toObject();
 
     res.status(200).json({
+      message: "Login verified. You can now log in.",
       token,
       user: userInfo,
     });
