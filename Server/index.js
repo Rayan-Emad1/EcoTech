@@ -19,6 +19,9 @@ app.use("/auth", authLimiter, authRouter);
 const forestRouter = require("./routes/forest.routes");
 app.use("/forest", forestRouter);
 
+const userRouter = require("./routes/user.routes");
+app.use("/user", userRouter);
+
 app.listen(PORT, (err) => {
   if (err) {
     console.error(err);
