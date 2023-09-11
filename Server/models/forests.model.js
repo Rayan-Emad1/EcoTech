@@ -33,22 +33,42 @@ const humiditySchema = new mongoose.Schema({
 
 const forestsSchema = new mongoose.Schema({
   location: {
-    type: {
-      type: String,
-      enum: ["Point"],
-      default: "Point",
-    },
-    coordinates: {
-      type: [Number],
-      required: true,
-    },
+    type: { type: String, enum: ["Point"], default: "Point",},
+    coordinates: { type: [Number], required: true,},
   },
   name: { type: String, required: true },
   description: { type: String, required: true },
+  current_temperature: {
+    type: hourlyDataSchema,
+    default: {
+      value: 0, 
+      hour: 0,  
+      day: 0,   
+      source: "real", 
+    },
+  },
+  current_humidity: {
+    type: hourlyDataSchema,
+    default: {
+      value: 0,
+      hour: 0,  
+      day: 0,   
+      source: "real", 
+    },
+  },
+  current_wind: {
+    type: hourlyDataSchema,
+    default: {
+      value: 0,
+      hour: 0,
+      day: 0,
+      source: "real", 
+    },
+  },
+  fire_alarm: { type: Boolean, default: false },
   temperature: temperatureSchema,
   wind: windSchema,
   humidity: humiditySchema,
-  fire_alarm: { type: Boolean, default: false },
 });
 
 const expireAfterForHourly = 10 * 24 * 60 * 60; // 10 days in seconds
