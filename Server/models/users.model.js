@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const userSchema = new mongoose.Schema({
   first_name: { type: String, required: true },
   last_name: { type: String, required: true },
@@ -9,8 +8,9 @@ const userSchema = new mongoose.Schema({
   birthday: { type: Date, default: null },
   address: { type: String, default: null },
   notification_token: { type: String, default: null },
-  verificationCode: { type: String, default: null },
-  isVerified: { type: Boolean, default: false },
+  verification_code: { type: String, default: null },
+  is_verified: { type: Boolean, default: false },
+  role: { type: String, enum: ["admin", "customer"], default: "customer" },
   createdAt: { type: Date, default: Date.now },
 });
 
