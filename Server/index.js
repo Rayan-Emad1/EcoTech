@@ -9,14 +9,12 @@ app.use(cors());
 app.use(express.json());
 
 const authLimiter = rateLimit({
-  windowMs: 10 * 60 * 1000,     // 10 minutes
-  max: 5,                      // Limit each IP to 5 requests per windowMs
+  windowMs: 10 * 60 * 1000, // 10 minutes
+  max: 5, // Limit each IP to 5 requests per windowMs
 });
 
-app.use("/auth", authLimiter);
-
 const authRouter = require("./routes/auth.routes");
-app.use("/auth", authRouter);
+app.use("/auth", authLimiter, authRouter);
 
 const forestRouter = require("./routes/forest.routes");
 app.use("/forest", forestRouter);

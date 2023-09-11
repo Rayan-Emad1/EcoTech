@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const forestController = require("../controllers/forest.controllers");
-const checkRole = require('./authMiddleware');
+const { checkRole } = require("../middlewares/auth.middleware");
 
 
 router.post("/create_forest", checkRole(['admin']), forestController.createForest);
