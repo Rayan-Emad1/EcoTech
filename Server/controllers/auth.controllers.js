@@ -25,7 +25,7 @@ const checkEmail = async (req, res) => {
     console.log(req.body);
     const existing_user = await User.findOne({ email });
 
-    if (existing_user && existing_user.isVerified) {
+    if (existing_user && existing_user.is_verified) {
       return res.status(200).json({ isUnique: false });
     }
 
@@ -61,7 +61,7 @@ const registerUser = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-    const verificationCode = generateVerificationCode();
+    const verification_code = generateVerificationCode();
 
     const user = new User({
       first_name,
@@ -69,13 +69,13 @@ const registerUser = async (req, res) => {
       email,
       password: hashedPassword,
       birthday,
-      verificationCode,
+      verification_code,
     });
 
     const UserName = `${user.first_name} ${user.last_name}`;
     await user.save();
 
-    sendVerificationEmail(UserName, email, verificationCode);
+    sendVerificationEmail(UserName, email, verification_code);
 
     res
       .status(201)
@@ -88,16 +88,16 @@ const registerUser = async (req, res) => {
 
 const verify = async (req, res) => {
   try {
-    const { email, verificationCode } = req.body;
+    const { email, verification_code } = req.body;
     const user = await User.findOne({ email });
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    if (user.verificationCode == verificationCode) {
-      user.isVerified = true;
-      user.verificationCode = null;
+    if (user.verification_code == verification_code) {
+      user.is_verified = true;
+      user.verification_code = null;
       await user.save();
 
       const token = jwt.sign({ _id: user._id }, jwtSecret);
@@ -118,7 +118,6 @@ const verify = async (req, res) => {
 const login = async (req, res) => {
   const { email, password } = req.body;
   try {
-
     const { error } = loginSchema.validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
@@ -134,7 +133,7 @@ const login = async (req, res) => {
       return res.status(404).json({ message: "Password incorrect" });
     }
 
-    if (!user.isVerified) {
+    if (!user.is_verified) {
       return res.status(404).json({ message: "Email not verified" });
     }
 

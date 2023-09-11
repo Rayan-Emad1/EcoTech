@@ -17,4 +17,12 @@ const auth = async (req, res, next) => {
   }
 };
 
-module.exports = auth;
+const checkRole = (roles) => (req, res, next) => {
+  if (!roles.includes(req.user.role)) {
+    return res.status(403).send("Unauthorized");
+  }
+
+  next();
+};
+
+module.exports = { auth, checkRole };
