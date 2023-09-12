@@ -41,7 +41,6 @@ const updateDataField = (data_field, new_data) => {
 };
 
 const updateDataFieldDaily = (data_field, day) => {
-  
   // console.log(data_field);
 
   const daily_values = data_field.hourly.filter((data) => data.day === day);
@@ -70,4 +69,45 @@ const updateDataFieldDaily = (data_field, day) => {
   // console.log(`After update ${data_field.daily}`);
 };
 
-module.exports = { updateDataField };
+const getStartTimeOfCurrentWeek = () => {
+  const now = new Date();
+  now.setDate(now.getDate() - 7);
+  now.setHours(0, 0, 0, 0);
+  return now;
+};
+
+const getStartTimeOfPreviousWeek = (date) => {
+  date.setDate(date.getDate() - 7);
+  date.setHours(0, 0, 0, 0);
+  return date;
+};
+
+const getWeekOfData = (data_field, start_date) => {
+  const end_date = new Date(start_date);
+  end_date.setDate(start_date.getDate() + 36);
+
+  const week_data = data_field.filter(
+    (data) => data.timestamp >= start_date && data.timestamp <= end_date
+  );
+  return week_data;
+};
+
+const getCurrentDayData = (daily_values) => {
+  const currentDay = new Date().getDay();
+  console.log(`Current Day: ${currentDay}`);
+
+  const currentDayData = daily_values.filter((data) => {
+    const dataDay = new Date(data.timestamp).getDay();
+    console.log(`Data Day: ${dataDay}`);
+    return dataDay === currentDay;
+  });
+  return currentDayData;
+};
+
+module.exports = {
+  updateDataField,
+  getStartTimeOfCurrentWeek,
+  getStartTimeOfPreviousWeek,
+  getWeekOfData,
+  getCurrentDayData,
+};
