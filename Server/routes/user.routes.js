@@ -4,5 +4,6 @@ const userController = require("../controllers/user.controllers");
 const { auth, checkRole } = require("../middlewares/auth.middleware");
 
 router.get("/get_forests", auth, checkRole(['customer']), userController.getAllForestsDetails);
+router.post("/get_forest_data", userController.getForestData);
 
 module.exports = router;
