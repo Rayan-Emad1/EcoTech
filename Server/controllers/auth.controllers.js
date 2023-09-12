@@ -6,6 +6,16 @@ const Joi = require("joi");
 
 const jwtSecret = process.env.JWT_SECRET;
 
+const generateVerificationCode = () => {
+  const code_length = 4;
+  let verification_code = 0;
+  for (let i = 0; i < code_length; i++) {
+    const digit = Math.floor(Math.random() * 10);
+    verification_code = verification_code * 10 + digit;
+  }
+  return verification_code;
+};
+
 const registerSchema = Joi.object({
   first_name: Joi.string().required(),
   last_name: Joi.string().required(),
@@ -34,16 +44,6 @@ const checkEmail = async (req, res) => {
     console.error(error);
     res.status(500).json({ message: "Error checking email uniqueness" });
   }
-};
-
-const generateVerificationCode = () => {
-  const code_length = 4;
-  let verification_code = 0;
-  for (let i = 0; i < code_length; i++) {
-    const digit = Math.floor(Math.random() * 10);
-    verification_code = verification_code * 10 + digit;
-  }
-  return verification_code;
 };
 
 const registerUser = async (req, res) => {
@@ -95,7 +95,7 @@ const verify = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    if (user.verification_code == verification_code) {
+    if (user.verification_code == verification_code && user.is_verified === false ) {
       user.is_verified = true;
       user.verification_code = null;
       await user.save();
@@ -109,7 +109,7 @@ const verify = async (req, res) => {
         user: userInfo,
       });
     } else {
-      return res.status(400).json({ message: "Invalid verification code" });
+      return res.status(400).json({ message: "Invalid verification code Or already verified" });
     }
   } catch (error) {
     console.error(error);
