@@ -20,6 +20,7 @@ const StackPages = () => {
     >
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Credentials" component={RegisterCredentials} />
+      <Stack.Screen name="Email" component={RegisterEmail} />
 
     </Stack.Navigator>
   );
