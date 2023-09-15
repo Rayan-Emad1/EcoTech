@@ -11,7 +11,10 @@ const Settings = ({ navigation }) => {
         onPress={() => navigation.navigate("Profile")}
       />
 
-
+      <Button
+        title="Logout"
+        onPress={() => navigation.replace("Login")}
+      />
     </SafeAreaView>
   );
 };
