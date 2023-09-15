@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Login from "./LogPages/Login";
-import RegisterCredentials from "./LogPages/RegisterCredentials";
-import RegisterEmail from "./LogPages/RegisterEmail";
-import RegisterPassword from "./LogPages/RegisterPassword";
-import RegisterVerify from "./LogPages/RegisterVerify";
+import Login from "../Pages/LogPages/Login";
+import RegisterCredentials from "../Pages/LogPages/RegisterCredentials";
+import RegisterEmail from "../Pages/LogPages/RegisterEmail";
+import RegisterPassword from "../Pages/LogPages/RegisterPassword";
+import RegisterVerify from "../Pages/LogPages/RegisterVerify";
 import TabPages from "./Tab";
 
 const Stack = createStackNavigator();
