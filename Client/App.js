@@ -7,7 +7,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <StackPages />
+        <StackPages/>
       </NavigationContainer>
     </SafeAreaProvider>
   );
