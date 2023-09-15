@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 const TabPages = () => {
   return (
     <Tab.Navigator initialRouteName="Map">
-
+      <Tab.Screen name="Map" component={Map} />
 
     </Tab.Navigator>
   );
