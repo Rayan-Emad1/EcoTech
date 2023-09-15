@@ -10,7 +10,7 @@ const SettingsStack = () => {
   return (
     <Stack.Navigator initialRouteName="Settings">
       <Stack.Screen name="Settings" component={Settings} options={{ headerShown: false ,  gestureEnabled: false }} />
-
+      <Stack.Screen name="Profile" component={Profile} />
     </Stack.Navigator>
   );
 };
