@@ -1,8 +1,8 @@
 import { Button, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import Map from "./Main/Map";
-import NotificationStack from "./NotificationStack";
-import SettingsStack from "./SettingStack";
+import Map from "../Pages/Main/Map";
+import NotificationStack from "../Pages/NotificationStack";
+import SettingsStack from "../Pages/SettingStack";
 
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
