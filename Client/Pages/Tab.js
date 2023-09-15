@@ -13,6 +13,7 @@ const TabPages = () => {
   return (
     <Tab.Navigator initialRouteName="Map">
       <Tab.Screen name="Map" component={Map} />
+      <Tab.Screen name="Notification" component={NotificationStack} />
 
     </Tab.Navigator>
   );
