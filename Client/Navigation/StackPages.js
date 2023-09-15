@@ -6,7 +6,7 @@ import RegisterCredentials from "../Pages/LogPages/RegisterCredentials";
 import RegisterEmail from "../Pages/LogPages/RegisterEmail";
 import RegisterPassword from "../Pages/LogPages/RegisterPassword";
 import RegisterVerify from "../Pages/LogPages/RegisterVerify";
-import TabPages from "./Tab";
+import TabPages from "./TabPages";
 
 const Stack = createStackNavigator();
 
