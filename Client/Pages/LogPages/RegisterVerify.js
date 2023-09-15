@@ -1,15 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, Text, View , SafeAreaView} from 'react-native'
 import React from 'react'
 
 const RegisterVerify = ({navigation}) => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>RegisterVerify</Text>
       <Button
         title="Go to Main Page Screen"
-        onPress={() => navigation.navigate("Main")}
+        onPress={() => navigation.replace("Main")}
       />
-    </View>
+    </SafeAreaView>
   )
 }
 
