@@ -6,7 +6,13 @@ const Settings = ({ navigation }) => {
     <SafeAreaView>
       <Text>Settings</Text>
 
+      <Button
+        title="Go to Profile Screen"
+        onPress={() => navigation.navigate("Profile")}
+      />
 
+
+    </SafeAreaView>
   );
 };
 
