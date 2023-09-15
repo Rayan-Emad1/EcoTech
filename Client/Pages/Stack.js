@@ -23,7 +23,7 @@ const StackPages = () => {
       <Stack.Screen name="Email" component={RegisterEmail} />
       <Stack.Screen name="Password" component={RegisterPassword} />
       <Stack.Screen name="Verify" component={RegisterVerify} />
-
+      <Stack.Screen name="Main" component={TabPages} />
     </Stack.Navigator>
   );
 };
