@@ -5,7 +5,10 @@ const Login = ({ navigation }) => {
   return (
     <SafeAreaView>
       <Text>Login</Text>
-
+      <Button
+        title="Sign "
+        onPress={() => navigation.navigate("Main")}
+      />
       <Button
         title="Register"
         onPress={() => navigation.navigate("Credentials")}
