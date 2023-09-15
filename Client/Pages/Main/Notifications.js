@@ -6,6 +6,10 @@ const Notifications = ({navigation}) => {
     <SafeAreaView>
       <Text>Notifications</Text>
 
+      <Button
+        title="Go to Statistics Screen"
+        onPress={() => navigation.navigate("Statistics")}
+      />
     </SafeAreaView>
   )
 }
