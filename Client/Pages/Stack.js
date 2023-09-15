@@ -19,6 +19,7 @@ const StackPages = () => {
       initialRouteName="Home"
     >
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Credentials" component={RegisterCredentials} />
 
     </Stack.Navigator>
   );
