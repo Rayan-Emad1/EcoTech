@@ -50,6 +50,12 @@ const styles = StyleSheet.create({
     paddingVertical: 40,
     marginTop: 100,
   },
+  title: {
+    fontSize: SIZES.xxLarge,
+    fontWeight: "bold",
+    color: COLORS.black,
+  },
+
 });
 
 export default RegisterCredentials;
