@@ -26,8 +26,14 @@ const styles = StyleSheet.create({
     width: "80%",
   },
   input_title: {
-    fontSize: SIZES.medium,
-    color: COLORS.black_icons,
+    position:"relative",
+    top:12,
+    left:25,
+    backgroundColor:"#f2f2f2",
+    alignSelf: 'flex-start',
+    fontSize: SIZES.small,
+    color: COLORS.black,
+    fontWeight:"bold",
     marginBottom: 5,
   },
   input: {
