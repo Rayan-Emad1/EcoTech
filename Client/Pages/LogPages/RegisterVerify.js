@@ -16,10 +16,8 @@ const RegisterVerify = ({ navigation }) => {
   const [otp, setOtp] = useState("");
 
   const handleVerify = () => {
-    // Implement your verification logic here
     if (otp === "1234") {
-      // Replace "123456" with the actual OTP
-      Alert.alert("Success", "OTP Verified");
+      navigation.replace("Main")
     } else {
       Alert.alert("Error", "Invalid OTP");
     }
