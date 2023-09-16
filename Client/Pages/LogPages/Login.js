@@ -17,7 +17,7 @@ const Login = ({ navigation }) => {
         style={styles.background_image}
       >
         <Text style={styles.title}>Login</Text>
-
+        <Text style={styles.subtitle}>Hi! Welcome</Text>
       </ImageBackground>
       <View style={styles.input_container}></View>
 
