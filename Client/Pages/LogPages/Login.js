@@ -62,7 +62,11 @@ const Login = ({ navigation }) => {
           <Text style={styles.or_text}>OR SIGN IN WITH</Text>
           <View style={styles.line} />
         </View>
+        <View style={styles.social_buttons}>
+          {/* Add social login buttons*/}
+        </View>
 
+ 
       </View>
 
     </SafeAreaView>
