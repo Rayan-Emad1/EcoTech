@@ -9,7 +9,11 @@ import { icons } from "../../constants/index";
 const BackButton = ({navigation}) => {
   return (
     <TouchableOpacity onPress={() => navigation.goBack()}>
-
+    <Image
+      style={styles.back_button}
+      source={icons.chevronLeft}
+      resizeMode="stretch"
+    />
   </TouchableOpacity>
   )
 }
