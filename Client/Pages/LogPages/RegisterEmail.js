@@ -91,7 +91,14 @@ const styles = StyleSheet.create({
   },
 
 
-
+  progressText: {
+    position:"relative",
+    left:"30%",
+    marginBottom:10,
+    marginLeft: SIZES.medium,
+    fontSize: SIZES.small,
+    color: COLORS.black_icons,
+  },
 });
 
 export default RegisterEmail;
