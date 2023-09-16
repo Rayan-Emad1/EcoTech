@@ -4,11 +4,9 @@ import { COLORS, SIZES } from "../../constants/index";
 import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
 import BackButton from "../../components/common/BackButton";
-
-
+import CustomTitle from "../../components/common/CustomTitle";
 
 const RegisterCredentials = ({ navigation }) => {
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [date, setDate] = useState("");
@@ -20,17 +18,15 @@ const RegisterCredentials = ({ navigation }) => {
     setDate(formattedDate);
   };
 
-
   return (
     <SafeAreaView style={styles.container}>
-      <BackButton navigation= {navigation} />
-      <View style={styles.title_container}>
-        <Text style={styles.title}>Create Account</Text>
-        <Text style={styles.subtitle}>
-          Fill your information below or register {" \n"} with your social
-          account
-        </Text>
-      </View>
+      <BackButton navigation={navigation} />
+
+      <CustomTitle
+        title="Create Account"
+        subtitle="Fill your information below or register with your social account"
+      />
+
       <View style={styles.input_container}>
         <CustomInput
           title="First Name"
@@ -88,13 +84,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
   },
-  title_container: {
-    width: 375,
-    height: 150,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 20,
-  },
   input_container: {
     flex: 1,
     width: "100%",
@@ -109,19 +98,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 40,
     marginTop: 100,
-  },
-  title: {
-    fontSize: SIZES.xxLarge,
-    fontWeight: "bold",
-    color: COLORS.black,
-  },
-  subtitle: {
-    fontSize: SIZES.medium,
-    color: COLORS.black_icons,
-    marginBottom: SIZES.xxLarge,
-    width: 300,
-    marginTop: 10,
-    textAlign: "center",
   },
   or_separator: {
     flexDirection: "row",
