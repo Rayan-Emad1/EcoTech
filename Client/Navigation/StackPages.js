@@ -14,8 +14,11 @@ const StackPages = () => {
   return (
     <Stack.Navigator
       initialRouteName="Home"
+      screenOptions={{
+        headerShown: false
+      }}
     >
-      <Stack.Screen name="Login" component={Login} options={{ headerShown: false ,  gestureEnabled: false }} />
+      <Stack.Screen name="Login" component={Login}/>
       <Stack.Screen name="Credentials" component={RegisterCredentials} />
       <Stack.Screen name="Email" component={RegisterEmail} />
       <Stack.Screen name="Password" component={RegisterPassword} />
