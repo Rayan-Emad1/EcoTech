@@ -59,8 +59,8 @@ const RegisterPassword = ({ navigation, route }) => {
         />
         <Text style={styles.terms}>
           By signing up, you agree to our
-          <View style={{ fontWeight: "bold" }}> Terms of Service</View> and
-          <View style={{ fontWeight: "bold" }}> Privacy Policy </View>
+          <Text style={{ fontWeight: "bold" }}> Terms of Service</Text> and
+          <Text style={{ fontWeight: "bold" }}> Privacy Policy </Text>
         </Text>
       </View>
     </SafeAreaView>
