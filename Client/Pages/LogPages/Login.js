@@ -56,7 +56,15 @@ const Login = ({ navigation }) => {
         <Text style={styles.forgot_password}>Forgotten your password?</Text>
       </View>
 
-      <View style={styles.bottom_container}></View>
+      <View style={styles.bottom_container}>
+      <View style={styles.or_separator}>
+          <View style={styles.line} />
+          <Text style={styles.or_text}>OR SIGN IN WITH</Text>
+          <View style={styles.line} />
+        </View>
+
+      </View>
+
     </SafeAreaView>
   );
 };
@@ -107,6 +115,7 @@ const styles = StyleSheet.create({
     marginTop: SIZES.medium,
     fontWeight: "bold",
   },
+
 });
 
 export default Login;
