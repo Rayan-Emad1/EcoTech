@@ -102,8 +102,14 @@ const styles = StyleSheet.create({
     fontSize: SIZES.small,
     color: COLORS.black,
   },
-
-
+  bold_text: {
+    fontWeight: "bold",
+  },
+  terms: {
+    marginTop: 20,
+    width: "80%",
+    textAlign: "center",
+  },
 });
 
 export default RegisterPassword;
