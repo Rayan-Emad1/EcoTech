@@ -66,7 +66,16 @@ const Login = ({ navigation }) => {
           {/* Add social login buttons*/}
         </View>
 
- 
+        <Text style={styles.create_account}>
+          Don't have an account?
+          <Text
+            style={styles.create_account_link}
+            onPress={() => navigation.navigate("Credentials")}
+          >
+            {" \n"}
+            Create an Account
+          </Text>
+        </Text>
       </View>
 
     </SafeAreaView>
