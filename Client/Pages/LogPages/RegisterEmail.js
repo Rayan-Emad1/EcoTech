@@ -4,20 +4,20 @@ import { COLORS, SIZES } from "../../constants/index";
 import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
 import BackButton from "../../components/common/BackButton";
+import CustomTitle from "../../components/common/CustomTitle";
 
 const RegisterEmail = ({ navigation, route }) => {
   const [email, setEmail] = useState("");
-  const { firstName, lastName, date } = route.params;
+  // const { firstName, lastName, date } = route.params;
 
   return (
     <SafeAreaView style={styles.container}>
       <BackButton navigation={navigation} />
-      <View style={styles.title_container}>
-        <Text style={styles.title}>What is your email?</Text>
-        <Text style={styles.subtitle}>
-          Please provide your email address {" \n"} in the field below
-        </Text>
-      </View>
+
+      <CustomTitle
+        title="What is your email?"
+        subtitle="Please provide your email address in the field below"
+      />
 
       <View style={styles.input_container}>
         <CustomInput
@@ -60,32 +60,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
   },
-  title_container: {
-    width: 375,
-    height: 150,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 20,
-  },
   input_container: {
     flex: 1,
     width: "100%",
     justifyContent: "flex-start",
     alignItems: "center",
     padding: 5,
-  },
-  title: {
-    fontSize: SIZES.xxLarge,
-    fontWeight: "bold",
-    color: COLORS.black,
-  },
-  subtitle: {
-    fontSize: SIZES.medium,
-    color: COLORS.black_icons,
-    marginBottom: SIZES.xxLarge,
-    width: 300,
-    marginTop: 10,
-    textAlign: "center",
   },
   progressContainer: {
     flexDirection: "row",
