@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 const StackPages = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Verify"
+      initialRouteName="Login"
       screenOptions={{
         headerShown: false
       }}
