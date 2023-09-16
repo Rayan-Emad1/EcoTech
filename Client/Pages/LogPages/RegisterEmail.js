@@ -50,7 +50,7 @@ const RegisterEmail = ({ navigation, route }) => {
 };
 
 const styles = StyleSheet.create({
-    container: {
+  container: {
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-around",
@@ -85,16 +85,21 @@ const styles = StyleSheet.create({
   },
   progressContainer: {
     flexDirection: "row",
-    width:"75%",
+    width: "75%",
     backgroundColor: "grey",
     borderRadius: 55,
   },
-
-
+  complete: {
+    flex: 1,
+    height: 8,
+    backgroundColor: COLORS.green,
+    borderRadius: 55,
+    maxWidth: "33.33%",
+  },
   progressText: {
-    position:"relative",
-    left:"30%",
-    marginBottom:10,
+    position: "relative",
+    left: "30%",
+    marginBottom: 10,
     marginLeft: SIZES.medium,
     fontSize: SIZES.small,
     color: COLORS.black_icons,
