@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 const StackPages = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="Login"
       screenOptions={{
         headerShown: false
       }}
