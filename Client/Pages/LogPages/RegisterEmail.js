@@ -70,8 +70,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 5,
   },
-
-
+  title: {
+    fontSize: SIZES.xxLarge,
+    fontWeight: "bold",
+    color: COLORS.black,
+  },
+  subtitle: {
+    fontSize: SIZES.medium,
+    color: COLORS.black_icons,
+    marginBottom: SIZES.xxLarge,
+    width: 300,
+    marginTop: 10,
+    textAlign: "center",
+  },
 
 
 
