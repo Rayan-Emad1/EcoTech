@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import {
   View,
   Text,
-  TextInput,
-  TouchableOpacity,
   StyleSheet,
   ImageBackground,
   SafeAreaView,
@@ -40,6 +38,7 @@ const Login = ({ navigation }) => {
           placeholder="Enter your email"
           value={email}
           onChangeText={(text) => setEmail(text)}
+          keyboardType = "email-address"
         />
         <CustomInput
           title="Password"
@@ -47,6 +46,8 @@ const Login = ({ navigation }) => {
           value={password}
           onChangeText={(text) => setPassword(text)}
           secureTextEntry={!showPassword}
+          keyboardType = "url"
+
         />
 
         <SubmitButton
@@ -114,12 +115,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   title: {
-    fontSize: SIZES.xxLarge,
+    fontSize: SIZES.large,
     fontWeight: "bold",
-    color: COLORS.black_icons,
+    color: "black",
   },
   subtitle: {
-    fontSize: SIZES.medium,
+    fontSize: SIZES.xxLarge,
     color: COLORS.black_icons,
     marginBottom: SIZES.xxLarge,
   },
