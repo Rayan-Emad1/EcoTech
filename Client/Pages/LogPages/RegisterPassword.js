@@ -27,7 +27,14 @@ const RegisterPassword = ({ navigation, route }) => {
           onChangeText={(text) => setPassword(text)}
           secureTextEntry={false}
         />
-
+        <CustomInput
+          title="Confirm Password"
+          placeholder="Confirm your Password"
+          value={confirmPassword}
+          keyboardType="email-address"
+          onChangeText={(text) => setConfirmPassword(text)}
+          secureTextEntry={false}
+        />
 
 
 
