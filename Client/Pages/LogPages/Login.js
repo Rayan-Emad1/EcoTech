@@ -150,7 +150,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: SIZES.medium,
   },
-
+  create_account: {
+    marginTop: SIZES.medium,
+    color: COLORS.black_icons,
+  },
+  create_account_link: {
+    color: COLORS.green,
+    textDecorationLine: "underline",
+  },
 
 });
 
