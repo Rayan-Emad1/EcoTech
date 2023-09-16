@@ -8,7 +8,13 @@ import { icons } from "../../constants/index";
 const RegisterCredentials = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.title_container}></View>
+      <View style={styles.title_container}>
+        <Text style={styles.title}>Create Account</Text>
+        <Text style={styles.subtitle}>
+          Fill your information below or register {" \n"} with your social
+          account
+        </Text>
+      </View>
       <View style={styles.input_container}></View>
       <View style={styles.bottom_container}></View>
     </SafeAreaView>
