@@ -1,18 +1,33 @@
-import { Button, StyleSheet, Text, View , SafeAreaView} from 'react-native'
-import React from 'react'
+import React, { useState } from "react";
+import { View, Text, StyleSheet, SafeAreaView, Button } from "react-native";
+import { COLORS, SIZES } from "../../constants/index";
+import CustomInput from "../../components/common/CustomInput";
+import SubmitButton from "../../components/common/SubmitButton";
+import BackButton from "../../components/common/BackButton";
 
-const RegisterEmail = ({navigation}) => {
+const RegisterEmail = ({ navigation,route}) => {
+
+
+
   return (
-    <SafeAreaView>
-      <Text>RegisterEmail</Text>
-      <Button
-        title="Go to Password Screen"
-        onPress={() => navigation.navigate("Password")}
-      />
+    <SafeAreaView style={styles.container}>
+      <BackButton navigation={navigation} />
+      <View style={styles.title_container}>
+
+      </View>
+
+      <View style={styles.input_container}>
+
+
+ 
+
+      </View>
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default RegisterEmail
+const styles = StyleSheet.create({
 
-const styles = StyleSheet.create({})
+});
+
+export default RegisterEmail;
