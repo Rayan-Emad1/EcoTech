@@ -9,7 +9,13 @@ const RegisterCredentials = ({ navigation }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [date, setDate] = useState("dd/mm/yyyy");
-
+  const handleDate = (text) => {
+    const numericText = text.replace(/[^0-9]/g, "");
+    const formattedDate = numericText
+      .slice(0, 8)
+      .replace(/(\d{2})(\d{2})(\d{4})/, "$1/$2/$3");
+    setDate(formattedDate);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.title_container}>
