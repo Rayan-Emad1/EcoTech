@@ -29,7 +29,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 20,
   },
-
+  input_container: {
+    flex: 1,
+    width: "100%",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    padding: 5,
+  },
 
 });
 
