@@ -55,7 +55,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: COLORS.black,
   },
-
+  subtitle: {
+    fontSize: SIZES.medium,
+    color: COLORS.black_icons,
+    marginBottom: SIZES.xxLarge,
+    width: 300,
+    marginTop: 10,
+    textAlign: "center",
+  },
 });
 
 export default RegisterCredentials;
