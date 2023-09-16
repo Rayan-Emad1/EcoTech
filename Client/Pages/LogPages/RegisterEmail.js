@@ -26,7 +26,6 @@ const RegisterEmail = ({ navigation, route }) => {
         <Text style={styles.progressText}>1 of 3</Text>
         <View style={styles.progressContainer}>
           <View style={styles.complete} />
-          <View style={styles.incomplete} />
         </View>
 
         <SubmitButton
