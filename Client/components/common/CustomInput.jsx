@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   input_title: {
     fontSize: SIZES.medium,
     color: COLORS.black_icons,
-    marginBottom:SIZES.xSmall,
+    marginBottom:5,
   },
   input: {
     width: "100%",
