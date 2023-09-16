@@ -23,7 +23,13 @@ const RegisterCredentials = ({ navigation }) => {
           onChangeText={(text) => setFirstName(text)}
         />
 
-
+        <CustomInput
+          title="Last Name"
+          placeholder="Enter your last name"
+          value={lastName}
+          onChangeText={(text) => setLastName(text)}
+          type="text"
+        />
 
 
 
