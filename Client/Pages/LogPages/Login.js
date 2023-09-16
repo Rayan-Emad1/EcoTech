@@ -103,6 +103,10 @@ const styles = StyleSheet.create({
     color: COLORS.black_icons,
     marginBottom: SIZES.xxLarge,
   },
+  forgot_password: {
+    marginTop: SIZES.medium,
+    fontWeight: "bold",
+  },
 });
 
 export default Login;
