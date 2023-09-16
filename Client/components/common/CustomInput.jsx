@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TextInput, Text, StyleSheet } from "react-native";
+import { ScrollView, View, TextInput, Text, StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../../constants/index";
 
 const CustomInput = ({ placeholder, title, value, onChangeText, secureTextEntry, keyboardType ="default" }) => {
@@ -13,10 +13,12 @@ const CustomInput = ({ placeholder, title, value, onChangeText, secureTextEntry,
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
+        maxLength={title==="Date"?99:20}
       />
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   input_container: {
