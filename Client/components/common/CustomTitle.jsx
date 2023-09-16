@@ -28,5 +28,12 @@ const styles = StyleSheet.create({
     color: COLORS.black,
     textAlign: 'center',
   },
-
+  subtitle: {
+    fontSize: SIZES.medium,
+    color: COLORS.black_icons,
+    marginBottom: SIZES.xxLarge, 
+    width: '100%',
+    marginTop: 10,
+    textAlign: 'center',
+  },
 });
