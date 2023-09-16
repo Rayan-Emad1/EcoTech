@@ -14,7 +14,14 @@ const CustomTitle = ({ title, subtitle }) => {
 export default CustomTitle;
 
 const styles = StyleSheet.create({
-
+  title_container: {
+    width: '75%',
+    height: 150,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+    textAlign: 'center',
+  },
 
 
 });
