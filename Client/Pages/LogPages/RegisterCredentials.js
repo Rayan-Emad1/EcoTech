@@ -6,6 +6,8 @@ import SubmitButton from "../../components/common/SubmitButton";
 import { icons } from "../../constants/index";
 
 const RegisterCredentials = ({ navigation }) => {
+
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.title_container}>
@@ -31,7 +33,13 @@ const RegisterCredentials = ({ navigation }) => {
           type="text"
         />
 
-
+        <CustomInput
+          title="Date"
+          placeholder="__/__/____"
+          keyboardType="numeric"
+          value={date}
+          onChangeText={(text) => {handleDate(text)}}
+        />
 
       </View>
       <View style={styles.bottom_container}></View>
