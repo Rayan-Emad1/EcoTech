@@ -6,6 +6,8 @@ import SubmitButton from "../../components/common/SubmitButton";
 import { icons } from "../../constants/index";
 
 const RegisterCredentials = ({ navigation }) => {
+  const [firstName, setFirstName] = useState("");
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.title_container}>
