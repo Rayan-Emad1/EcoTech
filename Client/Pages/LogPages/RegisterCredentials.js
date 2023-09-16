@@ -7,6 +7,7 @@ import { icons } from "../../constants/index";
 
 const RegisterCredentials = ({ navigation }) => {
   const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   return (
     <SafeAreaView style={styles.container}>
