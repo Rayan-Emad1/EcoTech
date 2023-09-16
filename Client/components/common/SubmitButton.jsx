@@ -17,4 +17,17 @@ const SubmitButton = ({ text, onPress, disabled , set_color }) => {
   );
 };
 
+const styles = StyleSheet.create({
+    button: {
+      borderRadius: 50,
+      width: "80%",
+      height: 50,
+      justifyContent: "center",
+      alignItems: "center",
+      marginTop: 20,
+      opacity: 0.9,
+    },
+
+  });
+
 export default SubmitButton;
