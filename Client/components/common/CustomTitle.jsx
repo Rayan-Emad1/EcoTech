@@ -22,6 +22,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
     textAlign: 'center',
   },
-
+  title: {
+    fontSize: SIZES.xxLarge,
+    fontWeight: 'bold',
+    color: COLORS.black,
+    textAlign: 'center',
+  },
 
 });
