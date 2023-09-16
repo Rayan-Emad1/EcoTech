@@ -18,7 +18,15 @@ const RegisterPassword = ({ navigation, route }) => {
         subtitle="Enter your desired password in the field below, and confirm it by re-entering it in the 'Confirm Password' field"
       />
 
-
+      <View style={styles.input_container}>
+        <CustomInput
+          title="Password"
+          placeholder="Enter your Password"
+          value={password}
+          keyboardType="email-address"
+          onChangeText={(text) => setPassword(text)}
+          secureTextEntry={false}
+        />
 
 
 
