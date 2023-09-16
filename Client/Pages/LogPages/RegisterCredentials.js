@@ -36,7 +36,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 5,
   },
-
+  bottom_container: {
+    flex: 0.75,
+    width: "100%",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: 40,
+    marginTop: 100,
+  },
 });
 
 export default RegisterCredentials;
