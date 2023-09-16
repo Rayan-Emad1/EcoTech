@@ -7,6 +7,7 @@ import {
   StyleSheet,
   ImageBackground,
   SafeAreaView,
+  Button,
 } from "react-native";
 
 import { COLORS, SIZES } from "../../constants/index";
@@ -56,29 +57,28 @@ const Login = ({ navigation }) => {
         />
         <Text style={styles.forgot_password}>Forgotten your password?</Text>
       </View>
-
       <View style={styles.bottom_container}>
-      <View style={styles.or_separator}>
+        <View style={styles.or_separator}>
           <View style={styles.line} />
           <Text style={styles.or_text}>OR SIGN IN WITH</Text>
           <View style={styles.line} />
         </View>
         <View style={styles.social_buttons}>
-          {/* Add social login buttons*/}
+          <Button title="hello" />
+          <Button title="hello" />
+          <Button title="hello" />
         </View>
-
-        <Text style={styles.create_account}>
-          Don't have an account?
+        <View style={styles.create_account}>
+          <Text style={styles.create_account}>Don't have an account?</Text>
           <Text
             style={styles.create_account_link}
             onPress={() => navigation.navigate("Credentials")}
           >
-            {" \n"}
+            {" "}
             Create an Account
           </Text>
-        </Text>
+        </View>
       </View>
-
     </SafeAreaView>
   );
 };
@@ -99,11 +99,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   input_container: {
-    flex: 1,
+    flex: 1.5,
     width: "100%",
     justifyContent: "flex-start",
     alignItems: "center",
-    padding: 20,
+    padding: 5,
   },
   bottom_container: {
     flex: 1.5,
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 40,
+    marginTop: 20,
   },
   title: {
     fontSize: SIZES.xxLarge,
@@ -147,16 +148,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: SIZES.medium,
+    gap: 40,
   },
   create_account: {
     marginTop: SIZES.medium,
     color: COLORS.black_icons,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
   },
   create_account_link: {
     color: COLORS.green,
-    textDecorationLine: "underline",
+    fontWeight: "bold",
   },
-
 });
 
 export default Login;
