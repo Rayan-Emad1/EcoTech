@@ -16,6 +16,12 @@ import SubmitButton from "../../components/common/SubmitButton";
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
+  const handleLogin = () => {
+    if (email && password) {
+      navigation.navigate("Main");
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
