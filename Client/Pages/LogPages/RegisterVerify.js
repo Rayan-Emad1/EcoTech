@@ -8,6 +8,11 @@ const RegisterVerify = ({ navigation }) => {
   return (
     <SafeAreaView>
       <BackButton navigation={navigation} />
+      <CustomTitle
+        title="Verify OTP"
+        subtitle="Please enter the code we sent you to email"
+      />
+      {/* <OTP/> */}
     </SafeAreaView>
   );
 };
