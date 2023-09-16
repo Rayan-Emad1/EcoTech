@@ -5,7 +5,7 @@ import { COLORS, SIZES } from '../../constants/index';
 const CustomTitle = ({ title, subtitle }) => {
   return (
     <View style={styles.title_container}>
-
+      <Text style={styles.title}>{title}</Text>
 
     </View>
   );
