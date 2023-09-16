@@ -140,6 +140,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: COLORS.green,
   },
+  or_text: {
+    marginHorizontal: SIZES.medium,
+    color: COLORS.black_icons,
+  },
+  social_buttons: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: SIZES.medium,
+  },
 
 
 });
