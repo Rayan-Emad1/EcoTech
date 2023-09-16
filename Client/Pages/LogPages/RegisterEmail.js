@@ -31,6 +31,16 @@ const RegisterEmail = ({ navigation,route}) => {
           <View style={styles.incomplete} />
         </View>
 
+        <SubmitButton
+          text="Next"
+          onPress={() => {
+            if (firstName && lastName && date) {
+              navigation.navigate("Email", { email , firstName, lastName, date });
+            }
+          }}
+          disabled={!email}
+          set_color="green"
+        />
       </View>
     </SafeAreaView>
   );
