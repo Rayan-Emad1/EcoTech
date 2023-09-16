@@ -15,6 +15,7 @@ import CustomInput from "../../components/common/input/CustomInput";
 const Login = ({ navigation }) => {
 
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   
 
   return (
