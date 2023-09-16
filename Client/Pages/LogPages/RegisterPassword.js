@@ -59,7 +59,7 @@ const RegisterPassword = ({ navigation, route }) => {
         />
         <Text style={styles.terms}>
           By signing up, you agree to our
-          <View style={{ fontWeight: "bold" }}>  of Service</View> and
+          <View style={{ fontWeight: "bold" }}> Terms of Service</View> and
           <View style={{ fontWeight: "bold" }}> Privacy Policy </View>
         </Text>
       </View>
@@ -68,7 +68,12 @@ const RegisterPassword = ({ navigation, route }) => {
 };
 
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 
 
 
