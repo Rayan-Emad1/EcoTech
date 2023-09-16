@@ -27,6 +27,10 @@ const RegisterVerify = ({ navigation }) => {
           Resend Code
         </Text>
       </View>
+      <Text style={styles.progressText}>3 of 3</Text>
+      <View style={styles.progressContainer}>
+        <View style={styles.complete} />
+      </View>
     </SafeAreaView>
   );
 };
@@ -51,4 +55,5 @@ const styles = StyleSheet.create({
     color: COLORS.green,
     fontWeight: "bold",
   },
+  
 });
