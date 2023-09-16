@@ -15,7 +15,19 @@ const RegisterCredentials = ({ navigation }) => {
           account
         </Text>
       </View>
-      <View style={styles.input_container}></View>
+      <View style={styles.input_container}>
+      <CustomInput
+          title="First Name"
+          placeholder="Enter your first name"
+          value={firstName}
+          onChangeText={(text) => setFirstName(text)}
+        />
+
+
+
+
+
+      </View>
       <View style={styles.bottom_container}></View>
     </SafeAreaView>
   );
