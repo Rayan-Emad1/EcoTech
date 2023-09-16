@@ -1,4 +1,4 @@
-import search from "../assets/icons/search.png";
+// import search from "../assets/icons/search.png";
 import left from "../assets/icons/left.png";
 import share from "../assets/icons/share.png";
 import location from "../assets/icons/location.png";
@@ -9,7 +9,7 @@ import forest from '../assets/icons/forest.png'
 import statistics from '../assets/icons/statistics.png'
 
 export default {
-  search,
+  // search,
   left,
   share,
   location,
