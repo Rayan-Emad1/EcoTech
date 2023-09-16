@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, SafeAreaView, Button } from "react-native";
+import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 import { COLORS, SIZES } from "../../constants/index";
 import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
