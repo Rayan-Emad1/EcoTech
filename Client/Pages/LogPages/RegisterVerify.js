@@ -47,5 +47,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
+  OTP_link: {
+    color: COLORS.green,
+    fontWeight: "bold",
+  },
 });
