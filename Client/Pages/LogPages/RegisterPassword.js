@@ -129,6 +129,8 @@ const styles = StyleSheet.create({
   },
   checkbox: {
     marginRight: 8,
+    borderRadius:8,
+    borderBlockColor:COLORS.black,
   },
 });
 
