@@ -60,6 +60,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#cccc",
     paddingVertical: 40,
   },
+  title: {
+    fontSize: SIZES.xxLarge,
+    fontWeight: "bold",
+    color: COLORS.black_icons,
+  },
 });
 
 export default Login;
