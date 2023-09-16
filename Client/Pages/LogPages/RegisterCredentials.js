@@ -3,9 +3,12 @@ import { View, Text, StyleSheet, SafeAreaView, Button } from "react-native";
 import { COLORS, SIZES } from "../../constants/index";
 import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
-import { icons } from "../../constants/index";
+import BackButton from "../../components/common/BackButton";
+
+
 
 const RegisterCredentials = ({ navigation }) => {
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [date, setDate] = useState("dd/mm/yyyy");
@@ -16,6 +19,8 @@ const RegisterCredentials = ({ navigation }) => {
       .replace(/(\d{2})(\d{2})(\d{4})/, "$1/$2/$3");
     setDate(formattedDate);
   };
+
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.title_container}>
