@@ -50,7 +50,7 @@ const RegisterEmail = ({ navigation, route }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+    container: {
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-around",
@@ -83,7 +83,12 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign: "center",
   },
-
+  progressContainer: {
+    flexDirection: "row",
+    width:"75%",
+    backgroundColor: "grey",
+    borderRadius: 55,
+  },
 
 
 
