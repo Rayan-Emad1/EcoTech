@@ -57,7 +57,11 @@ const RegisterPassword = ({ navigation, route }) => {
           disabled={confirmPassword !== password}
           set_color="green"
         />
-
+        <Text style={styles.terms}>
+          By signing up, you agree to our
+          <View style={{ fontWeight: "bold" }}>  of Service</View> and
+          <View style={{ fontWeight: "bold" }}> Privacy Policy </View>
+        </Text>
       </View>
     </SafeAreaView>
   );
