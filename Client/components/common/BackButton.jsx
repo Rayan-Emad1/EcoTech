@@ -8,7 +8,9 @@ import { icons } from "../../constants/index";
 
 const BackButton = ({navigation}) => {
   return (
+    <TouchableOpacity onPress={() => navigation.goBack()}>
 
+  </TouchableOpacity>
   )
 }
 
