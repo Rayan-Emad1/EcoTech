@@ -37,7 +37,7 @@ const RegisterEmail = ({ navigation, route }) => {
           text="Next"
           onPress={() => {
             if (firstName && lastName && date) {
-              navigation.navigate("Email", {
+              navigation.navigate("Password", {
                 email,
                 firstName,
                 lastName,
