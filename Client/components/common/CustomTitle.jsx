@@ -6,7 +6,7 @@ const CustomTitle = ({ title, subtitle }) => {
   return (
     <View style={styles.title_container}>
       <Text style={styles.title}>{title}</Text>
-
+      <Text style={styles.subtitle}>{subtitle}</Text>
     </View>
   );
 };
