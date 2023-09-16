@@ -10,13 +10,12 @@ import {
 } from "react-native";
 
 import { COLORS, SIZES } from "../../constants/index";
-import CustomInput from "../../components/common/input/CustomInput";
+import CustomInput from "../../components/common/CustomInput";
+import SubmitButton from "../../components/common/SubmitButton";
 
 const Login = ({ navigation }) => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
 
   return (
     <SafeAreaView style={styles.container}>
@@ -28,7 +27,6 @@ const Login = ({ navigation }) => {
         <Text style={styles.subtitle}>Hi! Welcome</Text>
       </ImageBackground>
       <View style={styles.input_container}>
-
         <CustomInput
           title="Email Address"
           placeholder="Enter your email"
@@ -42,6 +40,8 @@ const Login = ({ navigation }) => {
           onChangeText={(text) => setPassword(text)}
           secureTextEntry={!showPassword}
         />
+          
+
       </View>
 
       <View style={styles.bottom_container}></View>
