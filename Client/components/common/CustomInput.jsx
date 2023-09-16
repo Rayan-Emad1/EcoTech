@@ -2,7 +2,7 @@ import React from "react";
 import { View, TextInput, Text, StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../../constants/index";
 
-const CustomInput = ({ placeholder, title, value, onChangeText, secureTextEntry }) => {
+const CustomInput = ({ placeholder, title, value, onChangeText, secureTextEntry, keyboardType ="default" }) => {
   return (
     <View style={styles.input_container}>
       <Text style={styles.input_title}>{title}</Text>
@@ -12,6 +12,7 @@ const CustomInput = ({ placeholder, title, value, onChangeText, secureTextEntry 
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
+        keyboardType={keyboardType}
       />
     </View>
   );
@@ -25,17 +26,16 @@ const styles = StyleSheet.create({
   input_title: {
     fontSize: SIZES.medium,
     color: COLORS.black_icons,
-    marginBottom:5,
+    marginBottom: 5,
   },
   input: {
     width: "100%",
     backgroundColor: COLORS.white,
     borderRadius: 25,
-    borderWidth: 1 ,
-    borderColor:"grey",
+    borderWidth: 1,
+    borderColor: "grey",
     padding: SIZES.medium,
   },
 });
-
 
 export default CustomInput;
