@@ -8,12 +8,13 @@ const Stack = createStackNavigator();
 
 const SettingsStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Settings">
-      <Stack.Screen
-        name="Settings"
-        component={Settings}
-        options={{ headerShown: false, gestureEnabled: false }}
-      />
+    <Stack.Navigator
+      initialRouteName="Settings"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="Settings" component={Settings} />
       <Stack.Screen name="Profile" component={Profile} />
     </Stack.Navigator>
   );
