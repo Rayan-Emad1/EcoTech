@@ -13,7 +13,7 @@ const CustomInput = ({ placeholder, title, value, onChangeText, secureTextEntry,
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
-        maxLength={title==="Date"?99:20}
+        maxLength={title==="Date"?9:20}
       />
     </View>
   );
