@@ -6,8 +6,6 @@ import SubmitButton from "../../components/common/SubmitButton";
 import { icons } from "../../constants/index";
 
 const RegisterCredentials = ({ navigation }) => {
-
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.title_container}>
@@ -18,7 +16,7 @@ const RegisterCredentials = ({ navigation }) => {
         </Text>
       </View>
       <View style={styles.input_container}>
-      <CustomInput
+        <CustomInput
           title="First Name"
           placeholder="Enter your first name"
           value={firstName}
@@ -38,9 +36,21 @@ const RegisterCredentials = ({ navigation }) => {
           placeholder="__/__/____"
           keyboardType="numeric"
           value={date}
-          onChangeText={(text) => {handleDate(text)}}
+          onChangeText={(text) => {
+            handleDate(text);
+          }}
         />
 
+        <SubmitButton
+          text="Next"
+          onPress={() => {
+            if (firstName && lastName && date) {
+              navigation.navigate("Email", { firstName, lastName, date });
+            }
+          }}
+          disabled={!firstName || !lastName || !date}
+          set_color="green"
+        />
       </View>
       <View style={styles.bottom_container}></View>
     </SafeAreaView>
