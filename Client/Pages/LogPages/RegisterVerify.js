@@ -31,6 +31,11 @@ const RegisterVerify = ({ navigation }) => {
       <View style={styles.progressContainer}>
         <View style={styles.complete} />
       </View>
+      <SubmitButton
+          text="Verify"
+          onPress={() => null}
+          set_color="green"
+        />
     </SafeAreaView>
   );
 };
@@ -41,8 +46,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "space-around",
+    justifyContent: "flex-start",
     alignItems: "center",
+    gap: "1%"
   },
   OTP_message: {
     marginTop: SIZES.medium,
@@ -55,7 +61,7 @@ const styles = StyleSheet.create({
     color: COLORS.green,
     fontWeight: "bold",
   },
-  
+
   progressContainer: {
     flexDirection: "row",
     width: "75%",
@@ -72,7 +78,6 @@ const styles = StyleSheet.create({
   progressText: {
     position: "relative",
     left: "30%",
-    marginBottom: 10,
     marginLeft: SIZES.medium,
     fontSize: SIZES.small,
     color: COLORS.black,
