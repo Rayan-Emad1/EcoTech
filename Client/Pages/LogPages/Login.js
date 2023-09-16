@@ -24,6 +24,13 @@ const Login = ({ navigation }) => {
       </ImageBackground>
       <View style={styles.input_container}>
 
+        <CustomInput
+          title="Email Address"
+          placeholder="Enter your email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+        />
+
       </View>
 
       <View style={styles.bottom_container}></View>
