@@ -11,7 +11,7 @@ const RegisterCredentials = ({ navigation }) => {
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [date, setDate] = useState("dd/mm/yyyy");
+  const [date, setDate] = useState("");
   const handleDate = (text) => {
     const numericText = text.replace(/[^0-9]/g, "");
     const formattedDate = numericText
@@ -47,7 +47,7 @@ const RegisterCredentials = ({ navigation }) => {
         />
         <CustomInput
           title="Date"
-          placeholder="__/__/____"
+          placeholder="dd/mm/yyyy"
           keyboardType="numeric"
           value={date}
           onChangeText={(text) => {
