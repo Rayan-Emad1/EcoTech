@@ -16,7 +16,7 @@ import SubmitButton from "../../components/common/SubmitButton";
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const handleLogin = () => {
     if (email && password) {
       navigation.navigate("Main");
@@ -46,13 +46,14 @@ const Login = ({ navigation }) => {
           onChangeText={(text) => setPassword(text)}
           secureTextEntry={!showPassword}
         />
-          
+
         <SubmitButton
           text="Login"
           onPress={handleLogin}
           disabled={!email || !password}
-          set_color = "green"
+          set_color="green"
         />
+        <Text style={styles.forgot_password}>Forgotten your password?</Text>
       </View>
 
       <View style={styles.bottom_container}></View>
