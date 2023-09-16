@@ -36,7 +36,10 @@ const RegisterPassword = ({ navigation, route }) => {
           secureTextEntry={false}
         />
 
-
+        <Text style={styles.progressText}>2 of 3</Text>
+        <View style={styles.progressContainer}>
+          <View style={styles.complete} />
+        </View>
 
 
 
