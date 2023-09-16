@@ -12,7 +12,12 @@ import {
 const Login = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <ImageBackground></ImageBackground>
+      <ImageBackground
+        source={require("../../assets/images/leaves.png")}
+        style={styles.background_image}
+      >
+
+      </ImageBackground>
       <View style={styles.input_container}></View>
 
       <View style={styles.bottom_container}></View>
@@ -44,7 +49,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#ff1",
     padding: 20,
   },
-
   bottom_container: {
     flex: 1.5,
     width: "100%",
