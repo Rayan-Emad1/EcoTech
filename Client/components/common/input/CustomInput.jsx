@@ -5,6 +5,7 @@ import { COLORS, SIZES } from "../../../constants/index";
 const CustomInput = ({ placeholder, title, value, onChangeText, secureTextEntry }) => {
   return (
     <View style={styles.inputContainer}>
+      <Text style={styles.inputTitle}>{title}</Text>
 
     </View>
   );
