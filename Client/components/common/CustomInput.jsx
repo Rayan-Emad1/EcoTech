@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     color: COLORS.black,
     fontWeight:"bold",
     marginBottom: 5,
+    zIndex: 1,
   },
   input: {
     width: "100%",
