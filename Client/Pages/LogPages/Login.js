@@ -134,7 +134,13 @@ const styles = StyleSheet.create({
     marginVertical: SIZES.medium,
     width: "100%",
   },
-  
+  line: {
+    flex: 1,
+    height: 1,
+    borderBottomWidth: 1,
+    borderBottomColor: COLORS.green,
+  },
+
 
 });
 
