@@ -5,11 +5,14 @@ import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
 import BackButton from "../../components/common/BackButton";
 import CustomTitle from "../../components/common/CustomTitle";
+import Checkbox from "expo-checkbox";
 
 const RegisterPassword = ({ navigation, route }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const { email, firstName, lastName, date } = route.params;
+
   return (
     <SafeAreaView style={styles.container}>
       <BackButton navigation={navigation} />
@@ -25,7 +28,7 @@ const RegisterPassword = ({ navigation, route }) => {
           value={password}
           keyboardType="email-address"
           onChangeText={(text) => setPassword(text)}
-          secureTextEntry={false}
+          secureTextEntry={!showPassword}
         />
         <CustomInput
           title="Confirm Password"
@@ -33,8 +36,17 @@ const RegisterPassword = ({ navigation, route }) => {
           value={confirmPassword}
           keyboardType="email-address"
           onChangeText={(text) => setConfirmPassword(text)}
-          secureTextEntry={false}
+          secureTextEntry={!showPassword}
         />
+
+        <View style={styles.checkboxContainer}>
+          <Checkbox
+            style={styles.checkbox}
+            value={showPassword}
+            onValueChange={() => setShowPassword(!showPassword)}
+          />
+          <Text>Show Password</Text>
+        </View>
 
         <Text style={styles.progressText}>2 of 3</Text>
         <View style={styles.progressContainer}>
@@ -79,7 +91,6 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "flex-start",
     alignItems: "center",
-    padding: 5,
   },
   progressContainer: {
     flexDirection: "row",
@@ -109,6 +120,15 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: "80%",
     textAlign: "center",
+  },
+  checkboxContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: "70%",
+    marginBottom: 0,
+  },
+  checkbox: {
+    marginRight: 8,
   },
 });
 
