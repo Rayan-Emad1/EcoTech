@@ -20,6 +20,7 @@ const CustomInput = ({ placeholder, title, value, onChangeText, secureTextEntry 
 const styles = StyleSheet.create({
   input_container: {
     marginBottom: SIZES.large,
+    width: "80%",
   },
   input_title: {
     fontSize: SIZES.medium,
@@ -30,6 +31,8 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: COLORS.white,
     borderRadius: 25,
+    borderWidth: 1 ,
+    borderColor:"grey",
     padding: SIZES.medium,
   },
 });
