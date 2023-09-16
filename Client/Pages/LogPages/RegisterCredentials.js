@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, SafeAreaView, Button } from "react-native";
 import { COLORS, SIZES } from "../../constants/index";
-import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
+import CustomInput from "../../components/common/CustomInput";
 import { icons } from "../../constants/index";
 
 const RegisterCredentials = ({ navigation }) => {
