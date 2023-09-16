@@ -107,6 +107,29 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign: "center",
   },
+  or_separator: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: SIZES.medium,
+    width: "100%",
+  },
+  line: {
+    flex: 1,
+    height: 1,
+    borderBottomWidth: 1,
+    borderBottomColor: COLORS.green,
+  },
+  or_text: {
+    marginHorizontal: SIZES.medium,
+    color: COLORS.black_icons,
+  },
+  social_buttons: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: SIZES.medium,
+    gap: 40,
+  },
 });
 
 export default RegisterCredentials;
