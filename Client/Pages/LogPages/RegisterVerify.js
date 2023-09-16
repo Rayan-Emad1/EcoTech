@@ -40,6 +40,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
   },
-
+  OTP_message: {
+    marginTop: SIZES.medium,
+    color: COLORS.black_icons,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 
 });
