@@ -9,6 +9,8 @@ import {
   SafeAreaView,
 } from "react-native";
 
+import { COLORS, SIZES } from "../../constants/index"; 
+
 const Login = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
