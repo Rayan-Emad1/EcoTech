@@ -12,7 +12,12 @@ const RegisterEmail = ({ navigation, route }) => {
   return (
     <SafeAreaView style={styles.container}>
       <BackButton navigation={navigation} />
-      <View style={styles.title_container}></View>
+      <View style={styles.title_container}>
+        <Text style={styles.title}>What is your email?</Text>
+        <Text style={styles.subtitle}>
+          Please provide your email address {" \n"} in the field below
+        </Text>
+      </View>
 
       <View style={styles.input_container}>
         <CustomInput
