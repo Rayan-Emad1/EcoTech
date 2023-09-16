@@ -81,9 +81,27 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 5,
   },
-
-
-
+  progressContainer: {
+    flexDirection: "row",
+    width: "75%",
+    backgroundColor: "grey",
+    borderRadius: 55,
+  },
+  complete: {
+    flex: 1,
+    height: 8,
+    backgroundColor: COLORS.green,
+    borderRadius: 55,
+    maxWidth: "66.66%",
+  },
+  progressText: {
+    position: "relative",
+    left: "30%",
+    marginBottom: 10,
+    marginLeft: SIZES.medium,
+    fontSize: SIZES.small,
+    color: COLORS.black,
+  },
 
 
 });
