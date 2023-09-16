@@ -17,7 +17,13 @@ const RegisterEmail = ({ navigation,route}) => {
       </View>
 
       <View style={styles.input_container}>
-
+        <CustomInput
+          title="Email"
+          placeholder="Enter your Email"
+          value={email}
+          keyboardType="email-address"
+          onChangeText={(text) => setEmail(text)}
+        />
 
  
 
