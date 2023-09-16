@@ -16,6 +16,7 @@ const Login = ({ navigation }) => {
         source={require("../../assets/images/leaves.png")}
         style={styles.background_image}
       >
+        <Text style={styles.title}>Login</Text>
 
       </ImageBackground>
       <View style={styles.input_container}></View>
