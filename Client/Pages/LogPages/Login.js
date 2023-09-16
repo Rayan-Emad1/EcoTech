@@ -41,7 +41,12 @@ const Login = ({ navigation }) => {
           secureTextEntry={!showPassword}
         />
           
-
+        <SubmitButton
+          text="Login"
+          onPress={handleLogin}
+          disabled={!email || !password}
+          set_color = "green"
+        />
       </View>
 
       <View style={styles.bottom_container}></View>
