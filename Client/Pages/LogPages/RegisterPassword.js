@@ -13,7 +13,10 @@ const RegisterPassword = ({ navigation, route }) => {
   return (
     <SafeAreaView style={styles.container}>
       <BackButton navigation={navigation} />
-
+      <CustomTitle
+        title="Create a Password"
+        subtitle="Enter your desired password in the field below, and confirm it by re-entering it in the 'Confirm Password' field"
+      />
 
 
 
