@@ -1,19 +1,21 @@
-import { Button, SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from "react";
+import { View, Text, StyleSheet, SafeAreaView, Button } from "react-native";
+import { COLORS, SIZES } from "../../constants/index";
+import CustomInput from "../../components/common/CustomInput";
+import SubmitButton from "../../components/common/SubmitButton";
+import { icons } from "../../constants/index";
 
-const RegisterCredentials = ({navigation}) => {
+const RegisterCredentials = ({ navigation }) => {
   return (
-    <SafeAreaView>
-      <Text>RegisterCredentials</Text>
-      <Button
-        title="Go to Email Screen"
-        onPress={() => navigation.navigate("Email")}
-      />
+    <SafeAreaView style={styles.container}>
+      <View style={styles.title_container}></View>
+      <View style={styles.input_container}></View>
+      <View style={styles.bottom_container}></View>
     </SafeAreaView>
-    
-  )
-}
+  );
+};
 
-export default RegisterCredentials
+const styles = StyleSheet.create({
+});
 
-const styles = StyleSheet.create({})
+export default RegisterCredentials;
