@@ -8,6 +8,7 @@ import BackButton from "../../components/common/BackButton";
 const RegisterEmail = ({ navigation,route}) => {
 
   const [email, setEmail] = useState("");
+  const { firstName, lastName, date } = route.params;
 
   return (
     <SafeAreaView style={styles.container}>
