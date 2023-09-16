@@ -9,7 +9,7 @@ import {
   SafeAreaView,
 } from "react-native";
 
-import { COLORS, SIZES } from "../../constants/index"; 
+import { COLORS, SIZES } from "../../constants/index";
 
 const Login = ({ navigation }) => {
   return (
@@ -64,6 +64,11 @@ const styles = StyleSheet.create({
     fontSize: SIZES.xxLarge,
     fontWeight: "bold",
     color: COLORS.black_icons,
+  },
+  subtitle: {
+    fontSize: SIZES.medium,
+    color: COLORS.black_icons,
+    marginBottom: SIZES.xxLarge,
   },
 });
 
