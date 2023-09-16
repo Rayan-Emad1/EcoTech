@@ -30,7 +30,13 @@ const Login = ({ navigation }) => {
           value={email}
           onChangeText={(text) => setEmail(text)}
         />
-
+        <CustomInput
+          title="Password"
+          placeholder="Enter your password"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+          secureTextEntry={!showPassword}
+        />
       </View>
 
       <View style={styles.bottom_container}></View>
