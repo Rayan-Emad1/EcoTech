@@ -1,22 +1,37 @@
-import { Button, SafeAreaView, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  ImageBackground,
+  SafeAreaView,
+} from "react-native";
 
 const Login = ({ navigation }) => {
+
   return (
-    <SafeAreaView>
-      <Text>Login</Text>
-      <Button
-        title="Sign "
-        onPress={() => navigation.navigate("Main")}
-      />
-      <Button
-        title="Register"
-        onPress={() => navigation.navigate("Credentials")}
-      />
+    <SafeAreaView style={styles.container}>
+      <ImageBackground>
+      </ImageBackground>
+      <View style={styles.input_container}>
+      </View>
+
+      <View style={styles.bottom_container}>
+      </View>
     </SafeAreaView>
   );
 };
 
-export default Login;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
 
-const styles = StyleSheet.create({});
+});
+
+export default Login;
