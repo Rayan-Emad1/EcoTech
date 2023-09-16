@@ -128,6 +128,13 @@ const styles = StyleSheet.create({
     marginTop: SIZES.medium,
     fontWeight: "bold",
   },
+  or_separator: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: SIZES.medium,
+    width: "100%",
+  },
+  
 
 });
 
