@@ -10,6 +10,7 @@ import {
 } from "react-native";
 
 import { COLORS, SIZES } from "../../constants/index";
+import CustomInput from "../../components/common/input/CustomInput";
 
 const Login = ({ navigation }) => {
   return (
@@ -21,7 +22,9 @@ const Login = ({ navigation }) => {
         <Text style={styles.title}>Login</Text>
         <Text style={styles.subtitle}>Hi! Welcome</Text>
       </ImageBackground>
-      <View style={styles.input_container}></View>
+      <View style={styles.input_container}>
+
+      </View>
 
       <View style={styles.bottom_container}></View>
     </SafeAreaView>
