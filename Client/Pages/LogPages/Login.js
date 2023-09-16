@@ -13,6 +13,10 @@ import { COLORS, SIZES } from "../../constants/index";
 import CustomInput from "../../components/common/input/CustomInput";
 
 const Login = ({ navigation }) => {
+
+  const [email, setEmail] = useState("");
+  
+
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
