@@ -22,7 +22,6 @@ const RegisterCredentials = ({ navigation }) => {
           value={firstName}
           onChangeText={(text) => setFirstName(text)}
         />
-
         <CustomInput
           title="Last Name"
           placeholder="Enter your last name"
@@ -30,7 +29,6 @@ const RegisterCredentials = ({ navigation }) => {
           onChangeText={(text) => setLastName(text)}
           type="text"
         />
-
         <CustomInput
           title="Date"
           placeholder="__/__/____"
@@ -40,7 +38,6 @@ const RegisterCredentials = ({ navigation }) => {
             handleDate(text);
           }}
         />
-
         <SubmitButton
           text="Next"
           onPress={() => {
@@ -52,7 +49,18 @@ const RegisterCredentials = ({ navigation }) => {
           set_color="green"
         />
       </View>
-      <View style={styles.bottom_container}></View>
+      <View style={styles.bottom_container}>
+        <View style={styles.or_separator}>
+          <View style={styles.line} />
+          <Text style={styles.or_text}>OR SIGN IN WITH</Text>
+          <View style={styles.line} />
+        </View>
+        <View style={styles.social_buttons}>
+          <Button title="FaceBook" />
+          <Button title="Google" />
+          <Button title="Apple" />
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
