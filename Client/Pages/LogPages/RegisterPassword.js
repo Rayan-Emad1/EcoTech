@@ -41,7 +41,22 @@ const RegisterPassword = ({ navigation, route }) => {
           <View style={styles.complete} />
         </View>
 
-
+        <SubmitButton
+          text="Sign Up"
+          onPress={() => {
+            if (firstName && lastName && date) {
+              navigation.navigate("Email", {
+                email,
+                password,
+                firstName,
+                lastName,
+                date,
+              });
+            }
+          }}
+          disabled={confirmPassword !== password}
+          set_color="green"
+        />
 
       </View>
     </SafeAreaView>
