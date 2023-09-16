@@ -26,7 +26,12 @@ const styles = StyleSheet.create({
     color: COLORS.black_icons,
     marginBottom:SIZES.xSmall,
   },
-
+  input: {
+    width: "100%",
+    backgroundColor: COLORS.white,
+    borderRadius: 25,
+    padding: SIZES.medium,
+  },
 });
 
 
