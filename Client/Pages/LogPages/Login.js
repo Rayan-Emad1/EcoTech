@@ -16,6 +16,7 @@ import SubmitButton from "../../components/common/SubmitButton";
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = () => {
     if (email && password) {
@@ -90,7 +91,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   background_image: {
-    backgroundColor: "#cccc",
     width: 375,
     height: 200,
     resizeMode: "stretch",
@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "flex-start",
     alignItems: "center",
-    backgroundColor: "#ff1",
     padding: 20,
   },
   bottom_container: {
@@ -111,7 +110,6 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#cccc",
     paddingVertical: 40,
   },
   title: {
