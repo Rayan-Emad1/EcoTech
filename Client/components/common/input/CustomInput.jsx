@@ -5,7 +5,7 @@ import { COLORS, SIZES } from "../../../constants/index";
 const CustomInput = ({ placeholder, title, value, onChangeText, secureTextEntry }) => {
   return (
     <View style={styles.input_container}>
-      <Text style={styles.inputTitle}>{title}</Text>
+      <Text style={styles.input_title}>{title}</Text>
       <TextInput
         style={styles.input}
         placeholder={placeholder}
@@ -20,6 +20,11 @@ const CustomInput = ({ placeholder, title, value, onChangeText, secureTextEntry 
 const styles = StyleSheet.create({
   input_container: {
     marginBottom: SIZES.large,
+  },
+  input_title: {
+    fontSize: SIZES.medium,
+    color: COLORS.black_icons,
+    marginBottom:SIZES.xSmall,
   },
 
 });
