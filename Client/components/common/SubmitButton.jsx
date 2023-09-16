@@ -12,7 +12,7 @@ const SubmitButton = ({ text, onPress, disabled , set_color }) => {
       onPress={onPress}
       disabled={disabled}
     >
-      <Text style={styles.buttonText}>{text}</Text>
+      <Text style={styles.button_text}>{text}</Text>
     </TouchableOpacity>
   );
 };
@@ -27,7 +27,11 @@ const styles = StyleSheet.create({
       marginTop: 20,
       opacity: 0.9,
     },
-
+    button_text: {
+      color: COLORS.white,
+      fontSize: 18,
+      fontWeight: "bold",
+    },
   });
 
 export default SubmitButton;
