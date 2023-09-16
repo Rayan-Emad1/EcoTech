@@ -5,17 +5,14 @@ import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
 import BackButton from "../../components/common/BackButton";
 
-const RegisterEmail = ({ navigation,route}) => {
-
+const RegisterEmail = ({ navigation, route }) => {
   const [email, setEmail] = useState("");
   const { firstName, lastName, date } = route.params;
 
   return (
     <SafeAreaView style={styles.container}>
       <BackButton navigation={navigation} />
-      <View style={styles.title_container}>
-
-      </View>
+      <View style={styles.title_container}></View>
 
       <View style={styles.input_container}>
         <CustomInput
@@ -36,7 +33,12 @@ const RegisterEmail = ({ navigation,route}) => {
           text="Next"
           onPress={() => {
             if (firstName && lastName && date) {
-              navigation.navigate("Email", { email , firstName, lastName, date });
+              navigation.navigate("Email", {
+                email,
+                firstName,
+                lastName,
+                date,
+              });
             }
           }}
           disabled={!email}
@@ -48,6 +50,13 @@ const RegisterEmail = ({ navigation,route}) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+ 
 
 });
 
