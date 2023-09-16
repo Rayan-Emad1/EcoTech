@@ -23,6 +23,7 @@ const RegisterCredentials = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <BackButton navigation= {navigation} />
       <View style={styles.title_container}>
         <Text style={styles.title}>Create Account</Text>
         <Text style={styles.subtitle}>
