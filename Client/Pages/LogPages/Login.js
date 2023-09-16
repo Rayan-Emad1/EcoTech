@@ -7,7 +7,7 @@ import {
   SafeAreaView,
   Button,
 } from "react-native";
-
+import Checkbox from "expo-checkbox";
 import { COLORS, SIZES, images } from "../../constants/index";
 import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
@@ -42,9 +42,18 @@ const Login = ({ navigation }) => {
           placeholder="Enter your password"
           value={password}
           onChangeText={(text) => setPassword(text)}
-          secureTextEntry={!showPassword}
+          secureTextEntry={!showPassword} // Toggle password visibility based on showPassword state
           keyboardType="url"
         />
+        {/* Toggle password visibility */}
+        <View style={styles.showPasswordContainer}>
+          <Checkbox
+            style={styles.checkbox}
+            value={showPassword}
+            onValueChange={() => setShowPassword(!showPassword)}
+          />
+          <Text>Show Password</Text>
+        </View>
         <SubmitButton
           text="Login"
           onPress={handleLogin}
@@ -83,7 +92,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "space-around",
+    justifyContent: "flex-start",
     alignItems: "center",
   },
   background_image: {
@@ -102,12 +111,20 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   bottom_container: {
-    flex: 1.5,
+    flex: 1,
     width: "100%",
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 40,
-    marginTop: 20,
+  },
+  showPasswordContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    width:"70%",
+    marginBottom: 0,
+  },
+  checkbox: {
+    marginRight: 8,
   },
   title: {
     fontSize: SIZES.large,
@@ -120,7 +137,7 @@ const styles = StyleSheet.create({
     marginBottom: SIZES.xxLarge,
   },
   forgot_password: {
-    marginTop: SIZES.medium,
+    marginVertical: 35,
     fontWeight: "bold",
   },
   or_separator: {
