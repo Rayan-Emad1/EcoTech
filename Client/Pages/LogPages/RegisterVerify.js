@@ -1,18 +1,30 @@
+import React, { useState } from "react";
 import {
-  Button,
   StyleSheet,
   Text,
   View,
   SafeAreaView,
   Alert,
 } from "react-native";
-import React from "react";
-import { COLORS, SIZES, images } from "../../constants/index";
+import OTPInputView from "@twotalltotems/react-native-otp-input";
+import { COLORS, SIZES } from "../../constants/index";
 import SubmitButton from "../../components/common/SubmitButton";
 import BackButton from "../../components/common/BackButton";
 import CustomTitle from "../../components/common/CustomTitle";
 
 const RegisterVerify = ({ navigation }) => {
+  const [otp, setOtp] = useState("");
+
+  const handleVerify = () => {
+    // Implement your verification logic here
+    if (otp === "1234") {
+      // Replace "123456" with the actual OTP
+      Alert.alert("Success", "OTP Verified");
+    } else {
+      Alert.alert("Error", "Invalid OTP");
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <BackButton navigation={navigation} />
@@ -20,9 +32,22 @@ const RegisterVerify = ({ navigation }) => {
         title="Verify OTP"
         subtitle="Please enter the code we sent you to email"
       />
-      {/* <OTP/> */}
+      <OTPInputView
+        style={styles.otpInput}
+        pinCount={4}
+        code={otp}
+        codeInputFieldStyle={{
+          color:COLORS.green,
+          width:70,
+          height:70,
+          borderRadius:20,
+          fontSize:50 
+        }}
+        onCodeChanged={(code) => setOtp(code)}
+        autoFocusOnLoad
+      />
       <View style={styles.OTP_message}>
-        <Text style={styles.OTP_message}>Did not Receive OTP ?</Text>
+        <Text style={{color: COLORS.black_icons,}}>Did not Receive OTP ?</Text>
         <Text style={styles.OTP_link} onPress={() => <Alert title="hello" />}>
           Resend Code
         </Text>
@@ -31,11 +56,7 @@ const RegisterVerify = ({ navigation }) => {
       <View style={styles.progressContainer}>
         <View style={styles.complete} />
       </View>
-      <SubmitButton
-          text="Verify"
-          onPress={() => null}
-          set_color="green"
-        />
+      <SubmitButton text="Verify" onPress={handleVerify} set_color="green" />
     </SafeAreaView>
   );
 };
@@ -48,11 +69,15 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
-    gap: "1%"
+    gap: "1%",
+  },
+  otpInput: {
+    width: "75%",
+    height: 50,
+    marginVertical: 10,
   },
   OTP_message: {
-    marginTop: SIZES.medium,
-    color: COLORS.black_icons,
+    margin: 40,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
@@ -61,7 +86,6 @@ const styles = StyleSheet.create({
     color: COLORS.green,
     fontWeight: "bold",
   },
-
   progressContainer: {
     flexDirection: "row",
     width: "75%",
@@ -73,11 +97,12 @@ const styles = StyleSheet.create({
     height: 8,
     backgroundColor: COLORS.green,
     borderRadius: 55,
-    maxWidth: "66.66%",
+    maxWidth: "100%",
   },
   progressText: {
     position: "relative",
     left: "30%",
+    marginBottom:10,
     marginLeft: SIZES.medium,
     fontSize: SIZES.small,
     color: COLORS.black,
