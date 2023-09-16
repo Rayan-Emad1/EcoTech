@@ -9,7 +9,7 @@ import CustomTitle from "../../components/common/CustomTitle";
 const RegisterPassword = ({ navigation, route }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  // const { email, firstName, lastName, date } = route.params;
+  const { email, firstName, lastName, date } = route.params;
   return (
     <SafeAreaView style={styles.container}>
       <BackButton navigation={navigation} />
@@ -45,7 +45,7 @@ const RegisterPassword = ({ navigation, route }) => {
           text="Sign Up"
           onPress={() => {
             if (firstName && lastName && date) {
-              navigation.navigate("Email", {
+              navigation.navigate("Verify", {
                 email,
                 password,
                 firstName,
