@@ -8,7 +8,7 @@ import {
   Button,
 } from "react-native";
 
-import { COLORS, SIZES } from "../../constants/index";
+import { COLORS, SIZES, images } from "../../constants/index";
 import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
 
@@ -25,10 +25,7 @@ const Login = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ImageBackground
-        source={require("../../assets/images/leaves.png")}
-        style={styles.background_image}
-      >
+      <ImageBackground source={images.leaves} style={styles.background_image}>
         <Text style={styles.title}>Login</Text>
         <Text style={styles.subtitle}>Hi! Welcome</Text>
       </ImageBackground>
@@ -38,7 +35,7 @@ const Login = ({ navigation }) => {
           placeholder="Enter your email"
           value={email}
           onChangeText={(text) => setEmail(text)}
-          keyboardType = "email-address"
+          keyboardType="email-address"
         />
         <CustomInput
           title="Password"
@@ -46,10 +43,8 @@ const Login = ({ navigation }) => {
           value={password}
           onChangeText={(text) => setPassword(text)}
           secureTextEntry={!showPassword}
-          keyboardType = "url"
-
+          keyboardType="url"
         />
-
         <SubmitButton
           text="Login"
           onPress={handleLogin}
@@ -65,9 +60,9 @@ const Login = ({ navigation }) => {
           <View style={styles.line} />
         </View>
         <View style={styles.social_buttons}>
-          <Button title="hello" />
-          <Button title="hello" />
-          <Button title="hello" />
+          <Button title="FaceBook" />
+          <Button title="Google" />
+          <Button title="Apple" />
         </View>
         <View style={styles.create_account}>
           <Text style={styles.create_account}>Don't have an account?</Text>
