@@ -1,10 +1,42 @@
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
-import MapView from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 
 const Map = () => {
   const handleChange = (place) => {
     console.log(place);
+  };
+
+  const forests_locations = [
+    {
+      title: "first",
+      location: {
+        latitude: 32.83728746204912,
+        longitude: 34.91056445540316,
+      },
+      description: "Something Cool",
+    },
+    {
+      title: "second",
+      location: {
+        latitude: 36.83728746204912,
+        longitude: 37.91056445540316,
+      },
+      description: "Something Cool",
+    },
+  ];
+
+  showForestLocation = () => {
+    return forests_locations.map((item, index) => {
+      return (
+        <Marker
+          key={index}
+          coordinate={item.location}
+          title={item.title}
+          description={item.description}
+        />
+      );
+    });
   };
 
   return (
@@ -18,7 +50,9 @@ const Map = () => {
           longitude: 35.91056445540316,
           longitudeDelta: 1.4095237243800227,
         }}
-      ></MapView>
+      >
+        {showForestLocation()}
+      </MapView>
     </View>
   );
 };
