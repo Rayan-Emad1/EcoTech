@@ -1,18 +1,12 @@
-import { StyleSheet, Text, View ,SafeAreaView } from 'react-native'
 import React from 'react'
+import { StyleSheet, Text, View ,SafeAreaView } from 'react-native'
+import MapView from 'react-native-maps';
 
 const Map = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={{fontSize:20}}>Map</Text>
-      <Text style={{fontSize:20}}>Map</Text>
-      <Text style={{fontSize:20}}>Map</Text>
-      <Text style={{fontSize:20}}>Map</Text>
-      <Text style={{fontSize:20}}>Map</Text>
-      <Text style={{fontSize:20}}>Map</Text>
-      <Text style={{fontSize:20}}>Map</Text>
-      <Text style={{fontSize:20}}>Map</Text>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <MapView style={styles.map} ></MapView>
+    </View>
   )
 }
 
@@ -21,11 +15,13 @@ export default Map
 const styles = StyleSheet.create({
 
   container: {
-    width: '100%',
-    height: '100%',
+    flex:1,
     backgroundColor:'transparent',
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute'
   },
+  map:{
+    width:"100%",
+    height:"100%",
+  }
 })
