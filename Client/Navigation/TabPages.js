@@ -19,14 +19,3 @@ const TabPages = () => {
 };
 
 export default TabPages;
-
-const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    height: "100%",
-    backgroundColor: "transparent",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "absolute",
-  },
-});
