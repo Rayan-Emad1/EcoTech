@@ -8,7 +8,7 @@ import { icons } from "../../constants/index";
 
 const BackButton = ({navigation}) => {
   return (
-    <TouchableOpacity onPress={() => navigation.goBack()}>
+    <TouchableOpacity style={styles.back_button_container} onPress={() => navigation.goBack()}>
     <Image
       style={styles.back_button}
       source={icons.chevronLeft}
@@ -22,9 +22,13 @@ export default BackButton
 
 const styles = StyleSheet.create({
   back_button: {
+
     width: 30,
     height: 30,
-    top: "15%",
+
+  },
+  back_button_container:{
+    top: "4%",
     right:"40%",
   },
 })
