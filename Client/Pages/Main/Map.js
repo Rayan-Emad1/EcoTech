@@ -1,11 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 
 const Map = () => {
-  const handleChange = (place) => {
-    console.log(place);
-  };
 
   const forests_locations = [
     {
@@ -26,6 +23,11 @@ const Map = () => {
     },
   ];
 
+  const [draggableMarker, setDraggableMarker] = useState({
+    latitude: 35.83728746204912,
+    longitude: 35.91056445540316,
+  });
+
   showForestLocation = () => {
     return forests_locations.map((item, index) => {
       return (
@@ -43,7 +45,6 @@ const Map = () => {
     <View style={styles.container}>
       <MapView
         style={styles.map}
-        onRegionChange={handleChange}
         initialRegion={{
           latitude: 33.83728746204912,
           latitudeDelta: 2.1746411420983733,
@@ -52,6 +53,14 @@ const Map = () => {
         }}
       >
         {showForestLocation()}
+        <Marker
+          draggable
+          coordinate={draggableMarker}
+          onDragEnd={(e) => {
+            setDraggableMarker(e.nativeEvent.coordinate);
+            console.log(e.nativeEvent.coordinate);
+          }}
+        />
       </MapView>
     </View>
   );
