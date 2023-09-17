@@ -1,4 +1,3 @@
-import { Button, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Map from "../Pages/Main/Map";
 import NotificationStack from "./NotificationStack";
@@ -10,7 +9,7 @@ const Tab = createBottomTabNavigator();
 
 const TabPages = () => {
   return (
-    <Tab.Navigator initialRouteName="Map">
+    <Tab.Navigator initialRouteName="Map" screenOptions={{ headerShown: false }}>
       <Tab.Screen name="Map" component={Map} />
       <Tab.Screen name="NotificationStack" component={NotificationStack} />
       <Tab.Screen name="SettingsStack" component={SettingsStack} />
