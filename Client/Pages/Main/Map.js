@@ -94,7 +94,10 @@ const styles = StyleSheet.create({
     height: 25,
     width: 25,
   },
-
+  callout_container: {
+    height: 50,
+    width: 50,
+  },
 
 
 
