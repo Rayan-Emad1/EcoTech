@@ -104,6 +104,16 @@ const styles = StyleSheet.create({
     left: "11%",
     width: 200,
   },
-
+  callout_text_container: {
+    borderRadius: 100,
+    height: 40,
+    width: "auto",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 7.5,
+    alignItems: "center",
+    alignSelf: "flex-start",
+    backgroundColor: "white",
+  },
 
 });
