@@ -1,5 +1,6 @@
 import React, { useState ,useEffect } from "react";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { COLORS, SIZES, images } from "../../constants/index";
 import MapView, { Marker } from "react-native-maps";
 import * as Location from 'expo-location';
 
@@ -10,8 +11,8 @@ const Map = () => {
     {
       title: "first",
       location: {
-        latitude: 32.83728746204912,
-        longitude: 34.91056445540316,
+        latitude: 33.937287,
+        longitude: 35.81056445540316,
       },
       description: "Something Cool",
     },
@@ -34,8 +35,9 @@ const Map = () => {
           coordinate={item.location}
           title={item.title}
           description={item.description}
-          image={{uri: 'https://cdn0.iconfinder.com/data/icons/internet-glyphs-vol-1/52/custom__map__pin__location__pinned__gps__marker-512.png'}}
+          image={images.safe_pin}
         />
+
       );
     });
   };
