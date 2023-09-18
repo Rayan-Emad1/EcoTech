@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Button, SafeAreaView } from "react-native";
 import React from "react";
 import WeatherWidget from "../../components/Notification/WeatherWidget";
+import ForestCard from "../../components/Map/ForestCard";
 
 const Notifications = ({ navigation }) => {
   return (
@@ -11,7 +12,9 @@ const Notifications = ({ navigation }) => {
         onPress={() => navigation.navigate("Statistics")}
       /> */}
       <WeatherWidget />
+      <ForestCard/>
     </SafeAreaView>
+    
   );
 };
 
