@@ -23,7 +23,13 @@ const ForestCard = () => {
           <Image source={icons.location} />
         </View>
       </View>
-
+      <View style={styles.forest_details}>
+        <Text>Wind</Text>
+        <View style={styles.forest_icons}>
+          <Text>3 km/h</Text>
+          <Image source={icons.wind} />
+        </View>
+      </View>
 
 
     </View>
