@@ -15,7 +15,17 @@ const CustomHeader = () => {
     </Pressable>
     <View>
     
-
+        <View style={styles.searchContainer}>
+          <TextInput
+            placeholder="Search here"
+            placeholderTextColor={COLORS.white}
+            autoCapitalize="none"
+            style={styles.searchBox}
+          />
+          <Pressable onPress={toggleSearch}>
+            <Image source={icons.search} />
+          </Pressable>
+        </View>
       
     </View>
   </View>
