@@ -1,7 +1,11 @@
 import profile from "../assets/images/profile.jpg";
 import leaves from "../assets/images/leaves.png";
+import safe_pin from "../assets/images/safe_forest_pin"
+import dangerous_pin from "../assets/images/dangerous_forest_pin"
 
 export default {
   profile,
-  leaves
+  leaves,
+  safe_pin,
+  dangerous_pin
 };
