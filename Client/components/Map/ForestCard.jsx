@@ -87,6 +87,12 @@ const styles = StyleSheet.create({
       width: "100%",
       paddingRight: 20,
     },
-
+    forest_icons: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      width: "auto",
+      gap: 5,
+    },
 
   });
