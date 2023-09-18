@@ -9,13 +9,12 @@ const WeatherWidget = () => {
       <View  style={styles.widget_container}>
         <View style={styles.left_side}>
           <Text style={styles.widget_temperature}>32°C</Text>
-          <Text style={styles.widget_average}>H:32°C L:28°C</Text>
+          <Text style={styles.widget_average}>H:32°C    L:28°C</Text>
           <Text style={styles.widget_location}>Shouf National Ceders, Lebanon</Text>
 
           </View>
         <View style={styles.right_side}>
-          <Image source={images.sunny} />
-          <Text style={styles.widget_weather}>Sunny</Text>
+          <Image style={styles.widget_weather_image} source={images.rainy} />
         </View>
       </View>
     </ImageBackground>
@@ -52,7 +51,9 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-evenly",
     alignItems: "flex-start",
-    gap: 7,
-
+    gap: 15,
   },
+
+
+
 });
