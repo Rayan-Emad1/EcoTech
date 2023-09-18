@@ -30,7 +30,13 @@ const ForestCard = () => {
           <Image source={icons.wind} />
         </View>
       </View>
-
+      <View style={styles.forest_details}>
+        <Text>Temperature</Text>
+        <View style={styles.forest_icons}>
+          <Text>32°C</Text>
+          <Image source={icons.temperature} />
+        </View>
+      </View>
 
     </View>
   </View>
