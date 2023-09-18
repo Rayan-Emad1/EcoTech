@@ -43,7 +43,18 @@ const CustomHeader = () => {
 export default CustomHeader
 
 const styles = StyleSheet.create({
-
+  top: {
+    marginTop: Platform.OS === "ios" ? 50 : 20,
+    position: "absolute",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    gap:18,
+    top: 0,
+    width: "100%",
+    height: 50,
+  },
 
 
 
