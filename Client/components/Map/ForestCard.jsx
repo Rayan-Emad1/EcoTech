@@ -62,7 +62,12 @@ const styles = StyleSheet.create({
       alignItems: "center",
       marginHorizontal: 10,
     },
-
+    left_side: {
+      flex: 0.6,
+      height: "auto",
+      justifyContent: "center",
+      alignItems: "center",
+    },
 
 
 
