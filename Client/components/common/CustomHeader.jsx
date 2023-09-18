@@ -64,6 +64,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     borderRadius: 50,
   },
-
+  searchBox: {
+    width: "80%",
+    height: 50,
+    color: COLORS.white,
+  },
 
 })
