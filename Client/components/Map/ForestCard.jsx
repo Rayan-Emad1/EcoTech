@@ -16,7 +16,13 @@ const ForestCard = () => {
     </View>
     <View style={styles.right_side}>
       <Text style={styles.forest_title}>Forest Title</Text>
-
+      <View style={[styles.forest_details_location,styles.forest_details]}>
+        <Text>20 KM</Text>
+        <View style={styles.forest_icons}>
+          <Text>Location</Text>
+          <Image source={icons.location} />
+        </View>
+      </View>
 
 
 
