@@ -8,7 +8,7 @@ const WeatherWidget = () => {
     <ImageBackground source={images.green_background} style={styles.background_image}>
       <View  style={styles.widget_container}>
         <View style={styles.left_side}>
-
+          <Text style={styles.widget_temperature}>32°C</Text>
 
 
 
