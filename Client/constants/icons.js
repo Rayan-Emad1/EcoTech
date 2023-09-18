@@ -7,9 +7,12 @@ import chevronRight from '../assets/icons/chevron-right.png'
 import setting from '../assets/icons/settings.png'
 import forest from '../assets/icons/forest.png'
 import statistics from '../assets/icons/statistics.png'
+import safe from '../assets/icons/safe-icon.png'
+import danger from '../assets/icons/danger-icon.png'
 
 export default {
-  // search,
+  safe,
+  danger,
   left,
   share,
   location,
