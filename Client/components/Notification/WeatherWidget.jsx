@@ -39,6 +39,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  right_side: {
+    flex: 0.4,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
 
+  },
 
 });
