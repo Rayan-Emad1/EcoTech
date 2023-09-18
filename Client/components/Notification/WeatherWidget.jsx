@@ -32,7 +32,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
+  widget_container: {
+    width: 320,
+    height: 170,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 
 
 });
