@@ -26,7 +26,11 @@ const CustomHeader = () => {
             <Image source={icons.search} />
           </Pressable>
         </View>
-      
+      ) : (
+        <Pressable onPress={toggleSearch} style={styles.Icon_background}>
+          <Image source={icons.search} />
+        </Pressable>
+      )}
     </View>
   </View>
   )
