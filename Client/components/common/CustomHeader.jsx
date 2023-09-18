@@ -55,7 +55,15 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 50,
   },
-
+  searchContainer: {
+    flexDirection: "row",
+    backgroundColor: COLORS.black_trans,
+    alignItems: "center",
+    justifyContent: "space-around",
+    paddingHorizontal: 14,
+    marginHorizontal: 20,
+    borderRadius: 50,
+  },
 
 
 })
