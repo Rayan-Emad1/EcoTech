@@ -3,9 +3,12 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import { COLORS, SIZES, images, icons } from "../../constants/index";
 import MapView, { Callout, Marker } from "react-native-maps";
 import * as Location from "expo-location";
+import CustomHeader from "../../components/common/CustomHeader";
+
 
 const Map = () => {
   const [location, setLocation] = useState();
+
   const forests_locations = [
     {
       title: "Barouk National Park",
