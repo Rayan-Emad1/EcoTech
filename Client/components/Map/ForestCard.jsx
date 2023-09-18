@@ -15,7 +15,7 @@ const ForestCard = () => {
       <Image source={images.danger_card} />
     </View>
     <View style={styles.right_side}>
-
+      <Text style={styles.forest_title}>Forest Title</Text>
 
 
 
