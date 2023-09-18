@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Image, Platform, TextInput, Pressable } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Image,
+  Platform,
+  TextInput,
+  Pressable,
+} from "react-native";
 import { COLORS, icons } from "../../constants/index";
 
-const CustomHeader = ({setSearchValue }) => {
+const CustomHeader = ({ setSearchValue }) => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const toggleSearch = () => {
     setIsSearchVisible(!isSearchVisible);
@@ -47,11 +54,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 20,
-    gap:18,
+    gap: 18,
     top: 0,
     width: "100%",
     height: 50,
-    zIndex:1
+    zIndex: 1,
   },
   searchContainer: {
     flexDirection: "row",
@@ -71,7 +78,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.black_trans,
     borderRadius: 50,
     padding: 12,
-    justifyContent:"center",
-    alignItems:"center",
+    justifyContent: "center",
+    alignItems: "center",
   },
-})
+});

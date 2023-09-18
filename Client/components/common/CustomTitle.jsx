@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { COLORS, SIZES } from '../../constants/index';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { COLORS, SIZES } from "../../constants/index";
 
 const CustomTitle = ({ title, subtitle }) => {
   return (
@@ -15,25 +15,25 @@ export default CustomTitle;
 
 const styles = StyleSheet.create({
   title_container: {
-    width: '75%',
+    width: "75%",
     height: 150,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 20,
-    textAlign: 'center',
+    textAlign: "center",
   },
   title: {
     fontSize: SIZES.xxLarge,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: COLORS.black,
-    textAlign: 'center',
+    textAlign: "center",
   },
   subtitle: {
     fontSize: SIZES.medium,
     color: COLORS.black_icons,
-    marginBottom: SIZES.xxLarge, 
-    width: '100%',
+    marginBottom: SIZES.xxLarge,
+    width: "100%",
     marginTop: 10,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });

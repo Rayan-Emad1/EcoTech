@@ -1,34 +1,31 @@
-import {
-    StyleSheet,
-    Image,
-    TouchableOpacity,
-  } from "react-native";
-import React from 'react'
+import { StyleSheet, Image, TouchableOpacity } from "react-native";
+import React from "react";
 import { icons } from "../../constants/index";
 
-const BackButton = ({navigation}) => {
+const BackButton = ({ navigation }) => {
   return (
-    <TouchableOpacity style={styles.back_button_container} onPress={() => navigation.goBack()}>
-    <Image
-      style={styles.back_button}
-      source={icons.chevronLeft}
-      resizeMode="stretch"
-    />
-  </TouchableOpacity>
-  )
-}
+    <TouchableOpacity
+      style={styles.back_button_container}
+      onPress={() => navigation.goBack()}
+    >
+      <Image
+        style={styles.back_button}
+        source={icons.chevronLeft}
+        resizeMode="stretch"
+      />
+    </TouchableOpacity>
+  );
+};
 
-export default BackButton
+export default BackButton;
 
 const styles = StyleSheet.create({
   back_button: {
-
     width: 30,
     height: 30,
-
   },
-  back_button_container:{
+  back_button_container: {
     top: "4%",
-    right:"40%",
+    right: "40%",
   },
-})
+});

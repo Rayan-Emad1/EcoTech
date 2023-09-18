@@ -2,7 +2,14 @@ import React from "react";
 import { ScrollView, View, TextInput, Text, StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../../constants/index";
 
-const CustomInput = ({ placeholder, title, value, onChangeText, secureTextEntry, keyboardType ="default" }) => {
+const CustomInput = ({
+  placeholder,
+  title,
+  value,
+  onChangeText,
+  secureTextEntry,
+  keyboardType = "default",
+}) => {
   return (
     <View style={styles.input_container}>
       <Text style={styles.input_title}>{title}</Text>
@@ -13,12 +20,11 @@ const CustomInput = ({ placeholder, title, value, onChangeText, secureTextEntry,
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
-        maxLength={title==="Date"?9:20}
+        maxLength={title === "Date" ? 9 : 20}
       />
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   input_container: {
@@ -26,14 +32,14 @@ const styles = StyleSheet.create({
     width: "80%",
   },
   input_title: {
-    position:"relative",
-    top:12,
-    left:25,
-    backgroundColor:"#f2f2f2",
-    alignSelf: 'flex-start',
+    position: "relative",
+    top: 12,
+    left: 25,
+    backgroundColor: "#f2f2f2",
+    alignSelf: "flex-start",
     fontSize: SIZES.small,
     color: COLORS.black,
-    fontWeight:"bold",
+    fontWeight: "bold",
     marginBottom: 5,
     zIndex: 1,
   },
