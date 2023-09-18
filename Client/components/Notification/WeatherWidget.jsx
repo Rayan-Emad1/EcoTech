@@ -53,7 +53,11 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     gap: 15,
   },
-
+  widget_temperature:{
+    fontWeight:"900",
+    fontSize:40,
+    color:COLORS.white,
+  },
 
 
 });
