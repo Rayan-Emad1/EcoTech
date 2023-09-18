@@ -1,5 +1,6 @@
-// import search from "../assets/icons/search.png";
 import left from "../assets/icons/left.png";
+import search from "../assets/icons/search.png";
+import profile from "../assets/icons/profile.png";
 import share from "../assets/icons/share.png";
 import location from "../assets/icons/location.png";
 import chevronLeft from '../assets/icons/chevron-left.png'
@@ -12,6 +13,8 @@ import danger from '../assets/icons/danger-icon.png'
 
 export default {
   safe,
+  profile,
+  search,
   danger,
   left,
   share,
