@@ -14,8 +14,8 @@ const WeatherWidget = () => {
 
           </View>
         <View style={styles.right_side}>
-          <Image source={images.sunny} />
-
+          <Image style={styles.widget_weather_image} source={images.sunny} />
+          <Text style={styles.widget_weather_description}>Sunny</Text>
         </View>
       </View>
     </ImageBackground>
