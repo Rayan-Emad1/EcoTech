@@ -14,8 +14,8 @@ const WeatherWidget = () => {
 
           </View>
         <View style={styles.right_side}>
-          <Image style={styles.widget_weather_image} source={images.sunny} />
-          <Text style={styles.widget_weather_description}>Sunny</Text>
+          <Image source={images.sunny} />
+          <Text style={styles.widget_weather}>Sunny</Text>
         </View>
       </View>
     </ImageBackground>
@@ -25,7 +25,13 @@ const WeatherWidget = () => {
 export default WeatherWidget;
 
 const styles = StyleSheet.create({
-
+  background_image: {
+    width: 350,
+    height: 180,
+    resizeMode: "stretch",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 
 
 
