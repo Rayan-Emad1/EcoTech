@@ -69,5 +69,11 @@ const styles = StyleSheet.create({
     height: 50,
     color: COLORS.white,
   },
-
+  Icon_background: {
+    backgroundColor: COLORS.black_trans,
+    borderRadius: 50,
+    padding: 12,
+    justifyContent:"center",
+    alignItems:"center",
+  },
 })
