@@ -76,7 +76,10 @@ const styles = StyleSheet.create({
       alignItems: "flex-start",
       gap: 7,
     },
-
+    forest_title: {
+      fontSize: SIZES.large,
+      fontWeight: "700",
+    },
 
 
 
