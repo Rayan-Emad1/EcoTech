@@ -74,7 +74,7 @@ const Map = () => {
       >
         {showForestLocation()}
       </MapView>
-
+      <CustomHeader />
     </View>
   );
 };
