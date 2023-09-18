@@ -68,7 +68,14 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "center",
     },
-
+    right_side: {
+      flex: 1,
+      height: "auto",
+      flexDirection: "column",
+      justifyContent: "space-evenly",
+      alignItems: "flex-start",
+      gap: 7,
+    },
 
 
 
