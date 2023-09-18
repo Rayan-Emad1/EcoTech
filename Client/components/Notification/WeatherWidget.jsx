@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     resizeMode: "stretch",
     justifyContent: "center",
     alignItems: "center",
+    marginBottom:50
   },
   widget_container: {
     width: 320,
