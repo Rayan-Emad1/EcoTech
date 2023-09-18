@@ -8,6 +8,11 @@ import CustomHeader from "../../components/common/CustomHeader";
 
 const Map = () => {
   const [location, setLocation] = useState();
+  const [searchText, setSearchText] = useState(""); // Define the searchText state
+
+  const handleSearch = (searchValue) => {
+    console.log("Search Value:", searchValue);
+  };
 
   const forests_locations = [
     {
@@ -74,7 +79,7 @@ const Map = () => {
       >
         {showForestLocation()}
       </MapView>
-      <CustomHeader />
+      <CustomHeader setSearchValue={setSearchText} />
     </View>
   );
 };
