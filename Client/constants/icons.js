@@ -10,9 +10,16 @@ import forest from '../assets/icons/forest.png'
 import statistics from '../assets/icons/statistics.png'
 import safe from '../assets/icons/safe-icon.png'
 import danger from '../assets/icons/danger-icon.png'
+import humidity from '../assets/icons/humidity.png'
+import wind from '../assets/icons/wind.png'
+import temperature from '../assets/icons/temperature.png'
+
 
 export default {
   safe,
+  humidity,
+  wind,
+  temperature,
   profile,
   search,
   danger,
