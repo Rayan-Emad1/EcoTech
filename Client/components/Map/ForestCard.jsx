@@ -94,5 +94,8 @@ const styles = StyleSheet.create({
       width: "auto",
       gap: 5,
     },
-
+    forest_details_location: {
+      marginTop:-5,
+      marginBottom:2
+    }
   });
