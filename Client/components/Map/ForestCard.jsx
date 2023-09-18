@@ -11,8 +11,16 @@ import {
 const ForestCard = () => {
   return (
     <View style={styles.forest_container}>
+    <View style={styles.left_side}>
+
+    </View>
+    <View style={styles.right_side}>
 
 
+
+
+
+    </View>
   </View>
   )
 }
