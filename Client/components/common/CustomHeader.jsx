@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     top: 0,
     width: "100%",
     height: 50,
+    zIndex:1
   },
   searchContainer: {
     flexDirection: "row",

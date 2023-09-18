@@ -68,6 +68,7 @@ const Map = () => {
 
   return (
     <View style={styles.container}>
+      <CustomHeader setSearchValue={setSearchText} />
       <MapView
         style={styles.map}
         initialRegion={{
@@ -79,7 +80,7 @@ const Map = () => {
       >
         {showForestLocation()}
       </MapView>
-      <CustomHeader setSearchValue={setSearchText} />
+
     </View>
   );
 };
