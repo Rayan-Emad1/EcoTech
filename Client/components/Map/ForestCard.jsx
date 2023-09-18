@@ -52,7 +52,16 @@ const ForestCard = () => {
 export default ForestCard
 
 const styles = StyleSheet.create({
-
+    forest_container: {
+      width: 300,
+      height: 155,
+      borderRadius: 30,
+      backgroundColor: COLORS.whiteTrans,
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
+      marginHorizontal: 10,
+    },
 
 
 
