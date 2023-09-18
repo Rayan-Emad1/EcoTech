@@ -69,5 +69,10 @@ const styles = StyleSheet.create({
     color:"#EBEBF5",
     fontWeight:"600",
   },
+  widget_weather_image:{
+    position:"relative",
+    bottom:10,
+    right:25,
+  },
 
 });
