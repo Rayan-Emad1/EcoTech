@@ -58,6 +58,11 @@ const styles = StyleSheet.create({
     fontSize:40,
     color:COLORS.white,
   },
-
+  widget_average:{
+    fontSize:SIZES.xSmall,
+    color:"#EBEBF595",
+    fontWeight:"bold",
+    marginBottom:-7
+  },
 
 });
