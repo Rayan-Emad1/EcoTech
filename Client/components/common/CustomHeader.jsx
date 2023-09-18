@@ -6,15 +6,19 @@ import { COLORS, icons } from "../../constants/index";
 
 const CustomHeader = () => {
 
+    const [isSearchVisible, setIsSearchVisible] = useState(false);
 
-
+    const toggleSearch = () => {
+      setIsSearchVisible(!isSearchVisible);
+    };
+  
   return (
  <View style={styles.top}>
     <Pressable style={styles.Icon_background}>
       <Image source={icons.profile} />
     </Pressable>
     <View>
-    
+      {isSearchVisible ? (
         <View style={styles.searchContainer}>
           <TextInput
             placeholder="Search here"
