@@ -80,7 +80,13 @@ const styles = StyleSheet.create({
       fontSize: SIZES.large,
       fontWeight: "700",
     },
-
+    forest_details: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      width: "100%",
+      paddingRight: 20,
+    },
 
 
   });
