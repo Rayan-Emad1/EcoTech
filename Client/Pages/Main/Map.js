@@ -98,7 +98,12 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
   },
-
+  callout_view_container: {
+    position: "relative",
+    top: "152%",
+    left: "11%",
+    width: 200,
+  },
 
 
 });
