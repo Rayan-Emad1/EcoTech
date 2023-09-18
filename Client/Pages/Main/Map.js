@@ -4,6 +4,8 @@ import { COLORS, SIZES, images, icons } from "../../constants/index";
 import MapView, { Callout, Marker } from "react-native-maps";
 import * as Location from "expo-location";
 import CustomHeader from "../../components/common/CustomHeader";
+import ForestCard from "../../components/Map/ForestCard";
+
 
 
 const Map = () => {
