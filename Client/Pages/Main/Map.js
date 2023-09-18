@@ -115,5 +115,8 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     backgroundColor: "white",
   },
-
+  callout_text: {
+    alignSelf: "flex-start",
+    margin: 10,
+  },
 });
