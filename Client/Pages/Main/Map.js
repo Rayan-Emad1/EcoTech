@@ -1,15 +1,14 @@
-import React, { useState ,useEffect } from "react";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
-import { COLORS, SIZES, images } from "../../constants/index";
-import MapView, { Marker } from "react-native-maps";
-import * as Location from 'expo-location';
+import React, { useState, useEffect } from "react";
+import { StyleSheet, Text, View, Image } from "react-native";
+import { COLORS, SIZES, images, icons } from "../../constants/index";
+import MapView, { Callout, Marker } from "react-native-maps";
+import * as Location from "expo-location";
 
 const Map = () => {
-  
   const [location, setLocation] = useState();
   const forests_locations = [
     {
-      title: "first",
+      title: "Barouk National Park",
       location: {
         latitude: 33.937287,
         longitude: 35.81056445540316,
@@ -26,28 +25,27 @@ const Map = () => {
     },
   ];
 
-  
   showForestLocation = () => {
     return forests_locations.map((item, index) => {
       return (
-        <Marker
-          key={index}
-          coordinate={item.location}
-          title={item.title}
-          description={item.description}
-          image={images.safe_pin}
-        />
-
+        <Marker key={index} coordinate={item.location} image={images.safe_pin}>
+          <Callout tooltip style={styles.callout_container}>
+            <View style={styles.callout_view_container}>
+              <View style={styles.callout_text_container}>
+                <Image source={icons.safe} style={styles.icon_style} />
+                <Text style={styles.callout_text}>{item.title}</Text>
+              </View>
+            </View>
+          </Callout>
+        </Marker>
       );
     });
   };
 
-
-
   useEffect(() => {
     const getPermissions = async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
+      if (status !== "granted") {
         console.log("Please grant location permissions");
         return;
       }
@@ -59,9 +57,6 @@ const Map = () => {
     };
     getPermissions();
   }, []);
-
-
-
 
   return (
     <View style={styles.container}>
@@ -76,6 +71,7 @@ const Map = () => {
       >
         {showForestLocation()}
       </MapView>
+
     </View>
   );
 };
@@ -93,4 +89,13 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
+  icon_style: {
+    resizeMode: "stretch",
+    height: 25,
+    width: 25,
+  },
+
+
+
+
 });
