@@ -64,5 +64,10 @@ const styles = StyleSheet.create({
     fontWeight:"bold",
     marginBottom:-7
   },
+  widget_location:{
+    fontSize:SIZES.medium,
+    color:"#EBEBF5",
+    fontWeight:"600",
+  },
 
 });
