@@ -1,6 +1,13 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, SafeAreaView, Button } from "react-native";
-import { COLORS, SIZES } from "../../constants/index";
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  Pressable,
+  Image,
+} from "react-native";
+import { COLORS, SIZES, icons } from "../../constants/index";
 import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
 import BackButton from "../../components/common/BackButton";
@@ -68,9 +75,15 @@ const RegisterCredentials = ({ navigation }) => {
           <View style={styles.line} />
         </View>
         <View style={styles.social_buttons}>
-          <Button title="FaceBook" />
-          <Button title="Google" />
-          <Button title="Apple" />
+          <Pressable style={styles.social_icon}>
+            <Image source={icons.facebook} />
+          </Pressable>
+          <Pressable style={styles.social_icon}>
+            <Image source={icons.google} />
+          </Pressable>
+          <Pressable style={styles.social_icon}>
+            <Image source={icons.apple} />
+          </Pressable>
         </View>
       </View>
     </SafeAreaView>
@@ -121,6 +134,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: SIZES.medium,
     gap: 40,
+  },
+  social_icon: {
+    backgroundColor: "white",
+    width: 70,
+    height: 70,
+    padding: 5,
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

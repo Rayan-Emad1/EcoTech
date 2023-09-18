@@ -5,10 +5,11 @@ import {
   StyleSheet,
   ImageBackground,
   SafeAreaView,
-  Button,
+  Pressable,
+  Image,
 } from "react-native";
 import Checkbox from "expo-checkbox";
-import { COLORS, SIZES, images } from "../../constants/index";
+import { COLORS, SIZES, images, icons } from "../../constants/index";
 import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
 
@@ -69,9 +70,15 @@ const Login = ({ navigation }) => {
           <View style={styles.line} />
         </View>
         <View style={styles.social_buttons}>
-          <Button title="FaceBook" />
-          <Button title="Google" />
-          <Button title="Apple" />
+          <Pressable style={styles.social_icon}>
+            <Image source={icons.facebook} />
+          </Pressable>
+          <Pressable style={styles.social_icon}>
+            <Image source={icons.google} />
+          </Pressable>
+          <Pressable style={styles.social_icon}>
+            <Image source={icons.apple} />
+          </Pressable>
         </View>
         <View style={styles.create_account}>
           <Text style={styles.create_account}>Don't have an account?</Text>
@@ -120,13 +127,13 @@ const styles = StyleSheet.create({
   showPasswordContainer: {
     flexDirection: "row",
     alignItems: "center",
-    width:"70%",
+    width: "70%",
     marginBottom: 0,
   },
   checkbox: {
     marginRight: 8,
-    borderRadius:8,
-    borderBlockColor:COLORS.black,
+    borderRadius: 8,
+    borderBlockColor: COLORS.black,
   },
   title: {
     fontSize: SIZES.large,
@@ -175,6 +182,15 @@ const styles = StyleSheet.create({
   create_account_link: {
     color: COLORS.green,
     fontWeight: "bold",
+  },
+  social_icon: {
+    backgroundColor: "white",
+    width: 70,
+    height: 70,
+    padding: 5,
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
