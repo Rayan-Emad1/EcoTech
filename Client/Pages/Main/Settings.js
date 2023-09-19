@@ -17,8 +17,9 @@ const Settings = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header_setting}>
-
-
+        <Image source={images.profile} />
+        <Text style={styles.header_name}>{Name}</Text>
+        <Text style={styles.header_email}>{email}</Text>
       </View>
 
       <View style={styles.settings_input_container}>
