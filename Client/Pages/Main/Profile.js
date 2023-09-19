@@ -41,7 +41,14 @@ const Profile = ({ navigation }) => {
           onChangeText={(text) => setEmail(text)}
           keyboardType="email-address"
         />
-
+        <CustomInput
+          title="Address"
+          placeholder="Enter your email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          keyboardType="email-address"
+        />
+      </View>
 
 
     </SafeAreaView>
