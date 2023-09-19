@@ -41,7 +41,24 @@ const Settings = ({ navigation }) => {
             />
           </TouchableOpacity>
         </View>
-
+        <View style={styles.settings_input}>
+          <View style={styles.icon}>
+            <Image source={icons.notification} />
+          </View>
+          <View style={styles.setting_text}>
+            <Text style={{ fontSize: SIZES.medium }}>Notifications </Text>
+            <Text style={{ fontSize: SIZES.xSmall }}>
+              Allow push notifications
+            </Text>
+          </View>
+          <TouchableOpacity>
+            <Image
+              style={styles.forward_button}
+              source={icons.chevronRight}
+              resizeMode="stretch"
+            />
+          </TouchableOpacity>
+        </View>
       </View>
 
     </SafeAreaView>
