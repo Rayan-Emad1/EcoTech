@@ -1,24 +1,54 @@
-import { StyleSheet, Text, View, Button, SafeAreaView } from "react-native";
-import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+import React, { useState } from "react";
+import SubmitButton from "../../components/common/SubmitButton";
+import { SIZES, COLORS, images, icons } from "../../constants";
 
 const Settings = ({ navigation }) => {
+  const [Name, setName] = useState("Daniel Yehya");
+  const [email, setEmail] = useState("daniel@gmail.com");
+
   return (
-    <SafeAreaView>
-      <Text>Settings</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header_setting}>
 
-      <Button
-        title="Go to Profile Screen"
-        onPress={() => navigation.navigate("Profile")}
-      />
 
-      <Button
-        title="Logout"
-        onPress={() => navigation.replace("Login")}
-      />
+      </View>
+
+      <View style={styles.settings_input_container}>
+        <View style={styles.settings_input}>
+
+
+       
+        </View>
+
+      </View>
+
     </SafeAreaView>
   );
 };
 
 export default Settings;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "center",
+    marginVertical: 10,
+  },
+
+
+
+
+
+
+
+});
