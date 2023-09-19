@@ -93,7 +93,12 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     marginVertical: -7,
   },
-
+  header_email: {
+    fontSize: SIZES.small,
+    color: COLORS.black_icons,
+    fontWeight: "600",
+    marginVertical: -10,
+  },
 
 
 
