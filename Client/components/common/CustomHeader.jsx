@@ -48,7 +48,7 @@ export default CustomHeader;
 
 const styles = StyleSheet.create({
   top: {
-    marginTop: Platform.OS === "ios" ? 50 : 20,
+    marginTop: Platform.OS === "ios" ? 50 : 40,
     position: "absolute",
     flexDirection: "row",
     justifyContent: "space-between",
