@@ -61,6 +61,12 @@ const Settings = ({ navigation }) => {
         </View>
       </View>
 
+      <SubmitButton
+        style={{ flex: 0.25 }}
+        text="Logout"
+        onPress={() => navigation.replace("Login")}
+        set_color="red"
+      />
     </SafeAreaView>
   );
 };
