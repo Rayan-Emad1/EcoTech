@@ -91,16 +91,38 @@ const styles = StyleSheet.create({
   header_name: {
     fontSize: SIZES.xLarge,
     fontWeight: "600",
-    marginVertical: -7,
+    marginVertical:-7
   },
   header_email: {
     fontSize: SIZES.small,
     color: COLORS.black_icons,
     fontWeight: "600",
-    marginVertical: -10,
+    marginVertical:-10
   },
-
-
-
+  settings_input_container: {
+    flex: 0.5,
+    justifyContent: "flex-start",
+  },
+  settings_input: {
+    width: 400,
+    height: 70,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: "5%",
+  },
+  icon: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "grey",
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+  },
+  setting_text: {
+    justifyContent: "flex-start",
+    left: -40,
+    position: "relative",
+  },
 
 });
