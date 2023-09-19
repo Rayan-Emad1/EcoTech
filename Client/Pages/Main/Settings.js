@@ -33,7 +33,13 @@ const Settings = ({ navigation }) => {
               Make changes to your account
             </Text>
           </View>
-       
+          <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+            <Image
+              style={styles.forward_button}
+              source={icons.chevronRight}
+              resizeMode="stretch"
+            />
+          </TouchableOpacity>
         </View>
 
       </View>
