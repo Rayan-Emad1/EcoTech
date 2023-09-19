@@ -88,7 +88,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
   },
-
+  header_name: {
+    fontSize: SIZES.xLarge,
+    fontWeight: "600",
+    marginVertical: -7,
+  },
 
 
 
