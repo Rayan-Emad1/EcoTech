@@ -70,8 +70,24 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 20,
   },
-
-
+  header_setting: {
+    gap: 0,
+    flex: 0.25,
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  header_name: {
+    fontSize: SIZES.xLarge,
+    fontWeight: "600",
+    marginVertical: -7,
+  },
+  header_email: {
+    fontSize: SIZES.small,
+    color: COLORS.black_icons,
+    fontWeight: "600",
+    marginVertical: -10,
+  },
 
 
 });
