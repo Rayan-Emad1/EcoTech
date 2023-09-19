@@ -124,5 +124,9 @@ const styles = StyleSheet.create({
     left: -40,
     position: "relative",
   },
-
+  forward_button: {
+    width: 30,
+    height: 30,
+    alignSelf: "flex-end",
+  },
 });
