@@ -38,7 +38,7 @@ const Map = () => {
   showForestLocation = () => {
     return forests_locations.map((item, index) => {
       return (
-        <Marker key={index} coordinate={item.location} image={images.safe_pin}>
+        <Marker key={index} coordinate={item.location} image={images.dangerous_pin}>
           <Callout tooltip style={styles.callout_container}>
             <View style={styles.callout_view_container}>
               <View style={styles.callout_text_container}>
