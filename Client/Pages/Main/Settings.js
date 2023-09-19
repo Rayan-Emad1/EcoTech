@@ -81,7 +81,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 10,
   },
-
+  header_setting: {
+    gap: 0,
+    flex: 0.25,
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
 
 
 
