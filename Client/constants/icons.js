@@ -16,6 +16,7 @@ import temperature from "../assets/icons/temperature.png";
 import google from "../assets/icons/google.png";
 import apple from "../assets/icons/apple.png";
 import facebook from "../assets/icons/facebook.png";
+import notification from "../assets/icons/notification.png";
 
 export default {
   safe,
@@ -36,4 +37,5 @@ export default {
   google,
   apple,
   facebook,
+  notification,
 };
