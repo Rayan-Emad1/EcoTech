@@ -13,10 +13,20 @@ const Profile = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <BackButton navigation={navigation} />
 
+      <View style={styles.header_setting}>
+        <Image source={images.profile} />
+        <Text style={styles.header_name}>{Name}</Text>
+        <Text style={styles.header_email}>{email}</Text>
+      </View>
 
-
-
-
+      <View style={styles.input_container}>
+        <CustomInput
+          title="First Name"
+          placeholder="Enter your email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          keyboardType="email-address"
+        />
 
 
 
