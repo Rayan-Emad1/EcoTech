@@ -91,13 +91,13 @@ const styles = StyleSheet.create({
   header_name: {
     fontSize: SIZES.xLarge,
     fontWeight: "600",
-    marginVertical:-7
+    marginVertical: -7,
   },
   header_email: {
     fontSize: SIZES.small,
     color: COLORS.black_icons,
     fontWeight: "600",
-    marginVertical:-10
+    marginVertical: -10,
   },
   settings_input_container: {
     flex: 0.5,
@@ -130,3 +130,4 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
   },
 });
+
