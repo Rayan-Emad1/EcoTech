@@ -27,7 +27,12 @@ const Settings = ({ navigation }) => {
           <View style={styles.icon}>
             <Image source={icons.profile} />
           </View>
-
+          <View style={styles.setting_text}>
+            <Text style={{ fontSize: SIZES.medium }}>My Account </Text>
+            <Text style={{ fontSize: SIZES.xSmall }}>
+              Make changes to your account
+            </Text>
+          </View>
        
         </View>
 
