@@ -88,6 +88,12 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     marginVertical: -10,
   },
-
+  input_container: {
+    flex: 0.75,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  },
 
 });
