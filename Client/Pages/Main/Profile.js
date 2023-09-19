@@ -27,7 +27,13 @@ const Profile = ({ navigation }) => {
           onChangeText={(text) => setEmail(text)}
           keyboardType="email-address"
         />
-
+        <CustomInput
+          title="Last Name"
+          placeholder="Enter your email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          keyboardType="email-address"
+        />
 
 
 
