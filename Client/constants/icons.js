@@ -17,6 +17,7 @@ import google from "../assets/icons/google.png";
 import apple from "../assets/icons/apple.png";
 import facebook from "../assets/icons/facebook.png";
 import notification from "../assets/icons/notification.png";
+import profile_search from "../assets/icons/profile_search.png";
 
 export default {
   safe,
@@ -38,4 +39,5 @@ export default {
   apple,
   facebook,
   notification,
+  profile_search
 };

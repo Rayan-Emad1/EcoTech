@@ -18,7 +18,7 @@ const CustomHeader = ({ setSearchValue }) => {
   return (
     <View style={styles.top}>
       <Pressable style={styles.Icon_background}>
-        <Image source={icons.profile} />
+        <Image source={icons.profile_search} />
       </Pressable>
       <View>
         {isSearchVisible ? (
