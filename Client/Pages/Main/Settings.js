@@ -24,7 +24,9 @@ const Settings = ({ navigation }) => {
 
       <View style={styles.settings_input_container}>
         <View style={styles.settings_input}>
-
+          <View style={styles.icon}>
+            <Image source={icons.profile} />
+          </View>
 
        
         </View>
