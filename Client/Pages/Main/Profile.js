@@ -50,7 +50,12 @@ const Profile = ({ navigation }) => {
         />
       </View>
 
-
+      <SubmitButton
+        style={{ flex: 0.25 }}
+        text="Update Profile"
+        onPress={() => console.log("updated")}
+        set_color="green"
+      />
     </SafeAreaView>
   );
 };
