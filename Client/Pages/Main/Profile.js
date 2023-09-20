@@ -44,6 +44,7 @@ const Profile = ({ navigation }) => {
         </Text>
         <Text style={styles.header_email}>{email}</Text>
       </View>
+      <ScrollView style={{ width: "100%", flex: 0.75, paddingVertical: 50 }}>
         <View style={styles.input_container}>
           <CustomInput
             title="First Name"
@@ -81,7 +82,7 @@ const Profile = ({ navigation }) => {
           />
         </View>
         <View style={{ height: 250, width: 1 }}></View>
-  
+      </ScrollView>
 
       <SubmitButton
         style={{ flex: 0.25 }}
