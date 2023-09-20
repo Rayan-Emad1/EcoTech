@@ -157,6 +157,13 @@ const Map = () => {
     getPermissions();
   }, []);
 
+  useEffect(() => {
+    mapAnimation.addListener(handleMapAnimation);
+    return () => {
+      // Clean up by removing the listener
+      mapAnimation.removeListener(handleMapAnimation);
+    };
+  });
 
 
 
