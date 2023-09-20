@@ -6,12 +6,12 @@ import { Keyboard, TouchableWithoutFeedback } from "react-native";
 
 export default function App() {
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    // <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <SafeAreaProvider>
         <NavigationContainer>
           <StackPages />
         </NavigationContainer>
       </SafeAreaProvider>
-    </TouchableWithoutFeedback>
+    // {/* </TouchableWithoutFeedback>  */}
   );
 }
