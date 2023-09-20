@@ -5,6 +5,7 @@ import {
   Image,
   ImageBackground,
   TouchableWithoutFeedback,
+  Pressable,
 } from "react-native";
 import React from "react";
 
@@ -12,9 +13,12 @@ import { COLORS, SIZES, images, icons } from "../../constants/index";
 
 const WeatherWidget = ({ navigation }) => {
   return (
-    <TouchableWithoutFeedback onPress={() => navigation.navigate("Statistics")}>
+    <Pressable
+      onPress={() => navigation.navigate("Statistics")}
+      style={{ margin: 20, height: 180 }}
+    >
       <ImageBackground
-        source={images.green_background}
+        source={images.red_background}
         style={styles.background_image}
       >
         <View style={styles.widget_container}>
@@ -30,7 +34,7 @@ const WeatherWidget = ({ navigation }) => {
           </View>
         </View>
       </ImageBackground>
-    </TouchableWithoutFeedback>
+    </Pressable>
   );
 };
 
@@ -43,7 +47,6 @@ const styles = StyleSheet.create({
     resizeMode: "stretch",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 50,
   },
   widget_container: {
     width: 320,
