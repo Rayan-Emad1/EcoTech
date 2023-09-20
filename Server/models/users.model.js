@@ -18,7 +18,7 @@ userSchema.index(
   { createdAt: 1 },
   {
     expireAfterSeconds: 300,
-    partialFilterExpression: { isVerified: false },
+    partialFilterExpression: { is_verified: false },
   }
 );
 
