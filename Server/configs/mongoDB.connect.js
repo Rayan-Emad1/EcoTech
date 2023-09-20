@@ -1,13 +1,14 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 
-const mongooseConnect = ()=>{
-    mongoose.connect("mongodb://127.0.0.1:27017/EcoTech")
-    .then(()=>{
-        console.log("Connected to MongoDB")
+const mongooseConnect = () => {
+  mongoose.connect(process.env.MONGO_URL)
+    .then(() => {
+      console.log("Connected to MongoDB");
     })
-    .catch((err)=>{
-        console.log("Error connecting to mongodb: ", err)
-    })
-}
+    .catch((err) => {
+      console.log("Error connecting to MongoDB: ", err);
+    });
+};
 
-module.exports = mongooseConnect
+module.exports = mongooseConnect;
