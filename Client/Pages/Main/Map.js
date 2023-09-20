@@ -105,7 +105,23 @@ const Map = () => {
       index = 0;
     }
 
+    clearTimeout(regionTimeout);
 
+    const regionTimeout = setTimeout(() => {
+      if (mapIndex !== index) {
+        mapIndex = index;
+        const { location } = state[index];
+        console.log(location),
+          _map.current.animateToRegion(
+            {
+              ...location,
+              latitudeDelta: region.latitudeDelta,
+              longitudeDelta: region.longitudeDelta,
+            },
+            350
+          );
+      }
+    }, 10);
     console.log("For navigation");
   };
 
