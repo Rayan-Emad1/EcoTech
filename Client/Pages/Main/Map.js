@@ -17,7 +17,7 @@ import ForestCard from "../../components/Map/ForestCard";
 const { width, height } = Dimensions.get("window");
 const CARD_HEIGHT = 115;
 const CARD_WIDTH = 310;
-const SPACING_FOR_CARD_INSET = width * 0.1 - 10;
+const SPACING_FOR_CARD_INSET = width * 0.1 - 15;
 
 const Map = () => {
   const [location, setLocation] = useState();
@@ -67,7 +67,6 @@ const Map = () => {
 
     let currentLocation = await Location.getCurrentPositionAsync({});
     setLocation(currentLocation);
-    console.log("Aklna Khara");
   };
 
   const showForestLocation = () => {
@@ -272,6 +271,7 @@ const styles = StyleSheet.create({
     bottom: 15,
     left: 0,
     right: 0,
-    paddingVertical: 10,
+    paddingVertical: 15,
+    marginLeft: 25,
   },
 });
