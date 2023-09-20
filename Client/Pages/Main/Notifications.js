@@ -1,19 +1,18 @@
-import { StyleSheet, Text, View, Button, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, Button, SafeAreaView, ScrollView } from "react-native";
 import React from "react";
 import WeatherWidget from "../../components/Notification/WeatherWidget";
 import ForestCard from "../../components/Map/ForestCard";
 
 const Notifications = ({ navigation }) => {
   return (
+    <ScrollView >
     <SafeAreaView style={styles.container}>
-      {/* <Text>Notifications</Text>
-      <Button
-        title="Go to Statistics Screen"
-        onPress={() => navigation.navigate("Statistics")}
-      /> */}
-      <WeatherWidget />
-      <ForestCard/>
+      <WeatherWidget navigation={navigation} />
+      <WeatherWidget navigation={navigation} />
+      <WeatherWidget navigation={navigation} />
+      <WeatherWidget navigation={navigation} />
     </SafeAreaView>
+    </ScrollView>
     
   );
 };
@@ -27,6 +26,6 @@ const styles = StyleSheet.create({
     height:"100%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor:"black"
+    marginTop:"20%",
   },
 });
