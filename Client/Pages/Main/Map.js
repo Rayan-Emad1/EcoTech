@@ -96,7 +96,21 @@ const Map = () => {
     setShowCards(!showCards);
   };
 
+  const handleSearch = async (searchValue) => {
+    const matchingForest = forests_locations.find((forest) =>
+      forest.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
 
+    if (matchingForest && searchValue != "") {
+      const index = forests_locations.indexOf(matchingForest);
+      setShowCards(true);
+      let x = index * CARD_WIDTH + index * 20;
+      if (Platform.OS === "ios") {
+        x = x - SPACING_FOR_CARD_INSET;
+      }
+      _scrollView.current.scrollTo({ x: x, y: 0, animated: true });
+    }
+  };
 
   const handleMapAnimation = ({ value }) => {
     let index = Math.floor(value / CARD_WIDTH + 0.3);
@@ -127,7 +141,17 @@ const Map = () => {
     console.log("For navigation");
   };
 
+  const onMarkerPress = async (mapEventData) => {
+    const markerID = mapEventData._targetInst.return.key;
+    await setShowCards(true);
 
+    let x = markerID * CARD_WIDTH + markerID * 20;
+    if (Platform.OS === "ios") {
+      x = x - SPACING_FOR_CARD_INSET;
+    }
+
+    _scrollView.current.scrollTo({ x: x, y: 0, animated: true });
+  };
 
   useEffect(() => {
     getPermissions();
