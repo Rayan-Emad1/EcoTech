@@ -1,0 +1,6 @@
+JWT_SECRET=""
+
+EMAIL = ""
+PASSWORD = ""
+
+MONGO_URL=
