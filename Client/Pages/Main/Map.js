@@ -272,6 +272,5 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     paddingVertical: 15,
-    marginLeft: 25,
   },
 });
