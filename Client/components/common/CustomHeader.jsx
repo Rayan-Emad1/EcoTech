@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
     paddingHorizontal: 14,
-    marginHorizontal: 20,
+    marginRight: 20,
     borderRadius: 50,
   },
   searchBox: {
