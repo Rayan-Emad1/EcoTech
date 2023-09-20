@@ -92,7 +92,9 @@ const Map = () => {
     });
   };
 
-
+  const handleMapLongPress = () => {
+    setShowCards(!showCards);
+  };
 
 
 
