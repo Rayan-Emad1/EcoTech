@@ -8,14 +8,14 @@ import {
   
   import { COLORS, SIZES, images, icons } from "../../constants/index";
 
-const ForestCard = () => {
+const ForestCard = ({title}) => {
   return (
     <View style={styles.forest_container}>
     <View style={styles.left_side}>
       <Image source={images.safe_card} />
     </View>
     <View style={styles.right_side}>
-      <Text style={styles.forest_title}>Forest Title</Text>
+      <Text style={styles.forest_title}>{title}</Text>
       <View style={[styles.forest_details_location,styles.forest_details]}>
         <Text>20 KM</Text>
         <View style={styles.forest_icons}>
@@ -37,23 +37,23 @@ const ForestCard = () => {
           <Image source={icons.temperature} />
         </View>
       </View>
-      <View style={styles.forest_details}>
+      {/* <View style={styles.forest_details}>
         <Text>Humidity</Text>
         <View style={styles.forest_icons}>
           <Text>25%</Text>
           <Image source={icons.humidity} />
         </View>
-      </View>
+      </View> */}
     </View>
   </View>
   )
 }
 
-export default ForestCard
+export default ForestCard;
 
 const styles = StyleSheet.create({
     forest_container: {
-      width: 300,
+      width: 310,
       height: 155,
       borderRadius: 30,
       backgroundColor: COLORS.whiteTrans,
@@ -63,22 +63,24 @@ const styles = StyleSheet.create({
       marginHorizontal: 10,
     },
     left_side: {
-      flex: 0.6,
+      flex: 0.4,
       height: "auto",
       justifyContent: "center",
       alignItems: "center",
     },
     right_side: {
-      flex: 1,
+      flex: 0.6,
       height: "auto",
       flexDirection: "column",
       justifyContent: "space-evenly",
       alignItems: "flex-start",
-      gap: 7,
+      gap: 5,
     },
     forest_title: {
       fontSize: SIZES.large,
       fontWeight: "700",
+      marginTop:-10,
+      marginBottom:8,
     },
     forest_details: {
       flexDirection: "row",
