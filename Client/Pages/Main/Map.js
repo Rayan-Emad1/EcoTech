@@ -14,7 +14,10 @@ import * as Location from "expo-location";
 import CustomHeader from "../../components/common/CustomHeader";
 import ForestCard from "../../components/Map/ForestCard";
 
-
+const { width, height } = Dimensions.get("window");
+const CARD_HEIGHT = 115;
+const CARD_WIDTH = 310;
+const SPACING_FOR_CARD_INSET = width * 0.1 - 10;
 
 const Map = () => {
   const [location, setLocation] = useState();
