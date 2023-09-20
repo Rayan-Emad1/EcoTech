@@ -120,7 +120,7 @@ const Map = () => {
         {showForestLocation()}
       </MapView>
 
-
+      {showCards && (
         <Animated.ScrollView
           ref={_scrollView}
           horizontal
@@ -157,7 +157,7 @@ const Map = () => {
             <ForestCard key={index} title={marker.title} />
           ))}
         </Animated.ScrollView>
-
+      )}
     </View>
   );
 };
