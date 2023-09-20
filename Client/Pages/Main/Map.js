@@ -165,7 +165,9 @@ const Map = () => {
     };
   });
 
-
+  useEffect(() => {
+    handleSearch(searchText);
+  }, [searchText]);
 
   return (
     <View style={styles.container}>
