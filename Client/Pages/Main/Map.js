@@ -96,7 +96,18 @@ const Map = () => {
 
 
 
- 
+  const handleMapAnimation = ({ value }) => {
+    let index = Math.floor(value / CARD_WIDTH + 0.3);
+    if (index >= state.length) {
+      index = state.length - 1;
+    }
+    if (index <= 0) {
+      index = 0;
+    }
+
+
+    console.log("For navigation");
+  };
 
 
 
