@@ -37,8 +37,9 @@ const DropDown = ({ STATE_COLOR, type, selectedValue, onValueChange }) => {
       value={selectedValue}
       data={options}
 
- 
-
+      valueField="value"
+      labelField="label"
+      placeholder={`Select ${type}`}
       onChange={(e) => {
         onValueChange(e.value);
       }}
@@ -48,6 +49,9 @@ const DropDown = ({ STATE_COLOR, type, selectedValue, onValueChange }) => {
 
 export default DropDown;
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "black",
+  },
 
 
 
