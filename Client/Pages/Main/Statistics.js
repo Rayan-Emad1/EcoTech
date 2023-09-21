@@ -202,7 +202,16 @@ const styles = StyleSheet.create({
     height: 310,
     borderRadius: 10,
   },
-
+  backgroundColor: {
+    backgroundColor: "#08130D",
+    width: 385,
+    height: 423,
+    borderRadius: 10,
+    gap: 10,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    marginVertical: 20,
+  },
 });
 
 export default Statistics;
