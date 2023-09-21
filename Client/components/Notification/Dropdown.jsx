@@ -62,7 +62,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     backgroundColor: "black",
   },
-
+  imageStyle: {
+    marginLeft: 5,
+    resizeMode: "stretch",
+  },
 
 
 });
