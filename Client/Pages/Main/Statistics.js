@@ -1,14 +1,60 @@
-import { StyleSheet, Text, SafeAreaView, View } from 'react-native'
-import React from 'react'
+import React, { useState } from "react";
+import { SafeAreaView, Text, ScrollView, View, StyleSheet } from "react-native";
+import { LineChart, BarChart } from "react-native-chart-kit";
+import { HourlyHumid, WeeklyHumid, HourlyTemp, WeeklyTemp } from "./data";
+import DropDown from "../../components/Notification/Dropdown";
+import BackButton from "../../components/common/BackButton";
+import { COLORS, SIZES } from "../../constants/index";
 
-const Statistics = ({navigation}) => {
+const STATE_COLOR = COLORS.green;
+
+const chartConfig = {
+  backgroundGradientFrom: COLORS.black_icons,
+  backgroundGradientTo: COLORS.black_icons,
+  strokeWidth: 5,
+  decimalPlaces: 0,
+  barPercentage: 0.7,
+  labelColor: () => STATE_COLOR,
+  color: () => STATE_COLOR,
+};
+const Statistics = ({ navigation }) => {
+  const width = 400;
+  const height = 350;
+
+  const [valueType, setValueType] = useState("temperature");
+  const [timeType, setTimeType] = useState("hourly");
+
+  const handleValueTypeChange = (newValueType) => {
+    setValueType(newValueType);
+  };
+  const handleTimeTypeChange = (newTimeType) => {
+    setTimeType(newTimeType);
+  };
+
   return (
-    <SafeAreaView>
-      <Text>Statistics</Text>
+    <SafeAreaView style={styles.container}>
+      <BackButton navigation={navigation} />
+
+
+
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default Statistics
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
 
-const styles = StyleSheet.create({})
+
+
+
+
+
+
+
+});
+
+export default Statistics;
