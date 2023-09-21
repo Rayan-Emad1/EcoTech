@@ -34,7 +34,13 @@ const Statistics = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <BackButton navigation={navigation} />
-
+      <View style={styles.top}>
+        <Text style={styles.widget_temperature}>32°C</Text>
+        <Text style={styles.widget_average}>H:32°C L:28°C</Text>
+        <Text style={styles.widget_location}>
+          Shouf National Ceders, Lebanon
+        </Text>
+      </View>
 
 
     </SafeAreaView>
