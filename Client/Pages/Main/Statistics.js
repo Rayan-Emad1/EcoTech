@@ -158,6 +158,11 @@ const styles = StyleSheet.create({
     gap: 10,
     marginTop: 30,
   },
+  dropDownContainer: {
+    width: 400,
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
   widget_temperature: {
     fontWeight: "900",
     fontSize: 40,
@@ -171,7 +176,6 @@ const styles = StyleSheet.create({
     fontSize: SIZES.medium,
     fontWeight: "600",
   },
-
 
 
 
