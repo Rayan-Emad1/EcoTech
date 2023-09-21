@@ -65,6 +65,20 @@ const HourlyTemp = {
   ],
 };
 
-
+const WeeklyTemp = {
+  labels: ["29/7", "29/7", "29/7", "29/7", "29/7", "29/7", "29/7"],
+  datasets: [
+    {
+      data: [24, 23, 22, 21, 21],
+      color: (opacity = 1) => `rgba(244, 244, 244, ${opacity})`,
+      legend: ["Real Values"],
+    },
+    {
+      data: [null, null, null, null, 21, 30, 24],
+      color: (opacity = 1) => `rgba(0, 250, 0, ${opacity})`,
+      legend: ["Predicted Values"],
+    },
+  ],
+};
 
 export { HourlyHumid, WeeklyHumid, HourlyTemp, WeeklyTemp };
