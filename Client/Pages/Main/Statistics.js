@@ -41,7 +41,14 @@ const Statistics = ({ navigation }) => {
           Shouf National Ceders, Lebanon
         </Text>
       </View>
+      <View style={styles.backgroundColor}>
+        <View style={styles.bottomContainers}>
 
+
+        </View>
+
+
+      </View>
 
     </SafeAreaView>
   );
