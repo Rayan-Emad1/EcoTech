@@ -42,7 +42,7 @@ const Statistics = ({ navigation }) => {
         </Text>
       </View>
       <View style={styles.backgroundColor}>
-        <View style={styles.bottomContainers}>
+        <View style={styles.dropDownContainer}>
           <DropDown
             type="Value"
             selectedValue={valueType}
@@ -151,13 +151,18 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
+  top: {
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 10,
+    marginTop: 30,
+  },
 
 
 
 
-
-
-
+ 
 
 });
 
