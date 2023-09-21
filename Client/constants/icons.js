@@ -18,9 +18,17 @@ import apple from "../assets/icons/apple.png";
 import facebook from "../assets/icons/facebook.png";
 import notification from "../assets/icons/notification.png";
 import profile_search from "../assets/icons/profile_search.png";
+import temp_dropdown from "../assets/icons/temp_dropdown.png";
+import humi_dropdown from "../assets/icons/humi_dropdown.png";
+import daily_dropdown from "../assets/icons/daily_dropdown.png";
+import weekly_dropdown from "../assets/icons/weekly_dropdown.png";
 
 export default {
   safe,
+  temp_dropdown,
+  humi_dropdown,
+  daily_dropdown,
+  weekly_dropdown,
   humidity,
   wind,
   temperature,
@@ -39,5 +47,5 @@ export default {
   apple,
   facebook,
   notification,
-  profile_search
+  profile_search,
 };

@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     height: 30,
   },
   back_button_container: {
-    position:"absolute",
+    position: "absolute",
     top: "8%",
     left: "5%",
   },

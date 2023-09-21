@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, View, TextInput, Text, StyleSheet } from "react-native";
+import { View, TextInput, Text, StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../../constants/index";
 
 const CustomInput = ({

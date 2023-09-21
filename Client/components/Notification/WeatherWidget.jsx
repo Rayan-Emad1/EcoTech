@@ -4,12 +4,11 @@ import {
   View,
   Image,
   ImageBackground,
-  TouchableWithoutFeedback,
   Pressable,
 } from "react-native";
 import React from "react";
 
-import { COLORS, SIZES, images, icons } from "../../constants/index";
+import { COLORS, SIZES, images } from "../../constants/index";
 
 const WeatherWidget = ({ navigation }) => {
   return (
