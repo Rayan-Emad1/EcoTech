@@ -197,7 +197,11 @@ const styles = StyleSheet.create({
     fontSize: SIZES.small,
   },
 
- 
+  scrollViewContainer: {
+    backgroundColor: "#08130D",
+    height: 310,
+    borderRadius: 10,
+  },
 
 });
 
