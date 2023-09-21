@@ -24,7 +24,16 @@ const HourlyHumid = {
   ],
 };
 
-
+const WeeklyHumid = {
+  labels: ["29/7", "29/7", "29/7", "29/7", "29/7", "29/7", "29/7"],
+  datasets: [
+    {
+      data: [25, 27, 24, 28, 25, 26, 25],
+      color: (opacity = 1) => `rgba(244, 244, 244, ${opacity})`,
+      legend: ["Real Values"],
+    },
+  ],
+};
 
 
 
