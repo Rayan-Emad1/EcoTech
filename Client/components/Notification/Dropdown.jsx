@@ -52,6 +52,16 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "black",
   },
+  dropdown: {
+    marginTop: 10,
+    height: 50,
+    width: 170,
+    backgroundColor: "black",
+    borderRadius: 25,
+    borderWidth: 1,
+    paddingHorizontal: 8,
+    backgroundColor: "black",
+  },
 
 
 
