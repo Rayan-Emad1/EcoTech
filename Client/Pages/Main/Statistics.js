@@ -115,7 +115,18 @@ const Statistics = ({ navigation }) => {
           </View>
         )}
         {valueType == "humidity" && timeType == "weekly" && (
-
+          <BarChart
+            yAxisSuffix="%"
+            yAxisInterval={10}
+            data={WeeklyHumid}
+            width={width - 20}
+            height={height}
+            chartConfig={chartConfig}
+            bezier
+            fromZero
+            yLabelsOffset={14}
+            showValuesOnTopOfBars
+          />
         )}
       </View>
 
