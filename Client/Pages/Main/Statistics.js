@@ -43,7 +43,12 @@ const Statistics = ({ navigation }) => {
       </View>
       <View style={styles.backgroundColor}>
         <View style={styles.bottomContainers}>
-
+          <DropDown
+            type="Value"
+            selectedValue={valueType}
+            onValueChange={handleValueTypeChange}
+            STATE_COLOR={STATE_COLOR}
+          />
 
         </View>
 
