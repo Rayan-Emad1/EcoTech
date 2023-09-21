@@ -34,9 +34,13 @@ const DropDown = ({ STATE_COLOR, type, selectedValue, onValueChange }) => {
 
   return (
     <SelectCountry
+      style={[styles.dropdown, { color: STATE_COLOR }]}
+      selectedTextStyle={[styles.selectedTextStyle, { color: STATE_COLOR }]}
+      placeholderStyle={styles.placeholderStyle}
+      imageStyle={styles.imageStyle}
       value={selectedValue}
       data={options}
-
+      itemContainerStyle={styles.container}
       valueField="value"
       labelField="label"
       placeholder={`Select ${type}`}
@@ -69,5 +73,8 @@ const styles = StyleSheet.create({
   placeholderStyle: {
     fontSize: 16,
   },
-
+  selectedTextStyle: {
+    fontSize: 16,
+    marginLeft: 8,
+  },
 });
