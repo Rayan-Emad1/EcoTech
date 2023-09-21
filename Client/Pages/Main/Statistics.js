@@ -57,7 +57,20 @@ const Statistics = ({ navigation }) => {
           />
         </View>
 
+        {valueType == "temperature" && timeType == "weekly" && (
+    
+        )}
+        {valueType == "temperature" && timeType == "hourly" && (
+          <View style={styles.scrollViewContainer}>
 
+        )}
+        {valueType == "humidity" && timeType == "hourly" && (
+
+          </View>
+        )}
+        {valueType == "humidity" && timeType == "weekly" && (
+
+        )}
       </View>
 
     </SafeAreaView>
