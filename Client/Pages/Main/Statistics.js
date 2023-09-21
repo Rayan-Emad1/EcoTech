@@ -73,7 +73,24 @@ const Statistics = ({ navigation }) => {
         )}
         {valueType == "temperature" && timeType == "hourly" && (
           <View style={styles.scrollViewContainer}>
-
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              contentOffset={{ x: 25, y: 0 }}
+            >
+              <LineChart
+                data={HourlyTemp}
+                width={700}
+                yAxisSuffix="%"
+                height={height}
+                xLabelsOffset={1}
+                chartConfig={chartConfig}
+                bezier
+                fromZero
+                showValuesOnTopOfBars
+              />
+            </ScrollView>
+          </View>
         )}
         {valueType == "humidity" && timeType == "hourly" && (
 
