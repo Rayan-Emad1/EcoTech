@@ -7,7 +7,6 @@ import BackButton from "../../components/common/BackButton";
 import { COLORS, SIZES } from "../../constants/index";
 
 const STATE_COLOR = COLORS.green;
-
 const chartConfig = {
   backgroundGradientFrom: COLORS.black_icons,
   backgroundGradientTo: COLORS.black_icons,
@@ -17,6 +16,7 @@ const chartConfig = {
   labelColor: () => STATE_COLOR,
   color: () => STATE_COLOR,
 };
+
 const Statistics = ({ navigation }) => {
   const width = 400;
   const height = 350;
