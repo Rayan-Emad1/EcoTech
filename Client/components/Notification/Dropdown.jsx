@@ -30,7 +30,7 @@ const timeOptions = [
 ];
 
 const DropDown = ({ STATE_COLOR, type, selectedValue, onValueChange }) => {
-;
+  const options = type === "Value" ? valueOptions : timeOptions;
 
   return (
     <SelectCountry
