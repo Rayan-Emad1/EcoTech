@@ -49,7 +49,12 @@ const Statistics = ({ navigation }) => {
             onValueChange={handleValueTypeChange}
             STATE_COLOR={STATE_COLOR}
           />
-
+          <DropDown
+            type="Time"
+            selectedValue={timeType}
+            onValueChange={handleTimeTypeChange}
+            STATE_COLOR={STATE_COLOR}
+          />
         </View>
 
 
