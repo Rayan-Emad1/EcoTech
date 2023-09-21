@@ -176,8 +176,26 @@ const styles = StyleSheet.create({
     fontSize: SIZES.medium,
     fontWeight: "600",
   },
-
-
+  bottom: {
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  bottom_title: {
+    marginLeft: "7.5%",
+    alignSelf: "flex-start",
+    fontWeight: "900",
+    fontSize: 40,
+    color: "black",
+  },
+  bottom_text_container: {
+    width: "85%",
+    maxHeight: 140,
+  },
+  bottom_text: {
+    fontWeight: "900",
+    fontSize: SIZES.small,
+  },
 
  
 
