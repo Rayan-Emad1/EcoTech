@@ -129,7 +129,18 @@ const Statistics = ({ navigation }) => {
           />
         )}
       </View>
-
+      <View style={styles.bottom}>
+        <Text style={styles.bottom_title}>Forcast</Text>
+        <ScrollView
+          style={styles.bottom_text_container}
+          showsVerticalScrollIndicator={true}
+        >
+          <Text style={styles.bottom_text}>
+            Something
+            Nicewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwnjbjbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwe
+          </Text>
+        </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
