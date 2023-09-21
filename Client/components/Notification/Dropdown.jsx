@@ -3,7 +3,31 @@ import { StyleSheet } from "react-native";
 import { SelectCountry } from "react-native-element-dropdown";
 import { icons } from "../../constants/index";
 
+const valueOptions = [
+  {
+    value: "temperature",
+    label: "Temperature",
+    image: icons.temp_dropdown,
+  },
+  {
+    value: "humidity",
+    label: "Humidity",
+    image: icons.humi_dropdown,
+  },
+];
 
+const timeOptions = [
+  {
+    value: "hourly",
+    label: "Hourly",
+    image: icons.daily_dropdown,
+  },
+  {
+    value: "weekly",
+    label: "Weekly",
+    image: icons.weekly_dropdown,
+  },
+];
 
 const DropDown = ({ STATE_COLOR, type, selectedValue, onValueChange }) => {
 ;
