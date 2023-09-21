@@ -158,6 +158,19 @@ const styles = StyleSheet.create({
     gap: 10,
     marginTop: 30,
   },
+  widget_temperature: {
+    fontWeight: "900",
+    fontSize: 40,
+  },
+  widget_average: {
+    fontSize: SIZES.small,
+    fontWeight: "bold",
+    marginBottom: -7,
+  },
+  widget_location: {
+    fontSize: SIZES.medium,
+    fontWeight: "600",
+  },
 
 
 
