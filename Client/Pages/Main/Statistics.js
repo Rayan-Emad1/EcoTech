@@ -7,6 +7,7 @@ import BackButton from "../../components/common/BackButton";
 import { COLORS, SIZES } from "../../constants/index";
 
 const STATE_COLOR = COLORS.green;
+
 const chartConfig = {
   backgroundGradientFrom: COLORS.black_icons,
   backgroundGradientTo: COLORS.black_icons,
@@ -16,7 +17,6 @@ const chartConfig = {
   labelColor: () => STATE_COLOR,
   color: () => STATE_COLOR,
 };
-
 const Statistics = ({ navigation }) => {
   const width = 400;
   const height = 350;
@@ -58,7 +58,18 @@ const Statistics = ({ navigation }) => {
         </View>
 
         {valueType == "temperature" && timeType == "weekly" && (
-    
+          <LineChart
+            yAxisSuffix="°C"
+            yAxisInterval={10}
+            data={WeeklyTemp}
+            width={width - 20}
+            height={height}
+            chartConfig={chartConfig}
+            style={{ marginBottom: 10, backgroundColor: "red" }}
+            bezier
+            fromZero
+            yLabelsOffset={14}
+          />
         )}
         {valueType == "temperature" && timeType == "hourly" && (
           <View style={styles.scrollViewContainer}>
