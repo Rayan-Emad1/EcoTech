@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 80;
 const mongooseConnect = require("./configs/mongoDB.connect");
 const rateLimit = require("express-rate-limit");
 
