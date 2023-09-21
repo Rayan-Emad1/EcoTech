@@ -66,6 +66,8 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     resizeMode: "stretch",
   },
-
+  placeholderStyle: {
+    fontSize: 16,
+  },
 
 });
