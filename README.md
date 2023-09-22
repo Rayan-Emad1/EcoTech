@@ -20,8 +20,9 @@
 <br><br>  
 
 <!-- Project Description -->
-<img src="./readme/title2.svg"/> 
 <a name="project-description"></a>
+<img src="./readme/title2.svg"/> 
+
 
 > The aim of the EcoTech project is to develop a comprehensive application that harnesses various technologies to help prevent and alert forest guards about potential wildfire outbreaks. 
 
@@ -57,9 +58,9 @@ As a General User, I want to:
 <br><br> 
 
  
-
-<img src="./readme/title3.svg"/>
 <a name="prototyping"></a>
+<img src="./readme/title3.svg"/>
+
 
 > We designed EcoTech using wireframes and mockups, iterating on the design to ensure easy navigation and a seamless user experience. 
 
@@ -78,9 +79,9 @@ As a General User, I want to:
 <br><br> 
 
 
-
-<img src="./readme/title4.svg"/>
 <a name="implementation" ></a>
+<img src="./readme/title4.svg"/>
+
 
 > Based on the wireframes and mockups, we implemented the EcoTech app with the following features: 
 
@@ -96,9 +97,9 @@ As a General User, I want to:
 <br><br> 
 
 
-
-<img src="./readme/title5.svg"/>
 <a name="tech-stack" ></a>
+<img src="./readme/title5.svg"/>
+
 
 EcoTech is built using the following technologies: 
 
@@ -114,9 +115,9 @@ EcoTech utilizes these technologies to provide a seamless and comprehensive wild
 
 <br><br> 
 
-
-<img src="./readme/title6.svg"/> 
 <a name="how-to-run" ></a>
+<img src="./readme/title6.svg"/> 
+
 
 > To set up EcoTech locally, follow these steps: 
 
