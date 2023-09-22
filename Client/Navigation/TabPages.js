@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 const TabPages = () => {
   return (
     <Tab.Navigator
-      initialRouteName="NotificationStack"
+      initialRouteName="Map"
       screenOptions={{ headerShown: false }}
       tabBarOptions={{
         showLabel: false,

@@ -12,7 +12,7 @@ app.use(express.json());
 
 const authLimiter = rateLimit({
   windowMs: 10 * 60 * 1000,
-  max: 10,
+  max: 100,
 });
 
 const authRouter = require("./routes/auth.routes");

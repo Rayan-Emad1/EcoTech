@@ -13,20 +13,23 @@ const Stack = createStackNavigator();
 const StackPages = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Main"
+      initialRouteName="Login"
       screenOptions={{
-        headerShown: false
+        headerShown: false,
       }}
     >
-      <Stack.Screen name="Login" component={Login}/>
+      <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Credentials" component={RegisterCredentials} />
       <Stack.Screen name="Email" component={RegisterEmail} />
       <Stack.Screen name="Password" component={RegisterPassword} />
       <Stack.Screen name="Verify" component={RegisterVerify} />
-      <Stack.Screen name="Main" component={TabPages} options={{ headerShown: false ,  gestureEnabled: false }} />
+      <Stack.Screen
+        name="Main"
+        component={TabPages}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
     </Stack.Navigator>
   );
 };
 
 export default StackPages;
-
