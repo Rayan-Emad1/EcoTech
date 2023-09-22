@@ -95,7 +95,10 @@ const verify = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    if (user.verification_code == verification_code && user.is_verified === false ) {
+    if (
+      user.verification_code == verification_code &&
+      user.is_verified === false
+    ) {
       user.is_verified = true;
       user.verification_code = null;
       await user.save();
@@ -109,7 +112,9 @@ const verify = async (req, res) => {
         user: userInfo,
       });
     } else {
-      return res.status(400).json({ message: "Invalid verification code Or already verified" });
+      return res
+        .status(400)
+        .json({ message: "Invalid verification code Or already verified" });
     }
   } catch (error) {
     console.error(error);
@@ -121,7 +126,10 @@ const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const { error } = loginSchema.validate(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error) {
+      const errorMessage = error.details[0].message;
+      return res.status(404).json({ message: errorMessage });
+    }
 
     const user = await User.findOne({ email });
 
