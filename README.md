@@ -4,22 +4,24 @@
 
 ## Table of Contents 
 
-- [Project Philosophy](./readme/title2.svg)
-- [User Types](#user-types)   
-- [Features of the App](#features-of-the-app) 
-- [Prototyping](./readme/title3.svg)
-- [Implementation](./readme/title4.svg) 
-- [Tech Stack](./readme/title5.svg) 
-- [How to Run](./readme/title6.svg)
-  - [Prerequisites](#prerequisites) 
-  - [Installation](#installation) 
-    - [Frontend (Mobile App)](#frontend-mobile-app) 
-    - [Backend (Server)](#backend-server) 
+
+## Table of Contents
+- [Project Description](#project-description)
+- [User Types](#user-types)
+- [Features of the App](#features-of-the-app)
+- [Prototyping](#prototyping)
+- [Implementation](#implementation)
+- [Tech Stack](#tech-stack)
+- [How to Run](#how-to-run)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+
 
 <br><br>  
 
-
+<!-- Project Description -->
 <img src="./readme/title2.svg"/> 
+<a name="project-description"></a>
 
 > The aim of the EcoTech project is to develop a comprehensive application that harnesses various technologies to help prevent and alert forest guards about potential wildfire outbreaks. 
 
@@ -57,6 +59,7 @@ As a General User, I want to:
  
 
 <img src="./readme/title3.svg"/>
+<a name="prototyping"></a>
 
 > We designed EcoTech using wireframes and mockups, iterating on the design to ensure easy navigation and a seamless user experience. 
 
@@ -77,6 +80,7 @@ As a General User, I want to:
 
 
 <img src="./readme/title4.svg"/>
+<a name="implementation" ></a>
 
 > Based on the wireframes and mockups, we implemented the EcoTech app with the following features: 
 
@@ -94,6 +98,7 @@ As a General User, I want to:
 
 
 <img src="./readme/title5.svg"/>
+<a name="tech-stack" ></a>
 
 EcoTech is built using the following technologies: 
 
@@ -111,6 +116,7 @@ EcoTech utilizes these technologies to provide a seamless and comprehensive wild
 
 
 <img src="./readme/title6.svg"/> 
+<a name="how-to-run" ></a>
 
 > To set up EcoTech locally, follow these steps: 
 
