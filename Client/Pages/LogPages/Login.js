@@ -7,9 +7,12 @@ import {
   SafeAreaView,
   Pressable,
   Image,
+  Keyboard,
+  TouchableWithoutFeedback,
 } from "react-native";
 import Checkbox from "expo-checkbox";
 import { COLORS, SIZES, images, icons } from "../../constants/index";
+import { login } from "../../constants/request";
 import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
 
@@ -17,85 +20,95 @@ const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleLogin = () => {
-    if (email && password) {
-      navigation.navigate("Main");
+  const handleLogin = async () => {
+    if (!email || !password) {
+      setErrorMessage("Email and password are required");
+      return; // Exit the function if email or password are missing
     }
+
+
+
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ImageBackground source={images.leaves} style={styles.background_image}>
-        <Text style={styles.title}>Login</Text>
-        <Text style={styles.subtitle}>Hi! Welcome</Text>
-      </ImageBackground>
-      <View style={styles.input_container}>
-        <CustomInput
-          title="Email Address"
-          placeholder="Enter your email"
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-          keyboardType="email-address"
-        />
-        <CustomInput
-          title="Password"
-          placeholder="Enter your password"
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-          secureTextEntry={!showPassword} // Toggle password visibility based on showPassword state
-          keyboardType="url"
-        />
-        {/* Toggle password visibility */}
-        <View style={styles.showPasswordContainer}>
-          <Checkbox
-            style={styles.checkbox}
-            value={showPassword}
-            onValueChange={() => setShowPassword(!showPassword)}
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <SafeAreaView style={styles.container}>
+        <ImageBackground source={images.leaves} style={styles.background_image}>
+          <Text style={styles.title}>Login</Text>
+          <Text style={styles.subtitle}>Hi! Welcome</Text>
+        </ImageBackground>
+        <View style={styles.input_container}>
+          <CustomInput
+            title="Email Address"
+            placeholder="Enter your email"
+            value={email}
+            onChangeText={(text) => setEmail(text)}
+            keyboardType="email-address"
           />
-          <Text>Show Password</Text>
+          <CustomInput
+            title="Password"
+            placeholder="Enter your password"
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+            secureTextEntry={!showPassword}
+            keyboardType="url"
+          />
+          <View style={styles.showPasswordContainer}>
+            <Checkbox
+              style={styles.checkbox}
+              value={showPassword}
+              onValueChange={() => setShowPassword(!showPassword)}
+            />
+            <Text>Show Password</Text>
+          </View>
+
+          <Text style={styles.errorMessage}>{errorMessage}</Text>
+
+          <SubmitButton text="Login" onPress={handleLogin} set_color="green" />
+          <Text style={styles.forgot_password}>Forgotten your password?</Text>
         </View>
-        <SubmitButton
-          text="Login"
-          onPress={handleLogin}
-          disabled={!email || !password}
-          set_color="green"
-        />
-        <Text style={styles.forgot_password}>Forgotten your password?</Text>
-      </View>
-      <View style={styles.bottom_container}>
-        <View style={styles.or_separator}>
-          <View style={styles.line} />
-          <Text style={styles.or_text}>OR SIGN IN WITH</Text>
-          <View style={styles.line} />
+        <View style={styles.bottom_container}>
+          <View style={styles.or_separator}>
+            <View style={styles.line} />
+            <Text style={styles.or_text}>OR SIGN IN WITH</Text>
+            <View style={styles.line} />
+          </View>
+          <View style={styles.social_buttons}>
+            <Pressable style={styles.social_icon}>
+              <Image source={icons.facebook} />
+            </Pressable>
+            <Pressable style={styles.social_icon}>
+              <Image source={icons.google} />
+            </Pressable>
+            <Pressable style={styles.social_icon}>
+              <Image source={icons.apple} />
+            </Pressable>
+          </View>
+          <View style={styles.create_account}>
+            <Text style={styles.create_account}>Don't have an account?</Text>
+            <Text
+              style={styles.create_account_link}
+              onPress={() => navigation.navigate("Credentials")}
+            >
+              {" "}
+              Create an Account
+            </Text>
+          </View>
         </View>
-        <View style={styles.social_buttons}>
-          <Pressable style={styles.social_icon}>
-            <Image source={icons.facebook} />
-          </Pressable>
-          <Pressable style={styles.social_icon}>
-            <Image source={icons.google} />
-          </Pressable>
-          <Pressable style={styles.social_icon}>
-            <Image source={icons.apple} />
-          </Pressable>
-        </View>
-        <View style={styles.create_account}>
-          <Text style={styles.create_account}>Don't have an account?</Text>
-          <Text
-            style={styles.create_account_link}
-            onPress={() => navigation.navigate("Credentials")}
-          >
-            {" "}
-            Create an Account
-          </Text>
-        </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 };
 
 const styles = StyleSheet.create({
+  errorMessage: {
+    marginTop: 10,
+    color: "red",
+    fontSize: SIZES.small,
+    fontWeight: "900",
+  },
   container: {
     flex: 1,
     flexDirection: "column",
@@ -127,8 +140,8 @@ const styles = StyleSheet.create({
   showPasswordContainer: {
     flexDirection: "row",
     alignItems: "center",
-    width: "70%",
-    marginBottom: 0,
+    width: "75%",
+    marginBottom: 5,
   },
   checkbox: {
     marginRight: 8,
@@ -145,8 +158,9 @@ const styles = StyleSheet.create({
     color: COLORS.black_icons,
     marginBottom: SIZES.xxLarge,
   },
+
   forgot_password: {
-    marginVertical: 35,
+    marginVertical: 20,
     fontWeight: "bold",
   },
   or_separator: {
