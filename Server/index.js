@@ -1,16 +1,18 @@
-const express = require("express");
-const cors = require("cors");
-const app = express();
-const PORT = process.env.PORT || 80;
 const mongooseConnect = require("./configs/mongoDB.connect");
+const express = require("express");
+const app = express();
+require("dotenv").config();
 const rateLimit = require("express-rate-limit");
+
+const cors = require("cors");
+const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
 
 const authLimiter = rateLimit({
   windowMs: 10 * 60 * 1000,
-  max: 500,
+  max: 10,
 });
 
 const authRouter = require("./routes/auth.routes");
@@ -19,8 +21,8 @@ app.use("/auth", authLimiter, authRouter);
 const forestRouter = require("./routes/forest.routes");
 app.use("/forest", forestRouter);
 
-// const userRouter = require("./routes/user.routes");
-// app.use("/user", userRouter);
+const userRouter = require("./routes/user.routes");
+app.use("/user", userRouter);
 
 app.listen(PORT, (err) => {
   if (err) {
