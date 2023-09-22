@@ -20,7 +20,7 @@ const CustomInput = ({
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
-        maxLength={title === "Date" ? 9 : 20}
+        maxLength={title === "Date" ? 9 : 40}
       />
     </View>
   );
