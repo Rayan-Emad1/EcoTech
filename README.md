@@ -126,7 +126,7 @@ EcoTech utilizes these technologies to provide a seamless and comprehensive wild
 
 Ensure you have the following software and dependencies installed: 
 
-1. Node.js and npm (Node Package Manager). You can install them from [https://nodejs.org/](https://nodejs.org/). 
+1. Node.js and npm (Node Package Manager). You can install them from [nodejs.org](https://nodejs.org/). 
 2. Expo CLI for React Native. You can install it globally using the command: 
 
 ```sh 
@@ -135,7 +135,7 @@ npm install -g expo-cli
 3. Clone the GitHub repository: 
 
 ```sh 
-git clone https://github.com/username/ecotech  
+git clone https://github.com/Rayan-Emad1/EcoTech  
 ```
 
 
@@ -149,19 +149,14 @@ git clone https://github.com/username/ecotech
 1. Navigate to the `client` directory: 
 
    ```bash  
-   cd ecotech/client 
+   cd EcoTech/client 
    ``` 
 2. Install dependencies:  
 
    ```bash  
      npm install 
    ``` 
-3. Create a `.env` file with your credentials 
-
-   ```bash  
-   cp .env.example .env
-   ``` 
-4. Start development server: 
+3. Start development server: 
 
    ```bash  
    npx expo start  
@@ -172,7 +167,7 @@ git clone https://github.com/username/ecotech
 1. Navigate to the `server` directory: 
 
    ```bash 
-   cd ecotech/server 
+   cd EcoTech/server 
    ``` 
 
 2. Install dependencies: 
