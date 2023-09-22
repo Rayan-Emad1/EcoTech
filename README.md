@@ -70,7 +70,7 @@ As a General User, I want to:
 | ---| ---| ---|   
 | ![Login](./readme/demo/1440x1024.png) | ![Register](./readme/demo/1440x1024.png) | ![Landing](./readme/demo/1440x1024.png) | 
 
-###Mockups 
+### Mockups 
 
 | Home screen  | Map Screen | Plant Trees Screen | 
 | ---| ---| ---|  
