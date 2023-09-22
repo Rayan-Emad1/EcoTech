@@ -49,7 +49,7 @@ const RegisterCredentials = ({ navigation }) => {
           type="text"
         />
         <CustomInput
-          title="Date"
+          title="Date of Birth"
           placeholder="dd/mm/yyyy"
           keyboardType="numeric"
           value={date}
