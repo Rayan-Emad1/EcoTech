@@ -12,6 +12,6 @@ export default function App() {
           <StackPages />
         </NavigationContainer>
       </SafeAreaProvider>
-    // {/* </TouchableWithoutFeedback>  */}
+    // </TouchableWithoutFeedback>  
   );
 }
