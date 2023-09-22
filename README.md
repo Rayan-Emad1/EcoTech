@@ -2,8 +2,6 @@
 <img src="./readme/title1.svg"/> 
 <br><br> 
 
-## Table of Contents 
-
 
 ## Table of Contents
 - [Project Description](#project-description)
