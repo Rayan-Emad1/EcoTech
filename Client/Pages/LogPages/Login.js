@@ -28,6 +28,11 @@ const Login = ({ navigation }) => {
       return; // Exit the function if email or password are missing
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setErrorMessage("Invalid email format");
+      return;
+    }
 
 
   };
