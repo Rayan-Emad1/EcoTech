@@ -39,7 +39,17 @@ const Login = ({ navigation }) => {
       return;
     }
 
-
+    try {
+      const response = await login(email, password);
+      if (response.message === "Login verified. You can now log in.") {
+        navigation.navigate("Main");
+      }
+    } catch (error) {
+      setErrorMessage(error.response ? error.response.data : error.message);
+      if (error == "Too many requests, please try again later.") {
+        setErrorMessage("Too many requests, please try again later.");
+      }
+    }
   };
 
   return (
