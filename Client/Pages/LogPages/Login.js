@@ -16,6 +16,12 @@ import { login } from "../../constants/request";
 import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
 
+import { useDispatch } from 'react-redux'; 
+import { setUser } from '../../Redux/userSlice';
+
+
+
+
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,6 +48,7 @@ const Login = ({ navigation }) => {
     try {
       const response = await login(email, password);
       if (response.message === "Login verified. You can now log in.") {
+        dispatch(setUser({ token: response.token, user: response.user }));
         navigation.navigate("Main");
       }
     } catch (error) {
