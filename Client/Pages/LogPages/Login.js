@@ -34,6 +34,11 @@ const Login = ({ navigation }) => {
       return;
     }
 
+    if (password.length < 8) {
+      setErrorMessage("Password must be at least 8 characters long");
+      return;
+    }
+
 
   };
 
