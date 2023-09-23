@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,7 +11,7 @@ import {
 import { images, icons } from "../../constants/index";
 import MapView, { Callout, Marker } from "react-native-maps";
 import * as Location from "expo-location";
-import {CustomHeader,ForestCard} from "../../components";
+import { CustomHeader, ForestCard } from "../../components";
 
 const { width } = Dimensions.get("window");
 const CARD_WIDTH = 310;
@@ -65,12 +65,12 @@ const Map = () => {
     longitudeDelta: 1.4095237243800227,
   };
 
-  const [state, setState] = React.useState(forests_locations);
+  const [state, setState] = useState(forests_locations);
 
   let mapIndex = 0;
   let mapAnimation = new Animated.Value(0);
-  const _map = React.useRef(null);
-  const _scrollView = React.useRef(null);
+  const _map = useRef(null);
+  const _scrollView = useRef(null);
 
   const getPermissions = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
@@ -107,7 +107,7 @@ const Map = () => {
 
   const handleMapLongPress = async () => {
     await setShowCards(!showCards);
-    if (showCard) {
+    if (!showCards) {
       _scrollView.current.scrollTo({ x: -315, y: 0, animated: true });
     }
   };
