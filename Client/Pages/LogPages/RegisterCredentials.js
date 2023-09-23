@@ -21,7 +21,28 @@ const RegisterCredentials = ({ navigation }) => {
   const [date, setDate] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const handleDate = (text) => {
+    const numericText = text.replace(/[^0-9]/g, "");
+    const formattedDate = numericText
+      .slice(0, 10)
+      .replace(/(\d{2})(\d{2})(\d{4})/, "$1/$2/$3");
 
+    const [day, month, year] = formattedDate.split("/");
+    if (
+      day > 31 ||
+      day < 1 ||
+      month > 12 ||
+      month < 1 ||
+      year > 2024 ||
+      year < 1900
+    ) {
+      setErrorMessage("Invalid date");
+    } else {
+      setErrorMessage("");
+    }
+
+    setDate(formattedDate);
+  };
 
 
 
