@@ -31,7 +31,26 @@ const RegisterEmail = ({ navigation, route }) => {
       return;
     }
 
+    try {
+      const response = await checkEmail(email);
 
+      if (!response.isUnique) {
+        setErrorMessage(
+          "Email is already taken. Please use a different email."
+        );
+      } else {
+        setErrorMessage("");
+        navigation.navigate("Password", {
+          email,
+          firstName,
+          lastName,
+          date,
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      setErrorMessage("Error checking email uniqueness");
+    }
   };
 
   return (
