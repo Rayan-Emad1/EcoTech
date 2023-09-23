@@ -6,23 +6,20 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import SubmitButton from "../../components/common/SubmitButton";
 import { SIZES, COLORS, images, icons } from "../../constants";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from "react-redux";
 
 const Settings = ({ navigation }) => {
-
-  const Name = useSelector((state) => state.user);
-  const email = useSelector((state) => state.user.email);
-  console.log(Name)
+  const user = useSelector(state => state.user.user);
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header_setting}>
         <Image source={images.profile} />
-        <Text style={styles.header_name}>{Name}</Text>
-        <Text style={styles.header_email}>{email}</Text>
+        <Text style={styles.header_name}>{user?.first_name} {user?.last_name}</Text>
+        <Text style={styles.header_email}>{user?.email}</Text>
       </View>
 
       <View style={styles.settings_input_container}>
@@ -133,4 +130,3 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
   },
 });
-
