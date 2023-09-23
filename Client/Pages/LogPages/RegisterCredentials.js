@@ -6,8 +6,10 @@ import {
   SafeAreaView,
   Pressable,
   Image,
+  Keyboard,
+  TouchableWithoutFeedback,
 } from "react-native";
-import { COLORS, SIZES, icons } from "../../constants/index";
+import { COLORS, SIZES, icons } from "../../constants";
 import CustomInput from "../../components/common/CustomInput";
 import SubmitButton from "../../components/common/SubmitButton";
 import BackButton from "../../components/common/BackButton";
@@ -17,76 +19,69 @@ const RegisterCredentials = ({ navigation }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [date, setDate] = useState("");
-  const handleDate = (text) => {
-    const numericText = text.replace(/[^0-9]/g, "");
-    const formattedDate = numericText
-      .slice(0, 8)
-      .replace(/(\d{2})(\d{2})(\d{4})/, "$1/$2/$3");
-    setDate(formattedDate);
-  };
+  const [errorMessage, setErrorMessage] = useState("");
+
+
+
+
 
   return (
-    <SafeAreaView style={styles.container}>
-      <BackButton navigation={navigation} />
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <SafeAreaView style={styles.container}>
+        <BackButton navigation={navigation} />
 
-      <CustomTitle
-        title="Create Account"
-        subtitle="Fill your information below or register with your social account"
-      />
+        <CustomTitle
+          title="Create Account"
+          subtitle="Fill your information below or register with your social account"
+        />
 
-      <View style={styles.input_container}>
-        <CustomInput
-          title="First Name"
-          placeholder="Enter your first name"
-          value={firstName}
-          onChangeText={(text) => setFirstName(text)}
-        />
-        <CustomInput
-          title="Last Name"
-          placeholder="Enter your last name"
-          value={lastName}
-          onChangeText={(text) => setLastName(text)}
-          type="text"
-        />
-        <CustomInput
-          title="Date of Birth"
-          placeholder="dd/mm/yyyy"
-          keyboardType="numeric"
-          value={date}
-          onChangeText={(text) => {
-            handleDate(text);
-          }}
-        />
-        <SubmitButton
-          text="Next"
-          onPress={() => {
-            if (firstName && lastName && date) {
-              navigation.navigate("Email", { firstName, lastName, date });
-            }
-          }}
-          disabled={!firstName || !lastName || !date}
-          set_color="green"
-        />
-      </View>
-      <View style={styles.bottom_container}>
-        <View style={styles.or_separator}>
-          <View style={styles.line} />
-          <Text style={styles.or_text}>OR SIGN IN WITH</Text>
-          <View style={styles.line} />
+        <View style={styles.input_container}>
+          <CustomInput
+            title="First Name"
+            placeholder="Enter your first name"
+            value={firstName}
+            onChangeText={(text) => setFirstName(text)}
+          />
+          <CustomInput
+            title="Last Name"
+            placeholder="Enter your last name"
+            value={lastName}
+            onChangeText={(text) => setLastName(text)}
+            type="text"
+          />
+          <CustomInput
+            title="Date of Birth"
+            placeholder="dd/mm/yyyy"
+            keyboardType="numeric"
+            value={date}
+            onChangeText={(text) => {
+              handleDate(text);
+            }}
+          />
+          <Text style={styles.errorMessage}>{errorMessage}</Text>
+
+          <SubmitButton text="Next" onPress={handleNext} set_color="green" />
         </View>
-        <View style={styles.social_buttons}>
-          <Pressable style={styles.social_icon}>
-            <Image source={icons.facebook} />
-          </Pressable>
-          <Pressable style={styles.social_icon}>
-            <Image source={icons.google} />
-          </Pressable>
-          <Pressable style={styles.social_icon}>
-            <Image source={icons.apple} />
-          </Pressable>
+        <View style={styles.bottom_container}>
+          <View style={styles.or_separator}>
+            <View style={styles.line} />
+            <Text style={styles.or_text}>OR SIGN IN WITH</Text>
+            <View style={styles.line} />
+          </View>
+          <View style={styles.social_buttons}>
+            <Pressable style={styles.social_icon}>
+              <Image source={icons.facebook} />
+            </Pressable>
+            <Pressable style={styles.social_icon}>
+              <Image source={icons.google} />
+            </Pressable>
+            <Pressable style={styles.social_icon}>
+              <Image source={icons.apple} />
+            </Pressable>
+          </View>
         </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -143,6 +138,12 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     justifyContent: "center",
     alignItems: "center",
+  },
+  errorMessage: {
+    marginTop: 10,
+    color: "red",
+    fontSize: SIZES.small,
+    fontWeight: "900",
   },
 });
 
