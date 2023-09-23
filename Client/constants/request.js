@@ -1,7 +1,6 @@
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-
 const BASE_URL = "http://192.168.0.2:8080/";
 
 const login = async (email, password) => {
@@ -44,6 +43,7 @@ const registerUser = async (userData) => {
     throw error;
   }
 };
+
 const verify = async ({ email, verification_code }) => {
   try {
     const response = await axios.post(`${BASE_URL}auth/verify`, {
@@ -81,4 +81,18 @@ const updateProfile = async ({ firstName, lastName, birthday, address }) => {
   }
 };
 
-export { login, checkEmail, registerUser, verify, updateProfile };
+const getForests = async () => {
+  try {
+    const token = await AsyncStorage.getItem("token");
+    const response = await axios.get(`${BASE_URL}user/get_forests`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error.response ? error.response.data : error.message;
+  }
+};
+
+export { login, checkEmail, registerUser, verify, updateProfile, getForests };
