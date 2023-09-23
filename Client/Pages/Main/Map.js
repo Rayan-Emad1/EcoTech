@@ -154,7 +154,6 @@ const Map = () => {
           );
       }
     }, 10);
-    console.log("For navigation");
   };
 
   const onMarkerPress = async (mapEventData) => {
