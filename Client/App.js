@@ -9,6 +9,7 @@ import store from "./Redux/store";
 // </TouchableWithoutFeedback>
 
 export default function App() {
+  store.subscribe(() => console.log("Store Updated: ", store.getState()));
   return (
     <Provider store={store}>
       <SafeAreaProvider>

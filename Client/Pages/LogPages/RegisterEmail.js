@@ -7,7 +7,6 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
 } from "react-native";
-
 import { COLORS, SIZES } from "../../constants";
 import {
   CustomInput,
@@ -15,7 +14,6 @@ import {
   CustomTitle,
   BackButton,
 } from "../../components";
-
 import { checkEmail } from "../../constants/request";
 
 const RegisterEmail = ({ navigation, route }) => {

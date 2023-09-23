@@ -9,10 +9,13 @@ import {
 import React, { useState } from "react";
 import SubmitButton from "../../components/common/SubmitButton";
 import { SIZES, COLORS, images, icons } from "../../constants";
+import { useSelector, useDispatch } from 'react-redux';
 
 const Settings = ({ navigation }) => {
-  const [Name, setName] = useState("Daniel Yehya");
-  const [email, setEmail] = useState("daniel@gmail.com");
+
+  const Name = useSelector((state) => state.user);
+  const email = useSelector((state) => state.user.email);
+  console.log(Name)
 
   return (
     <SafeAreaView style={styles.container}>
