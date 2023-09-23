@@ -3,15 +3,16 @@ const { updateDataField } = require("../Logic/functions");
 
 const createForest = async (req, res) => {
   try {
-    const { location, name, description } = req.body;
+    const { coordinates, name, description,address } = req.body;
 
     const new_forest = new Forest({
-      location,
       name,
       description,
+      coordinates,
+      address,
       temperature: {},
-      wind: {},
       humidity: {},
+      // wind: {},
     });
 
     await new_forest.save();
