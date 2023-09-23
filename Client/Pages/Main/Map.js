@@ -41,6 +41,22 @@ const Map = () => {
       },
       description: "Something Cool",
     },
+    {
+      title: "third",
+      location: {
+        latitude: 35.83728746204912,
+        longitude: 35.91056445540316,
+      },
+      description: "Something Cool",
+    },
+    {
+      title: "forth",
+      location: {
+        latitude: 30.83728746204912,
+        longitude: 36.91056445540316,
+      },
+      description: "Something Cool",
+    },
   ];
 
   const region = {
@@ -90,8 +106,10 @@ const Map = () => {
     });
   };
 
-  const handleMapLongPress = () => {
-    setShowCards(!showCards);
+  const handleMapLongPress = async () => {
+    await setShowCards(!showCards);
+    _scrollView.current.scrollTo({ x: -315, y: 0, animated: true });
+
   };
 
   const handleSearch = async (searchValue) => {
@@ -111,7 +129,7 @@ const Map = () => {
   };
 
   const handleMapAnimation = ({ value }) => {
-    let index = Math.floor(value / CARD_WIDTH + 0.3);
+    let index = Math.floor(value / CARD_WIDTH + 0.2);
     if (index >= state.length) {
       index = state.length - 1;
     }
