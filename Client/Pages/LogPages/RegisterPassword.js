@@ -38,7 +38,27 @@ const RegisterPassword = ({ navigation, route }) => {
       }
       console.log(email, firstName, lastName, date, password);
 
-  
+      const response = await registerUser({
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        password,
+        birthday: date,
+      });
+
+      if (
+        response.message ===
+          "User registered. Check your email for verification." ||
+        response.message === "Send verification Code"
+      ) {
+        setErrorMessage("Send verification Code");
+        navigation.navigate("Verify", {email});
+      }
+    } catch (error) {
+      setErrorMessage(
+        error.response.data.message ? error.response.data.message : error.data
+      );
+    }
   };
 
   return (
