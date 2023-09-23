@@ -10,10 +10,12 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import { COLORS, SIZES, icons } from "../../constants";
-import CustomInput from "../../components/common/CustomInput";
-import SubmitButton from "../../components/common/SubmitButton";
-import BackButton from "../../components/common/BackButton";
-import CustomTitle from "../../components/common/CustomTitle";
+import {
+  CustomInput,
+  SubmitButton,
+  CustomTitle,
+  BackButton,
+} from "../../components";
 
 const RegisterCredentials = ({ navigation }) => {
   const [firstName, setFirstName] = useState("");
