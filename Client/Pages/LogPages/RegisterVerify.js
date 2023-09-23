@@ -14,7 +14,22 @@ import { COLORS, SIZES } from "../../constants";
 import { verify } from "../../constants/request";
 
 const RegisterVerify = ({ navigation, route }) => {
+  const [otp, setOtp] = useState("");
+  const { email } = route.params;
 
+  const handleVerify = async () => {
+    try {
+      const response = await verify({ email, verification_code: otp });
+
+      if (response.message === "Email verified. You can now log in.") {
+        navigation.replace("Main");
+      } else {
+        Alert.alert("Error", "Invalid OTP");
+      }
+    } catch (error) {
+      Alert.alert("Error", `Verification failed. ${error.message}`);
+    }
+  };
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
