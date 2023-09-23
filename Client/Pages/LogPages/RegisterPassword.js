@@ -1,81 +1,87 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
-import { COLORS, SIZES } from "../../constants/index";
-import CustomInput from "../../components/common/CustomInput";
-import SubmitButton from "../../components/common/SubmitButton";
-import BackButton from "../../components/common/BackButton";
-import CustomTitle from "../../components/common/CustomTitle";
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  Keyboard,
+  TouchableWithoutFeedback,
+} from "react-native";
+import { COLORS, SIZES } from "../../constants";
+import {
+  CustomInput,
+  SubmitButton,
+  CustomTitle,
+  BackButton,
+} from "../../components";
 import Checkbox from "expo-checkbox";
+
+import { registerUser } from "../../constants/request";
 
 const RegisterPassword = ({ navigation, route }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const { email, firstName, lastName, date } = route.params;
 
+
+
   return (
-    <SafeAreaView style={styles.container}>
-      <BackButton navigation={navigation} />
-      <CustomTitle
-        title="Create a Password"
-        subtitle="Enter your desired password in the field below, and confirm it by re-entering it in the 'Confirm Password' field"
-      />
-
-      <View style={styles.input_container}>
-        <CustomInput
-          title="Password"
-          placeholder="Enter your Password"
-          value={password}
-          keyboardType="email-address"
-          onChangeText={(text) => setPassword(text)}
-          secureTextEntry={!showPassword}
-        />
-        <CustomInput
-          title="Confirm Password"
-          placeholder="Confirm your Password"
-          value={confirmPassword}
-          keyboardType="email-address"
-          onChangeText={(text) => setConfirmPassword(text)}
-          secureTextEntry={!showPassword}
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <SafeAreaView style={styles.container}>
+        <BackButton navigation={navigation} />
+        <CustomTitle
+          title="Create a Password"
+          subtitle="Enter your desired password in the field below, and confirm it by re-entering it in the 'Confirm Password' field"
         />
 
-        <View style={styles.checkboxContainer}>
-          <Checkbox
-            style={styles.checkbox}
-            value={showPassword}
-            onValueChange={() => setShowPassword(!showPassword)}
+        <View style={styles.input_container}>
+          <CustomInput
+            title="Password"
+            placeholder="Enter your Password"
+            value={password}
+            keyboardType="email-address"
+            onChangeText={(text) => setPassword(text)}
+            secureTextEntry={!showPassword}
           />
-          <Text>Show Password</Text>
-        </View>
+          <CustomInput
+            title="Confirm Password"
+            placeholder="Confirm your Password"
+            value={confirmPassword}
+            keyboardType="email-address"
+            onChangeText={(text) => setConfirmPassword(text)}
+            secureTextEntry={!showPassword}
+          />
 
-        <Text style={styles.progressText}>2 of 3</Text>
-        <View style={styles.progressContainer}>
-          <View style={styles.complete} />
-        </View>
+          <View style={styles.checkboxContainer}>
+            <Checkbox
+              style={styles.checkbox}
+              value={showPassword}
+              onValueChange={() => setShowPassword(!showPassword)}
+            />
+            <Text>Show Password</Text>
+          </View>
 
-        <SubmitButton
-          text="Sign Up"
-          onPress={() => {
-            if (firstName && lastName && date) {
-              navigation.navigate("Verify", {
-                email,
-                password,
-                firstName,
-                lastName,
-                date,
-              });
-            }
-          }}
-          disabled={confirmPassword !== password}
-          set_color="green"
-        />
-        <Text style={styles.terms}>
-          By signing up, you agree to our
-          <Text style={{ fontWeight: "bold" }}> Terms of Service</Text> and
-          <Text style={{ fontWeight: "bold" }}> Privacy Policy </Text>
-        </Text>
-      </View>
-    </SafeAreaView>
+          <Text style={styles.progressText}>2 of 3</Text>
+          <View style={styles.progressContainer}>
+            <View style={styles.complete} />
+          </View>
+          <Text style={styles.errorMessage}>{errorMessage}</Text>
+
+          <SubmitButton
+            text="Sign Up"
+            onPress={handleRegister}
+            set_color="green"
+          />
+          <Text style={styles.terms}>
+            By signing up, you agree to our
+            <Text style={{ fontWeight: "bold" }}> Terms of Service</Text> and
+            <Text style={{ fontWeight: "bold" }}> Privacy Policy </Text>
+          </Text>
+        </View>
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -129,8 +135,20 @@ const styles = StyleSheet.create({
   },
   checkbox: {
     marginRight: 8,
-    borderRadius:8,
-    borderBlockColor:COLORS.black,
+    borderRadius: 8,
+    borderBlockColor: COLORS.black,
+  },
+  errorMessage: {
+    marginTop: 10,
+    color: "red",
+    fontSize: SIZES.small,
+    fontWeight: "900",
+  },
+  errorMessage: {
+    marginTop: 10,
+    color: "red",
+    fontSize: SIZES.small,
+    fontWeight: "900",
   },
 });
 
