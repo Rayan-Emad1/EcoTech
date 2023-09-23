@@ -13,13 +13,13 @@ const TabPages = () => {
   return (
     <Tab.Navigator
       initialRouteName="Map"
-      screenOptions={{ headerShown: false }}
-      tabBarOptions={{
-        showLabel: false,
-      }}
-      tabBarStyle={{
-        backgroundColor: COLORS.black,
-        borderTopWidth: 0,
+      screenOptions={{
+        headerShown: false,
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          backgroundColor: COLORS.black,
+          borderTopWidth: 0,
+        },
       }}
     >
       <Tab.Screen
