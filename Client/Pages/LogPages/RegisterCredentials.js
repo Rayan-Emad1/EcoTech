@@ -44,7 +44,14 @@ const RegisterCredentials = ({ navigation }) => {
     setDate(formattedDate);
   };
 
-
+  const handleNext = () => {
+    if (!firstName || !lastName || !date) {
+      setErrorMessage("Credentials are Missing");
+    } else {
+      setErrorMessage("");
+      navigation.navigate("Email", { firstName, lastName, date });
+    }
+  };
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
