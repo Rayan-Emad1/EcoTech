@@ -21,7 +21,7 @@ const registerSchema = Joi.object({
   last_name: Joi.string().required(),
   email: Joi.string().email().required(),
   password: Joi.string().min(8).required(),
-  birthday: Joi.date(),
+  birthday: Joi.string(),
 });
 
 const loginSchema = Joi.object({
@@ -54,8 +54,12 @@ const registerUser = async (req, res) => {
     const { first_name, last_name, email, password, birthday } = req.body;
     const existing_user = await User.findOne({ email });
 
-    if (existing_user) {
+    if (existing_user && existing_user.is_verified) {
       return res.status(400).json({ message: "Email already in use" });
+    }
+
+    if (existing_user && !existing_user.is_verified) {
+      return res.status(201).json({ message: "Send verification Code" });
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -114,7 +118,7 @@ const verify = async (req, res) => {
     } else {
       return res
         .status(400)
-        .json({ message: "Invalid verification code Or already verified" });
+        .json({ message: "Invalid verification code" });
     }
   } catch (error) {
     console.error(error);
