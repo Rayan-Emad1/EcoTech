@@ -11,12 +11,16 @@ import BackButton from "../../components/common/BackButton";
 import { SIZES, COLORS, images } from "../../constants";
 import { SubmitButton, CustomInput } from "../../components";
 
+import { updateProfile } from "../../constants/request";
+
+
 import { useSelector, useDispatch } from "react-redux";
 import { updateUser } from "../../Redux-components/Redux-actions/user";
 
 const Profile = ({ navigation }) => {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [form, setForm] = useState({
     firstName: "",
@@ -32,17 +36,39 @@ const Profile = ({ navigation }) => {
     });
   };
 
-  const handleSubmit = () => {
-    dispatch(
-      updateUser({
-        first_name: form.firstName || user?.first_name,
-        last_name: form.lastName || user?.last_name,
-        birthday: form.birthday || user?.birthday,
-        address: form.address || user?.address,
-      })
-    );
+  const handleSubmit = async () => {
+    const updatedData = {
+      first_name: form.firstName || user?.first_name,
+      last_name: form.lastName || user?.last_name,
+      birthday: form.birthday || user?.birthday,
+      address: form.address || user?.address,
+    };
+  
+    if (
+      updatedData.first_name === user?.first_name &&
+      updatedData.last_name === user?.last_name &&
+      updatedData.birthday === user?.birthday &&
+      updatedData.address === user?.address
+    ) {
+      setErrorMessage("No changes to update");
+      return;
+    }
+  
+    
+  
+    try {
+      const response = await updateProfile(updatedData);
+  
+      if (response.message === 'Updated User Successful') {
+        setErrorMessage("Updated User Successful");
+        dispatch(updateUser(updatedData));
+      } else {
+        setErrorMessage("Updated User Failed");
+      }
+    } catch (error) {
+      setErrorMessage(error);
+    }
   };
-
   const handleDate = (text) => {
     const numericText = text.replace(/[^0-9]/g, "");
     const formattedDate = numericText
@@ -114,6 +140,7 @@ const Profile = ({ navigation }) => {
         <View style={{ height: 250, width: 1 }}></View>
       </ScrollView>
 
+      <Text style={styles.errorMessage}>{errorMessage}</Text>
       <SubmitButton
         text="Update Profile"
         onPress={() => handleSubmit()}
@@ -126,6 +153,12 @@ const Profile = ({ navigation }) => {
 export default Profile;
 
 const styles = StyleSheet.create({
+    errorMessage: {
+    marginTop: 10,
+    color: "red",
+    fontSize: SIZES.small,
+    fontWeight: "900",
+  },
   container: {
     flex: 1,
     flexDirection: "column",
