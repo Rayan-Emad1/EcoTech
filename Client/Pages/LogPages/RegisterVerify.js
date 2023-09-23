@@ -9,11 +9,19 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+
 import {CustomTitle,BackButton,SubmitButton} from "../../components";
 import { COLORS, SIZES } from "../../constants";
 import { verify } from "../../constants/request";
 
+import { useDispatch } from "react-redux";
+import { setUser } from "../../Redux-components/Redux-actions/user";
+
 const RegisterVerify = ({ navigation, route }) => {
+  const dispatch = useDispatch();
+
   const [otp, setOtp] = useState("");
   const { email } = route.params;
 
@@ -22,6 +30,8 @@ const RegisterVerify = ({ navigation, route }) => {
       const response = await verify({ email, verification_code: otp });
 
       if (response.message === "Email verified. You can now log in.") {
+        AsyncStorage.setItem("token", response.token);
+        dispatch(setUser(response.user));
         navigation.replace("Main");
       } else {
         Alert.alert("Error", "Invalid OTP");
