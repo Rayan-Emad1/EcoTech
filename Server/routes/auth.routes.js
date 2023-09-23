@@ -7,6 +7,6 @@ router.post("/check_email", authController.checkEmail);
 router.post("/register_user", authController.registerUser);
 router.post("/verify", authController.verify);
 router.post("/login", authController.login);
-router.post("/update", auth, authController.updateUser);
+router.put("/update", auth, authController.updateUser);
 
 module.exports = router;
