@@ -1,5 +1,16 @@
 import React, { useState } from "react";
-import {View,Text,StyleSheet,ImageBackground,SafeAreaView,Pressable,Image,Keyboard,TouchableWithoutFeedback,} from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  SafeAreaView,
+  Pressable,
+  Image,
+  Keyboard,
+  TouchableWithoutFeedback,
+} from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { COLORS, SIZES, images, icons } from "../../constants";
 import { SubmitButton, CustomInput } from "../../components";
@@ -7,16 +18,15 @@ import Checkbox from "expo-checkbox";
 
 import { login } from "../../constants/request";
 import { useDispatch } from "react-redux";
-import { setUser } from "../../Redux/userSlice";
+import { setUser } from "../../Redux-components/Redux-actions/user";
 
 const Login = ({ navigation }) => {
-  
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
-  const dispatch = useDispatch();
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -39,7 +49,8 @@ const Login = ({ navigation }) => {
       const response = await login(email, password);
       if (response.message === "Login verified. You can now log in.") {
         setErrorMessage("");
-        dispatch(setUser({ token: response.token, user: response.user }));
+        AsyncStorage.setItem("token", response.token);
+        dispatch(setUser(response.user));
         navigation.navigate("Main");
       }
     } catch (error) {

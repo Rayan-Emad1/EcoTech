@@ -11,8 +11,7 @@ import {
 import { images, icons } from "../../constants/index";
 import MapView, { Callout, Marker } from "react-native-maps";
 import * as Location from "expo-location";
-import CustomHeader from "../../components/common/CustomHeader";
-import ForestCard from "../../components/Map/ForestCard";
+import {CustomHeader,ForestCard} from "../../components";
 
 const { width } = Dimensions.get("window");
 const CARD_WIDTH = 310;
@@ -108,8 +107,9 @@ const Map = () => {
 
   const handleMapLongPress = async () => {
     await setShowCards(!showCards);
-    _scrollView.current.scrollTo({ x: -315, y: 0, animated: true });
-
+    if (showCard) {
+      _scrollView.current.scrollTo({ x: -315, y: 0, animated: true });
+    }
   };
 
   const handleSearch = async (searchValue) => {

@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import StackPages from "./Navigation/StackPages";
 import { Provider } from "react-redux";
-import store from "./Redux/store";
+import store from "./Redux-components/store";
 
 // <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
 // </TouchableWithoutFeedback>

@@ -1,4 +1,5 @@
 import SubmitButton from "./common/SubmitButton";
+import CustomHeader from "./common/CustomHeader";
 import BackButton from "./common/BackButton";
 import CustomTitle from "./common/CustomTitle";
 import CustomInput from "./common/CustomInput";
@@ -14,4 +15,5 @@ export {
   Dropdown,
   WeatherWidget,
   ForestCard,
+  CustomHeader,
 };

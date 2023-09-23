@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { SafeAreaView, Text, ScrollView, View, StyleSheet } from "react-native";
 import { LineChart, BarChart } from "react-native-chart-kit";
 import { HourlyHumid, WeeklyHumid, HourlyTemp, WeeklyTemp } from "./data";
-import DropDown from "../../components/Notification/Dropdown";
-import BackButton from "../../components/common/BackButton";
+import {DropDown,BackButton} from "../../components";
 import { COLORS, SIZES } from "../../constants/index";
 
 const STATE_COLOR = COLORS.green;
