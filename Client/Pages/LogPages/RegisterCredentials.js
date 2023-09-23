@@ -9,7 +9,7 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
 } from "react-native";
-import { COLORS, SIZES, icons } from "../../constants";
+import { COLORS, SIZES } from "../../constants";
 import {
   CustomInput,
   SubmitButton,

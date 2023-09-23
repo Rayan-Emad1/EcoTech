@@ -25,7 +25,14 @@ const RegisterEmail = ({ navigation, route }) => {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  const handleNext = async () => {
+    if (!emailRegex.test(email)) {
+      setErrorMessage("Invalid email format");
+      return;
+    }
 
+
+  };
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
