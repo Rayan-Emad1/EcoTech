@@ -25,7 +25,21 @@ const RegisterPassword = ({ navigation, route }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const { email, firstName, lastName, date } = route.params;
 
+  const handleRegister = async () => {
+    try {
+      if (password.length < 8) {
+        setErrorMessage("Password must be at least 8 characters long");
+        return;
+      }
 
+      if (password !== confirmPassword) {
+        setErrorMessage("Passwords do not match");
+        return;
+      }
+      console.log(email, firstName, lastName, date, password);
+
+  
+  };
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
