@@ -42,6 +42,16 @@ const registerUser = async (userData) => {
     throw error
   }
 };
+const verify = async ({ email, verification_code }) => {
+  try {
+    const response = await axios.post(`${BASE_URL}auth/verify`, {
+      email,
+      verification_code,
+    });
+    return response.data;
+  } catch (error) {
+    throw error.response ? error.response.data : error.message;
+  }
+};
 
-
-export { login, checkEmail, registerUser  };
+export { login, checkEmail, registerUser , verify };
