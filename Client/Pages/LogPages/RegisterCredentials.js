@@ -90,25 +90,12 @@ const RegisterCredentials = ({ navigation }) => {
           />
           <Text style={styles.errorMessage}>{errorMessage}</Text>
 
-          <SubmitButton text="Next" onPress={handleNext} set_color="green" />
-        </View>
-        <View style={styles.bottom_container}>
-          <View style={styles.or_separator}>
-            <View style={styles.line} />
-            <Text style={styles.or_text}>OR SIGN IN WITH</Text>
-            <View style={styles.line} />
-          </View>
-          <View style={styles.social_buttons}>
-            <Pressable style={styles.social_icon}>
-              <Image source={icons.facebook} />
-            </Pressable>
-            <Pressable style={styles.social_icon}>
-              <Image source={icons.google} />
-            </Pressable>
-            <Pressable style={styles.social_icon}>
-              <Image source={icons.apple} />
-            </Pressable>
-          </View>
+          <SubmitButton
+            text="Next"
+            onPress={handleNext}
+            set_color="green"
+            disabled={!!errorMessage}
+          />
         </View>
       </SafeAreaView>
     </TouchableWithoutFeedback>
