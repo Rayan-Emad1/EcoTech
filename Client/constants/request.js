@@ -25,6 +25,23 @@ const checkEmail = async (email) => {
   }
 };
 
+const registerUser = async (userData) => {
+  try {
+    const { first_name, last_name, email, password, birthday } = userData;
+    const response = await axios.post(`${BASE_URL}auth/register_user`, {
+      first_name,
+      last_name,
+      email,
+      password,
+      birthday,
+    });
+    console.log(response.data)
+    return response.data; 
+  } catch (error) {
+    console.log(error.response.data.message);
+    throw error
+  }
+};
 
 
-export { login, checkEmail };
+export { login, checkEmail, registerUser  };
