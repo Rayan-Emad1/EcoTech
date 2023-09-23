@@ -38,6 +38,15 @@ const forestsSchema = new mongoose.Schema({
   },
   name: { type: String, required: true },
   description: { type: String, required: true },
+  address: { type: String, default: "" },
+
+  forecast: { type: String, default: "" },
+  fire_alarm: { type: Boolean, default: false },
+  condition: {
+    type: String,
+    enum: ["sunny", "rainy", "stormy", "night"],
+    default: "sunny",
+  },
   current_temperature: {
     type: hourlyDataSchema,
     default: {
@@ -65,7 +74,6 @@ const forestsSchema = new mongoose.Schema({
       source: "real",
     },
   },
-  fire_alarm: { type: Boolean, default: false },
   temperature: temperatureSchema,
   wind: windSchema,
   humidity: humiditySchema,
