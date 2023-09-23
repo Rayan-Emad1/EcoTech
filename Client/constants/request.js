@@ -35,11 +35,11 @@ const registerUser = async (userData) => {
       password,
       birthday,
     });
-    console.log(response.data)
-    return response.data; 
+    console.log(response.data);
+    return response.data;
   } catch (error) {
     console.log(error.response.data.message);
-    throw error
+    throw error;
   }
 };
 const verify = async ({ email, verification_code }) => {
@@ -54,4 +54,29 @@ const verify = async ({ email, verification_code }) => {
   }
 };
 
-export { login, checkEmail, registerUser , verify };
+const updateProfile = async ({ firstName, lastName, birthday, address }) => {
+  try {
+    const token = await AsyncStorage.getItem("access_token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    };
+
+    const response = await axios.put(
+      `${BASE_URL}auth/update`,
+      {
+        new_first: firstName,
+        new_last: lastName,
+        new_birthday: birthday,
+        new_address: address,
+      },
+      { headers }
+    );
+
+    return response.data;
+  } catch (error) {
+    throw error.response ? error.response.data : error.message;
+  }
+};
+
+export { login, checkEmail, registerUser, verify, updateProfile };
