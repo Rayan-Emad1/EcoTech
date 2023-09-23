@@ -25,7 +25,7 @@ const createForest = async (req, res) => {
 
 const updateForestData = async (req, res) => {
   try {
-    const { forestId, temperature, humidity, wind } = req.body;
+    const { forestId, temperature, humidity } = req.body;
     const forest = await Forest.findById(forestId);
 
     if (!forest) {
@@ -34,7 +34,7 @@ const updateForestData = async (req, res) => {
 
     forest.current_temperature = temperature[0];
     forest.current_humidity = humidity[0];
-    forest.current_wind = wind[0];
+    // forest.current_wind = wind[0];
 
     if (temperature) {
       updateDataField(forest.temperature, temperature);
@@ -42,9 +42,9 @@ const updateForestData = async (req, res) => {
     if (humidity) {
       updateDataField(forest.humidity, humidity);
     }
-    if (wind) {
-      updateDataField(forest.wind, wind);
-    }
+    // if (wind) {
+    //   updateDataField(forest.wind, wind);
+    // }
 
     await forest.save();
 
