@@ -116,9 +116,7 @@ const verify = async (req, res) => {
         user: userInfo,
       });
     } else {
-      return res
-        .status(400)
-        .json({ message: "Invalid verification code" });
+      return res.status(400).json({ message: "Invalid verification code" });
     }
   } catch (error) {
     console.error(error);
@@ -166,4 +164,35 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { checkEmail, registerUser, verify, login };
+const updateUser = async (req, res) => {
+  try {
+    const { new_first, new_last, new_address, new_birthday } = req.body;
+
+    const userId = req.user._id;
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    if (new_first) {
+      user.first_name = new_first;
+    }
+    if (new_last) {
+      user.last_name = new_last;
+    }
+    if (new_address) {
+      user.address = new_address;
+    }
+    if (new_birthday) {
+      user.birthday = new_birthday;
+    }
+    await user.save();
+
+    res.status(200).json({ message: "Updated User Successful" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Update user failed" });
+  }
+};
+
+module.exports = { checkEmail, registerUser, verify, login, updateUser };
