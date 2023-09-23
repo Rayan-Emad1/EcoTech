@@ -1,4 +1,6 @@
 import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 const BASE_URL = "http://192.168.0.2:8080/";
 
@@ -56,7 +58,7 @@ const verify = async ({ email, verification_code }) => {
 
 const updateProfile = async ({ firstName, lastName, birthday, address }) => {
   try {
-    const token = await AsyncStorage.getItem("access_token");
+    const token = await AsyncStorage.getItem("token");
     const headers = {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
