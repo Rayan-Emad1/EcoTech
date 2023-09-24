@@ -109,12 +109,25 @@ const fetchAndTransformForestData = async (forestId) => {
     );
     const forestData = response.data;
 
-    // Determine the color based on fire_alarm
+
+    if (
+      forestData.todaysData.temperature.length === 0 ||
+      forestData.threeWeeksOfData.currentWeek.temperature.length === 0 ||
+      forestData.todaysData.humidity.length === 0 ||
+      forestData.threeWeeksOfData.currentWeek.humidity.length === 0
+    ) {
+      return {
+        hourlyTempData: null,
+        weeklyTempData: null,
+        hourlyHumidData: null,
+        weeklyHumidData: null,
+      };
+    }
+
     const colorForFireAlarm = forestData.fire_alarm
       ? "rgba(255, 0, 0, 1)"
       : "rgba(0, 255, 0, 1)";
 
-    // Filter and map real values for hourly temperature
     const hourlyRealTemperatureData = forestData.todaysData.temperature
       .filter((data) => data.source === "real")
       .map((data) => data.value);
@@ -125,8 +138,8 @@ const fetchAndTransformForestData = async (forestId) => {
         .map((data) => `${data.hour}:00`),
       datasets: [
         {
-          data: hourlyRealTemperatureData,
-          color: (opacity = 1) => colorForFireAlarm,
+          data: forestData.todaysData.temperature.map((data) => data.value),
+          color: () => colorForFireAlarm,
           legend: ["Predicted Values"],
         },
         {
@@ -137,7 +150,6 @@ const fetchAndTransformForestData = async (forestId) => {
       ],
     };
 
-    // Filter and map real values for weekly temperature
     const weeklyRealTemperatureData =
       forestData.threeWeeksOfData.currentWeek.temperature
         .filter((data) => data.source === "real")
@@ -145,12 +157,11 @@ const fetchAndTransformForestData = async (forestId) => {
 
     const weeklyTempData = {
       labels: forestData.threeWeeksOfData.currentWeek.temperature
-        .filter((data) => data.source === "real")
         .map((data) => `${data.day}/${data.month}`),
       datasets: [
         {
-          data: weeklyRealTemperatureData,
-          color: (opacity = 1) => colorForFireAlarm,
+          data: forestData.threeWeeksOfData.currentWeek.temperature.map((data) => data.value),
+          color: () => colorForFireAlarm,
           legend: ["Predicted Values"],
         },
         {
@@ -161,11 +172,6 @@ const fetchAndTransformForestData = async (forestId) => {
       ],
     };
 
-    // Filter and map real values for hourly humidity (similar changes can be made for other datasets)
-
-    const hourlyRealHumidityData = forestData.todaysData.humidity
-      .filter((data) => data.source === "real")
-      .map((data) => data.value);
 
     const hourlyHumidData = {
       labels: forestData.todaysData.humidity
@@ -173,27 +179,24 @@ const fetchAndTransformForestData = async (forestId) => {
         .map((data) => `${data.hour}:00`),
       datasets: [
         {
-          data: hourlyRealHumidityData,
+          data: forestData.todaysData.humidity.map(
+            (data) => data.value
+          ),
           color: (opacity = 1) => "rgba(244, 244, 244, " + opacity + ")",
           legend: ["Real Values"],
         },
       ],
     };
 
-    // Filter and map real values for weekly humidity (similar changes can be made for other datasets)
-
-    const weeklyRealHumidityData =
-      forestData.threeWeeksOfData.currentWeek.humidity
-        .filter((data) => data.source === "real")
-        .map((data) => data.value);
-
     const weeklyHumidData = {
-      labels: forestData.threeWeeksOfData.currentWeek.humidity
-        .filter((data) => data.source === "real")
-        .map((data) => `${data.day}/${data.month}`),
+      labels: forestData.threeWeeksOfData.currentWeek.humidity.map(
+        (data) => `${data.day}/${data.month}`
+      ),
       datasets: [
         {
-          data: weeklyRealHumidityData,
+          data: forestData.threeWeeksOfData.currentWeek.humidity.map(
+            (data) => data.value
+          ),
           color: (opacity = 1) => "rgba(244, 244, 244, " + opacity + ")",
           legend: ["Real Values"],
         },
