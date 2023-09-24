@@ -5,7 +5,6 @@ import { LineChart, BarChart } from "react-native-chart-kit";
 import { DropDown, BackButton } from "../../components";
 import { COLORS, SIZES } from "../../constants";
 
-import { HourlyHumid, WeeklyHumid, HourlyTemp, WeeklyTemp } from "./data";
 import { fetchAndTransformForestData } from "../../constants/request";
 
 const Statistics = ({ navigation, route }) => {
@@ -37,7 +36,18 @@ const Statistics = ({ navigation, route }) => {
   const handleTimeTypeChange = (newTimeType) => {
     setTimeType(newTimeType);
   };
-
+  const fetchData = async () => {
+    try {
+      const forest = await fetchAndTransformForestData(id);
+      console.log("Transformed Forest Data:", forest);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  
+  useEffect(() => {
+    fetchData();
+  }, [id]);
 
 
 
