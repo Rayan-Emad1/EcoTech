@@ -8,42 +8,42 @@ import {
   
   import { COLORS, SIZES, images, icons } from "../../constants/index";
 
-const ForestCard = ({title}) => {
+const ForestCard = ({title,address,temperature,humidity,fire_alarm}) => {
   return (
     <View style={styles.forest_container}>
     <View style={styles.left_side}>
-      <Image source={images.safe_card} />
+      <Image source={fire_alarm?images.danger_card:images.safe_card} />
     </View>
     <View style={styles.right_side}>
       <Text style={styles.forest_title}>{title}</Text>
       <View style={[styles.forest_details_location,styles.forest_details]}>
         <Text>20 KM</Text>
         <View style={styles.forest_icons}>
-          <Text>Location</Text>
+          <Text>{address}</Text>
           <Image source={icons.location} />
         </View>
       </View>
       <View style={styles.forest_details}>
-        <Text>Wind</Text>
+        {/* <Text>Wind</Text>
         <View style={styles.forest_icons}>
           <Text>3 km/h</Text>
           <Image source={icons.wind} />
-        </View>
+        </View> */}
       </View>
       <View style={styles.forest_details}>
         <Text>Temperature</Text>
         <View style={styles.forest_icons}>
-          <Text>32°C</Text>
+          <Text>{temperature}°C</Text>
           <Image source={icons.temperature} />
         </View>
       </View>
-      {/* <View style={styles.forest_details}>
+      <View style={styles.forest_details}>
         <Text>Humidity</Text>
         <View style={styles.forest_icons}>
-          <Text>25%</Text>
+          <Text>{humidity}%</Text>
           <Image source={icons.humidity} />
         </View>
-      </View> */}
+      </View>
     </View>
   </View>
   )
