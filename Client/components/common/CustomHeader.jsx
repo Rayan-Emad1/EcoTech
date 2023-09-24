@@ -13,6 +13,7 @@ const CustomHeader = ({ setSearchValue }) => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const toggleSearch = () => {
     setIsSearchVisible(!isSearchVisible);
+    setSearchValue("")
   };
 
   return (
