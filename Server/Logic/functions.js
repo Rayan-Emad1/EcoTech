@@ -55,8 +55,8 @@ const updateDataFieldDaily = (data_field, day) => {
   // console.log(average);
   // console.log("====================================");
 
-  const timestamp = new Date(real_data[0].timestamp);
-  const month = timestamp.getMonth();
+  const timestamp = new Date();
+  const month = timestamp.getMonth()+1;
 
   data_field.daily.push({
     value: average,
@@ -93,16 +93,19 @@ const getWeekOfData = (data_field, start_date) => {
 };
 
 const getCurrentDayData = (daily_values) => {
-  const currentDay = new Date().getDay();
-  console.log(`Current Day: ${currentDay}`);
+  const currentDate = new Date();
+  const dayOfMonth = currentDate.getDate();
+  
+  console.log("Day of the month:", dayOfMonth);
 
   const currentDayData = daily_values.filter((data) => {
-    const dataDay = new Date(data.timestamp).getDay();
-    console.log(`Data Day: ${dataDay}`);
-    return dataDay === currentDay;
+    const dataDay = new Date(data.timestamp).getDate(); // Use .getDate() here
+    console.log(`Data Day For: ${dataDay}`);
+    return dataDay === dayOfMonth;
   });
   return currentDayData;
 };
+
 
 module.exports = {
   updateDataField,

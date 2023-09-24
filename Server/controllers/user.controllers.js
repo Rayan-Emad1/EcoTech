@@ -51,24 +51,24 @@ const getForestData = async (req, res) => {
     }
 
     const current_week_start = getStartTimeOfCurrentWeek();
-    const previous_week_Start = getStartTimeOfPreviousWeek(current_week_start);
-    const week_before_start = getStartTimeOfPreviousWeek(previous_week_Start);
+    // const previous_week_Start = getStartTimeOfPreviousWeek(current_week_start);
+    // const week_before_start = getStartTimeOfPreviousWeek(previous_week_Start);
 
     const current_week_temperature = await getWeekOfData(forest.temperature.daily, current_week_start);
     const current_week_humidity = await getWeekOfData(forest.humidity.daily, current_week_start);
-    const current_week_wind = await getWeekOfData(forest.wind.daily, current_week_start);
+    // const current_week_wind = await getWeekOfData(forest.wind.daily, current_week_start);
 
-    const previous_week_temperature = await getWeekOfData(forest.temperature.daily, previous_week_Start);
-    const previous_week_humidity = await getWeekOfData(forest.humidity.daily, previous_week_Start);
-    const previous_week_wind = await getWeekOfData(forest.wind.daily, previous_week_Start);
+    // const previous_week_temperature = await getWeekOfData(forest.temperature.daily, previous_week_Start);
+    // const previous_week_humidity = await getWeekOfData(forest.humidity.daily, previous_week_Start);
+    // const previous_week_wind = await getWeekOfData(forest.wind.daily, previous_week_Start);
 
-    const week_before_temperature = await getWeekOfData(forest.temperature.daily, week_before_start);
-    const week_before_humidity = await getWeekOfData(forest.humidity.daily, week_before_start);
-    const week_before_wind = await getWeekOfData(forest.wind.daily, week_before_start);
+    // const week_before_temperature = await getWeekOfData(forest.temperature.daily, week_before_start);
+    // const week_before_humidity = await getWeekOfData(forest.humidity.daily, week_before_start);
+    // const week_before_wind = await getWeekOfData(forest.wind.daily, week_before_start);
 
     const todays_temperature = getCurrentDayData(forest.temperature.hourly);
     const todays_humidity = getCurrentDayData(forest.humidity.hourly);
-    const todays_wind = getCurrentDayData(forest.wind.hourly);
+    // const todays_wind = getCurrentDayData(forest.wind.hourly);
 
     const response = {
       forestName: forest.name,
@@ -76,24 +76,24 @@ const getForestData = async (req, res) => {
         currentWeek: {
           temperature: current_week_temperature,
           humidity: current_week_humidity,
-          wind: current_week_wind,
+          // wind: current_week_wind,
         },
-        previousWeek: {
-          temperature: previous_week_temperature, 
-          humidity: previous_week_humidity,    
-          wind: previous_week_wind,        
-        },
+        // previousWeek: {
+        //   temperature: previous_week_temperature, 
+        //   humidity: previous_week_humidity,    
+        //   wind: previous_week_wind,        
+        // },
 
-        weekBeforeStart:{
-          temperature: week_before_temperature, 
-          humidity: week_before_humidity,    
-          wind: week_before_wind,   
-        }
+        // weekBeforeStart:{
+        //   temperature: week_before_temperature, 
+        //   humidity: week_before_humidity,    
+        //   wind: week_before_wind,   
+        // }
       },
       todaysData: {
         temperature: todays_temperature,
         humidity: todays_humidity,
-        wind: todays_wind,
+        // wind: todays_wind,
       },
     };
 
