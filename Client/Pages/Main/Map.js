@@ -30,7 +30,7 @@ const Map = () => {
   const [forests, setForests] = useState([
     {
       title: "Barouk National Park",
-      location: {
+      coordinates: {
         latitude: 33.937287,
         longitude: 35.81056445540316,
       },
@@ -41,7 +41,7 @@ const Map = () => {
     },
     {
       title: "second",
-      location: {
+      coordinates: {
         latitude: 36.83728746204912,
         longitude: 37.91056445540316,
       },
@@ -52,7 +52,7 @@ const Map = () => {
     },
     {
       title: "third",
-      location: {
+      coordinates: {
         latitude: 35.83728746204912,
         longitude: 35.91056445540316,
       },
@@ -63,7 +63,7 @@ const Map = () => {
     },
     {
       title: "forth",
-      location: {
+      coordinates: {
         latitude: 30.83728746204912,
         longitude: 36.91056445540316,
       },
@@ -101,12 +101,12 @@ const Map = () => {
   };
 
   const handleSearch = async (searchValue) => {
-    const matchingForest = forests_locations.find((forest) =>
+    const matchingForest = forests.find((forest) =>
       forest.title.toLowerCase().includes(searchValue.toLowerCase())
     );
 
     if (matchingForest && searchValue != "") {
-      const index = forests_locations.indexOf(matchingForest);
+      const index = forests.indexOf(matchingForest);
       setShowCards(true);
       let x = index * CARD_WIDTH + index * 20;
       if (Platform.OS === "ios") {
@@ -130,11 +130,11 @@ const Map = () => {
     const regionTimeout = setTimeout(() => {
       if (mapIndex !== index) {
         mapIndex = index;
-        const { location } = forests[index];
-        console.log(location),
+        const { coordinates } = forests[index];
+        console.log(coordinates),
           _map.current.animateToRegion(
             {
-              ...location,
+              ...coordinates,
               latitudeDelta: region.latitudeDelta,
               longitudeDelta: region.longitudeDelta,
             },
