@@ -9,7 +9,7 @@ import { COLORS, SIZES } from "../../constants";
 const Statistics = ({ navigation, route }) => {
   const { id } = route.params;
 
-  const STATE_COLOR = COLORS.green;
+  const STATE_COLOR = COLORS.red;
 
   const chartConfig = {
     backgroundGradientFrom: COLORS.black_icons,
@@ -67,6 +67,7 @@ const Statistics = ({ navigation, route }) => {
             data={WeeklyTemp}
             width={width - 20}
             height={height}
+            withInnerLines={false}
             chartConfig={chartConfig}
             style={{ marginBottom: 10, backgroundColor: "red" }}
             bezier
@@ -84,7 +85,8 @@ const Statistics = ({ navigation, route }) => {
               <LineChart
                 data={HourlyTemp}
                 width={700}
-                yAxisSuffix="%"
+                yAxisSuffix="°C"
+                withInnerLines={false}
                 height={height}
                 xLabelsOffset={1}
                 chartConfig={chartConfig}
@@ -106,10 +108,10 @@ const Statistics = ({ navigation, route }) => {
                 data={HourlyHumid}
                 yAxisSuffix="%"
                 width={600}
+                withInnerLines={false}
                 height={height}
                 xLabelsOffset={5}
                 chartConfig={chartConfig}
-                bezier
                 fromZero
                 yLabelsOffset={14}
                 showValuesOnTopOfBars
@@ -125,7 +127,7 @@ const Statistics = ({ navigation, route }) => {
             width={width - 20}
             height={height}
             chartConfig={chartConfig}
-            bezier
+            withInnerLines={false}
             fromZero
             yLabelsOffset={14}
             showValuesOnTopOfBars
@@ -173,12 +175,12 @@ const styles = StyleSheet.create({
     fontSize: 40,
   },
   widget_average: {
-    fontSize: SIZES.small,
+    fontSize: SIZES.medium,
     fontWeight: "bold",
     marginBottom: -7,
   },
   widget_location: {
-    fontSize: SIZES.medium,
+    fontSize: SIZES.small,
     fontWeight: "600",
   },
   bottom: {

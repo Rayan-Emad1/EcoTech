@@ -52,13 +52,13 @@ const HourlyTemp = {
   ],
   datasets: [
     {
-      data: [24, 23, 22, 21, 21, 24, 23, 22, 21, 21, 21, 30, 24],
-      color: (opacity = 0.1) => `rgba(0, 250, 0, ${opacity})`,
+      data: [24, 23, 22, 21, 21, 24, 23, 22, 21, 21, 24, 30, 26],
+      color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`,
       legend: ["Predicted Values"],
     },
     {
       data: [24, 23, 22, 21, 21, 24, 23, 22, 21, 21],
-      color: (opacity = 1) => `rgba(244, 244, 244, ${opacity})`,
+      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
       legend: ["Real Values"],
     },
 
@@ -66,18 +66,19 @@ const HourlyTemp = {
 };
 
 const WeeklyTemp = {
-  labels: ["29/7", "29/7", "29/7", "29/7", "29/7", "29/7", "29/7"],
+  labels: ["25/7", "26/7", "27/7", "28/7", "29/7", "31/7", "1/8"],
   datasets: [
+    {
+      data: [24, 23, 22, 21, 21, 21, 24],
+      color: (opacity = 1) => `rgba(250, 0 , 0, ${opacity})`,
+      legend: ["Predicted Values"],
+    },
     {
       data: [24, 23, 22, 21, 21],
       color: (opacity = 1) => `rgba(244, 244, 244, ${opacity})`,
       legend: ["Real Values"],
     },
-    {
-      data: [null, null, null, null, 21, 30, 24],
-      color: (opacity = 1) => `rgba(0, 250, 0, ${opacity})`,
-      legend: ["Predicted Values"],
-    },
+
   ],
 };
 
