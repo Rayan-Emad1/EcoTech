@@ -14,7 +14,7 @@ const WeatherWidget = ({ forest, navigation }) => {
   const {id, address, current_temperature, fire_alarm, condition } = forest;
   return (
     <Pressable
-      onPress={() => navigation.navigate("Statistics" ,{id})}
+      onPress={() => navigation.navigate("Statistics" ,{id,address, current_temperature, fire_alarm})}
       style={{ margin: 20, height: 180 }}
     >
       <ImageBackground
