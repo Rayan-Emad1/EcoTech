@@ -11,10 +11,10 @@ import React from "react";
 import { COLORS, SIZES, images } from "../../constants/index";
 
 const WeatherWidget = ({ forest, navigation }) => {
-  const {id, address, current_temperature, fire_alarm, condition } = forest;
+  const {id, address, current_temperature, fire_alarm, condition ,forecast } = forest;
   return (
     <Pressable
-      onPress={() => navigation.navigate("Statistics" ,{id,address, current_temperature, fire_alarm})}
+      onPress={() => navigation.navigate("Statistics" ,{id,address, forecast, current_temperature, fire_alarm})}
       style={{ margin: 20, height: 180 }}
     >
       <ImageBackground
