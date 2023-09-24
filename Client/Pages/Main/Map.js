@@ -8,19 +8,27 @@ import {
   Animated,
   Dimensions,
 } from "react-native";
-import { images, icons } from "../../constants/index";
-import MapView, { Callout, Marker } from "react-native-maps";
+import MapView from "react-native-maps";
 import * as Location from "expo-location";
-import { CustomHeader, ForestCard } from "../../components";
+
+import { CustomHeader, ForestCard, CustomMarker } from "../../components";
 
 const { width } = Dimensions.get("window");
 const CARD_WIDTH = 310;
 const SPACING_FOR_CARD_INSET = width * 0.1 - 15;
 
 const Map = () => {
+
   const [location, setLocation] = useState();
   const [showCards, setShowCards] = useState(false);
   const [searchText, setSearchText] = useState("");
+
+
+  let mapIndex = 0;
+  let mapAnimation = new Animated.Value(0);
+  const _map = useRef(null);
+  const _scrollView = useRef(null);
+
 
   const [forests, setForests] = useState([
     {
@@ -57,53 +65,12 @@ const Map = () => {
     },
   ]);
 
-  let mapIndex = 0;
-  let mapAnimation = new Animated.Value(0);
-  const _map = useRef(null);
-  const _scrollView = useRef(null);
-
   const region = {
     latitude: 33.83728746204912,
     latitudeDelta: 2.1746411420983733,
     longitude: 35.91056445540316,
     longitudeDelta: 1.4095237243800227,
   };
-
-  //TO FETCH AND ADD DATA
-  const forests_locations = [
-    {
-      title: "Barouk National Park",
-      location: {
-        latitude: 33.937287,
-        longitude: 35.81056445540316,
-      },
-      description: "Something Cool",
-    },
-    {
-      title: "second",
-      location: {
-        latitude: 36.83728746204912,
-        longitude: 37.91056445540316,
-      },
-      description: "Something Cool",
-    },
-    {
-      title: "third",
-      location: {
-        latitude: 35.83728746204912,
-        longitude: 35.91056445540316,
-      },
-      description: "Something Cool",
-    },
-    {
-      title: "forth",
-      location: {
-        latitude: 30.83728746204912,
-        longitude: 36.91056445540316,
-      },
-      description: "Something Cool",
-    },
-  ];
 
   const getPermissions = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
@@ -115,29 +82,6 @@ const Map = () => {
 
     let currentLocation = await Location.getCurrentPositionAsync({});
     setLocation(currentLocation);
-  };
-
-  const showForestLocation = (forest, index) => {
-    console.log(forest.location);
-    console.log(forest.title);
-    console.log("======================");
-    return (
-      <Marker
-        key={index}
-        coordinate={forest.location}
-        image={images.safe_pin}
-        onPress={(e) => onMarkerPress(e)}
-      >
-        <Callout tooltip style={styles.callout_container}>
-          <View style={styles.callout_view_container}>
-            <View style={styles.callout_text_container}>
-              <Image source={icons.safe} style={styles.icon_style} />
-              <Text style={styles.callout_text}>{forest.title}</Text>
-            </View>
-          </View>
-        </Callout>
-      </Marker>
-    );
   };
 
   const handleMapLongPress = async () => {
@@ -203,6 +147,7 @@ const Map = () => {
     _scrollView.current.scrollTo({ x: x, y: 0, animated: true });
   };
 
+  
   useEffect(() => {
     getPermissions();
   }, []);
@@ -229,7 +174,14 @@ const Map = () => {
         onPress={() => Keyboard.dismiss()}
       >
         {forests.map((forest, index) => {
-          return showForestLocation(forest, index);
+          return (
+            <CustomMarker
+              forest={forest}
+              key={index}
+              index={index}
+              onMarkerPress={onMarkerPress}
+            />
+          );
         })}
       </MapView>
 
@@ -266,8 +218,8 @@ const Map = () => {
             { useNativeDriver: true }
           )}
         >
-          {forests_locations.map((marker, index) => (
-            <ForestCard key={index} title={marker.title} />
+          {forests.map((forest, index) => (
+            <ForestCard key={index} title={forest.title} />
           ))}
         </Animated.ScrollView>
       )}
@@ -293,31 +245,6 @@ const styles = StyleSheet.create({
     height: 25,
     width: 25,
   },
-  callout_container: {
-    height: 50,
-    width: 50,
-  },
-  callout_view_container: {
-    position: "relative",
-    top: "152%",
-    left: "11%",
-    width: 200,
-  },
-  callout_text_container: {
-    borderRadius: 100,
-    height: 40,
-    width: "auto",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 7.5,
-    alignItems: "center",
-    alignSelf: "flex-start",
-    backgroundColor: "white",
-  },
-  callout_text: {
-    alignSelf: "flex-start",
-    margin: 10,
-  },
   scrollView: {
     position: "absolute",
     bottom: 15,
@@ -326,3 +253,39 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
 });
+
+  //TO FETCH AND ADD DATA
+  // const forests_locations = [
+  //   {
+  //     title: "Barouk National Park",
+  //     location: {
+  //       latitude: 33.937287,
+  //       longitude: 35.81056445540316,
+  //     },
+  //     description: "Something Cool",
+  //   },
+  //   {
+  //     title: "second",
+  //     location: {
+  //       latitude: 36.83728746204912,
+  //       longitude: 37.91056445540316,
+  //     },
+  //     description: "Something Cool",
+  //   },
+  //   {
+  //     title: "third",
+  //     location: {
+  //       latitude: 35.83728746204912,
+  //       longitude: 35.91056445540316,
+  //     },
+  //     description: "Something Cool",
+  //   },
+  //   {
+  //     title: "forth",
+  //     location: {
+  //       latitude: 30.83728746204912,
+  //       longitude: 36.91056445540316,
+  //     },
+  //     description: "Something Cool",
+  //   },
+  // ];
