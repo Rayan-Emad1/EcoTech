@@ -3,10 +3,11 @@ import { SafeAreaView, Text, ScrollView, View, StyleSheet } from "react-native";
 import { LineChart, BarChart } from "react-native-chart-kit";
 
 import { HourlyHumid, WeeklyHumid, HourlyTemp, WeeklyTemp } from "./data";
-import {DropDown,BackButton} from "../../components";
+import { DropDown, BackButton } from "../../components";
 import { COLORS, SIZES } from "../../constants";
 
-const Statistics = ({ navigation }) => {
+const Statistics = ({ navigation, route }) => {
+  const { id } = route.params;
 
   const STATE_COLOR = COLORS.green;
 
@@ -217,5 +218,3 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
 });
-
-
