@@ -14,12 +14,16 @@ import * as Location from "expo-location";
 import { CustomHeader, ForestCard, CustomMarker } from "../../components";
 
 import { getForests } from "../../constants/request";
+import { useDispatch } from "react-redux";
+import { setForests } from "../../Redux-components/Redux-actions/forest";
 
 const { width } = Dimensions.get("window");
 const CARD_WIDTH = 310;
 const SPACING_FOR_CARD_INSET = width * 0.1 - 15;
 
 const Map = () => {
+  const dispatch = useDispatch();
+
   const [location, setLocation] = useState();
   const [showCards, setShowCards] = useState(false);
   const [searchText, setSearchText] = useState("");
@@ -29,7 +33,7 @@ const Map = () => {
   const _map = useRef(null);
   const _scrollView = useRef(null);
 
-  const [forests, setForests] = useState([]);
+  const [forests, setForestsLocally] = useState([]);
 
   const region = {
     latitude: 33.83728746204912,
@@ -40,9 +44,9 @@ const Map = () => {
 
   const getPermissions = async () => {
 
-    f = await getForests();
-    console.log(f);
-    setForests(f)
+    ForestData = await getForests();
+    setForestsLocally(ForestData);
+    dispatch(setForests(ForestData));
 
     let { status } = await Location.requestForegroundPermissionsAsync();
 
@@ -222,50 +226,3 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
 });
-
-//TO FETCH AND ADD DATA
-// [{
-//   title: "Barouk National Park",
-//   coordinates: {
-//     latitude: 33.937287,
-//     longitude: 35.81056445540316,
-//   },
-//   fire_alarm: false,
-//   address: "Lebanon-Shouf",
-//   current_temperature: 35,
-//   current_humidity: 50,
-// },
-// {
-//   title: "second",
-//   coordinates: {
-//     latitude: 36.83728746204912,
-//     longitude: 37.91056445540316,
-//   },
-//   fire_alarm: true,
-//   address: "Lebanon-Shouf",
-//   current_temperature: 35,
-//   current_humidity: 50,
-// },
-// {
-//   title: "third",
-//   coordinates: {
-//     latitude: 35.83728746204912,
-//     longitude: 35.91056445540316,
-//   },
-//   fire_alarm: true,
-//   address: "Lebanon-Shouf",
-//   current_temperature: 35,
-//   current_humidity: 50,
-// },
-// {
-//   title: "forth",
-//   coordinates: {
-//     latitude: 30.83728746204912,
-//     longitude: 36.91056445540316,
-//   },
-//   fire_alarm: false,
-//   address: "Lebanon-Shouf",
-//   current_temperature: 35,
-//   current_humidity: 50,
-// },
-// ]
