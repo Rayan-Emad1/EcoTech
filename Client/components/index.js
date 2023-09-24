@@ -6,6 +6,7 @@ import CustomInput from "./common/CustomInput";
 import Dropdown from "./Notification/Dropdown";
 import WeatherWidget from "./Notification/WeatherWidget";
 import ForestCard from "./Map/ForestCard";
+import CustomMarker from "./Map/CustomMarker";
 
 export {
   SubmitButton,
@@ -16,4 +17,5 @@ export {
   WeatherWidget,
   ForestCard,
   CustomHeader,
+  CustomMarker,
 };
