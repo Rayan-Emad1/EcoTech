@@ -4,15 +4,14 @@ import React from "react";
 import { COLORS, SIZES, images, icons } from "../../constants/index";
 
 const ForestCard = ({ forest }) => {
-  const { title, address, current_temperature, current_humidity, fire_alarm } =
-    forest;
+  const { name, address, current_temperature, current_humidity, fire_alarm } =forest;
   return (
     <View style={styles.forest_container}>
       <View style={styles.left_side}>
         <Image source={fire_alarm ? images.danger_card : images.safe_card} />
       </View>
       <View style={styles.right_side}>
-        <Text style={styles.forest_title}>{title}</Text>
+        <Text style={styles.forest_title}>{name}</Text>
         <View style={[styles.forest_details_location, styles.forest_details]}>
           <View style={styles.forest_icons}>
             <Image source={icons.location} />

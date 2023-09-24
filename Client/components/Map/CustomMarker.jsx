@@ -5,7 +5,7 @@ import { images, icons } from "../../constants";
 
 const CustomMarker = ({forest, index,onMarkerPress}) => {
 
-  const { title, coordinates, fire_alarm } =forest;
+  const { name, coordinates, fire_alarm } =forest;
   
   return (
     <Marker
@@ -18,7 +18,7 @@ const CustomMarker = ({forest, index,onMarkerPress}) => {
         <View style={styles.callout_view_container}>
           <View style={styles.callout_text_container}>
             <Image source={fire_alarm? icons.danger : icons.safe} style={styles.icon_style} />
-            <Text style={styles.callout_text}>{title}</Text>
+            <Text style={styles.callout_text}>{name}</Text>
           </View>
         </View>
       </Callout>

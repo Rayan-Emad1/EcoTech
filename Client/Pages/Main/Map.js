@@ -13,6 +13,8 @@ import * as Location from "expo-location";
 
 import { CustomHeader, ForestCard, CustomMarker } from "../../components";
 
+import { getForests } from "../../constants/request";
+
 const { width } = Dimensions.get("window");
 const CARD_WIDTH = 310;
 const SPACING_FOR_CARD_INSET = width * 0.1 - 15;
@@ -27,52 +29,7 @@ const Map = () => {
   const _map = useRef(null);
   const _scrollView = useRef(null);
 
-  const [forests, setForests] = useState([
-    {
-      title: "Barouk National Park",
-      coordinates: {
-        latitude: 33.937287,
-        longitude: 35.81056445540316,
-      },
-      fire_alarm:false,
-      address: "Lebanon-Shouf",
-      current_temperature: 35,
-      current_humidity: 50,
-    },
-    {
-      title: "second",
-      coordinates: {
-        latitude: 36.83728746204912,
-        longitude: 37.91056445540316,
-      },
-      fire_alarm:true,
-      address: "Lebanon-Shouf",
-      current_temperature: 35,
-      current_humidity: 50,
-    },
-    {
-      title: "third",
-      coordinates: {
-        latitude: 35.83728746204912,
-        longitude: 35.91056445540316,
-      },
-      fire_alarm:true,
-      address: "Lebanon-Shouf",
-      current_temperature: 35,
-      current_humidity: 50,
-    },
-    {
-      title: "forth",
-      coordinates: {
-        latitude: 30.83728746204912,
-        longitude: 36.91056445540316,
-      },
-      fire_alarm:false,
-      address: "Lebanon-Shouf",
-      current_temperature: 35,
-      current_humidity: 50,
-    },
-  ]);
+  const [forests, setForests] = useState([]);
 
   const region = {
     latitude: 33.83728746204912,
@@ -82,6 +39,11 @@ const Map = () => {
   };
 
   const getPermissions = async () => {
+
+    f = await getForests();
+    console.log(f);
+    setForests(f)
+
     let { status } = await Location.requestForegroundPermissionsAsync();
 
     if (status !== "granted") {
@@ -102,7 +64,7 @@ const Map = () => {
 
   const handleSearch = async (searchValue) => {
     const matchingForest = forests.find((forest) =>
-      forest.title.toLowerCase().includes(searchValue.toLowerCase())
+      forest.name.toLowerCase().includes(searchValue.toLowerCase())
     );
 
     if (matchingForest && searchValue != "") {
@@ -131,15 +93,14 @@ const Map = () => {
       if (mapIndex !== index) {
         mapIndex = index;
         const { coordinates } = forests[index];
-        console.log(coordinates),
-          _map.current.animateToRegion(
-            {
-              ...coordinates,
-              latitudeDelta: region.latitudeDelta,
-              longitudeDelta: region.longitudeDelta,
-            },
-            350
-          );
+        _map.current.animateToRegion(
+          {
+            ...coordinates,
+            latitudeDelta: region.latitudeDelta,
+            longitudeDelta: region.longitudeDelta,
+          },
+          350
+        );
       }
     }, 10);
   };
@@ -263,37 +224,48 @@ const styles = StyleSheet.create({
 });
 
 //TO FETCH AND ADD DATA
-// const forests_locations = [
-//   {
-//     title: "Barouk National Park",
-//     location: {
-//       latitude: 33.937287,
-//       longitude: 35.81056445540316,
-//     },
-//     description: "Something Cool",
+// [{
+//   title: "Barouk National Park",
+//   coordinates: {
+//     latitude: 33.937287,
+//     longitude: 35.81056445540316,
 //   },
-//   {
-//     title: "second",
-//     location: {
-//       latitude: 36.83728746204912,
-//       longitude: 37.91056445540316,
-//     },
-//     description: "Something Cool",
+//   fire_alarm: false,
+//   address: "Lebanon-Shouf",
+//   current_temperature: 35,
+//   current_humidity: 50,
+// },
+// {
+//   title: "second",
+//   coordinates: {
+//     latitude: 36.83728746204912,
+//     longitude: 37.91056445540316,
 //   },
-//   {
-//     title: "third",
-//     location: {
-//       latitude: 35.83728746204912,
-//       longitude: 35.91056445540316,
-//     },
-//     description: "Something Cool",
+//   fire_alarm: true,
+//   address: "Lebanon-Shouf",
+//   current_temperature: 35,
+//   current_humidity: 50,
+// },
+// {
+//   title: "third",
+//   coordinates: {
+//     latitude: 35.83728746204912,
+//     longitude: 35.91056445540316,
 //   },
-//   {
-//     title: "forth",
-//     location: {
-//       latitude: 30.83728746204912,
-//       longitude: 36.91056445540316,
-//     },
-//     description: "Something Cool",
+//   fire_alarm: true,
+//   address: "Lebanon-Shouf",
+//   current_temperature: 35,
+//   current_humidity: 50,
+// },
+// {
+//   title: "forth",
+//   coordinates: {
+//     latitude: 30.83728746204912,
+//     longitude: 36.91056445540316,
 //   },
-// ];
+//   fire_alarm: false,
+//   address: "Lebanon-Shouf",
+//   current_temperature: 35,
+//   current_humidity: 50,
+// },
+// ]
