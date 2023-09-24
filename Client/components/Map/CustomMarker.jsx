@@ -4,21 +4,21 @@ import { Callout, Marker } from "react-native-maps";
 import { images, icons } from "../../constants";
 
 const CustomMarker = ({forest, index,onMarkerPress}) => {
-  console.log(forest.location);
-  console.log(forest.title);
+
+  const { title, coordinates, fire_alarm } =forest;
   console.log("======================");
   return (
     <Marker
       key={index}
-      coordinate={forest.location}
-      image={images.safe_pin}
+      coordinate={coordinates}
+      image={fire_alarm? images.dangerous_pin :images.safe_pin}
       onPress={(e) => onMarkerPress(e)}
     >
       <Callout tooltip style={styles.callout_container}>
         <View style={styles.callout_view_container}>
           <View style={styles.callout_text_container}>
-            <Image source={icons.safe} style={styles.icon_style} />
-            <Text style={styles.callout_text}>{forest.title}</Text>
+            <Image source={fire_alarm? icons.danger : icons.safe} style={styles.icon_style} />
+            <Text style={styles.callout_text}>{title}</Text>
           </View>
         </View>
       </Callout>
