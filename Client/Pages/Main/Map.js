@@ -18,17 +18,14 @@ const CARD_WIDTH = 310;
 const SPACING_FOR_CARD_INSET = width * 0.1 - 15;
 
 const Map = () => {
-
   const [location, setLocation] = useState();
   const [showCards, setShowCards] = useState(false);
   const [searchText, setSearchText] = useState("");
-
 
   let mapIndex = 0;
   let mapAnimation = new Animated.Value(0);
   const _map = useRef(null);
   const _scrollView = useRef(null);
-
 
   const [forests, setForests] = useState([
     {
@@ -37,7 +34,10 @@ const Map = () => {
         latitude: 33.937287,
         longitude: 35.81056445540316,
       },
-      description: "Something Cool",
+      fire_alarm:false,
+      address: "Lebanon-Shouf",
+      current_temperature: 35,
+      current_humidity: 50,
     },
     {
       title: "second",
@@ -45,7 +45,10 @@ const Map = () => {
         latitude: 36.83728746204912,
         longitude: 37.91056445540316,
       },
-      description: "Something Cool",
+      fire_alarm:true,
+      address: "Lebanon-Shouf",
+      current_temperature: 35,
+      current_humidity: 50,
     },
     {
       title: "third",
@@ -53,7 +56,10 @@ const Map = () => {
         latitude: 35.83728746204912,
         longitude: 35.91056445540316,
       },
-      description: "Something Cool",
+      fire_alarm:true,
+      address: "Lebanon-Shouf",
+      current_temperature: 35,
+      current_humidity: 50,
     },
     {
       title: "forth",
@@ -61,7 +67,10 @@ const Map = () => {
         latitude: 30.83728746204912,
         longitude: 36.91056445540316,
       },
-      description: "Something Cool",
+      fire_alarm:false,
+      address: "Lebanon-Shouf",
+      current_temperature: 35,
+      current_humidity: 50,
     },
   ]);
 
@@ -147,7 +156,6 @@ const Map = () => {
     _scrollView.current.scrollTo({ x: x, y: 0, animated: true });
   };
 
-  
   useEffect(() => {
     getPermissions();
   }, []);
@@ -219,7 +227,7 @@ const Map = () => {
           )}
         >
           {forests.map((forest, index) => (
-            <ForestCard key={index} title={forest.title} />
+            <ForestCard key={index} forest={forest} />
           ))}
         </Animated.ScrollView>
       )}
@@ -254,38 +262,38 @@ const styles = StyleSheet.create({
   },
 });
 
-  //TO FETCH AND ADD DATA
-  // const forests_locations = [
-  //   {
-  //     title: "Barouk National Park",
-  //     location: {
-  //       latitude: 33.937287,
-  //       longitude: 35.81056445540316,
-  //     },
-  //     description: "Something Cool",
-  //   },
-  //   {
-  //     title: "second",
-  //     location: {
-  //       latitude: 36.83728746204912,
-  //       longitude: 37.91056445540316,
-  //     },
-  //     description: "Something Cool",
-  //   },
-  //   {
-  //     title: "third",
-  //     location: {
-  //       latitude: 35.83728746204912,
-  //       longitude: 35.91056445540316,
-  //     },
-  //     description: "Something Cool",
-  //   },
-  //   {
-  //     title: "forth",
-  //     location: {
-  //       latitude: 30.83728746204912,
-  //       longitude: 36.91056445540316,
-  //     },
-  //     description: "Something Cool",
-  //   },
-  // ];
+//TO FETCH AND ADD DATA
+// const forests_locations = [
+//   {
+//     title: "Barouk National Park",
+//     location: {
+//       latitude: 33.937287,
+//       longitude: 35.81056445540316,
+//     },
+//     description: "Something Cool",
+//   },
+//   {
+//     title: "second",
+//     location: {
+//       latitude: 36.83728746204912,
+//       longitude: 37.91056445540316,
+//     },
+//     description: "Something Cool",
+//   },
+//   {
+//     title: "third",
+//     location: {
+//       latitude: 35.83728746204912,
+//       longitude: 35.91056445540316,
+//     },
+//     description: "Something Cool",
+//   },
+//   {
+//     title: "forth",
+//     location: {
+//       latitude: 30.83728746204912,
+//       longitude: 36.91056445540316,
+//     },
+//     description: "Something Cool",
+//   },
+// ];
