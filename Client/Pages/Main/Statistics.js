@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 import { SafeAreaView, Text, ScrollView, View, StyleSheet } from "react-native";
 import { LineChart, BarChart } from "react-native-chart-kit";
+
 import { HourlyHumid, WeeklyHumid, HourlyTemp, WeeklyTemp } from "./data";
 import {DropDown,BackButton} from "../../components";
-import { COLORS, SIZES } from "../../constants/index";
+import { COLORS, SIZES } from "../../constants";
 
-const STATE_COLOR = COLORS.green;
-
-const chartConfig = {
-  backgroundGradientFrom: COLORS.black_icons,
-  backgroundGradientTo: COLORS.black_icons,
-  strokeWidth: 5,
-  decimalPlaces: 0,
-  barPercentage: 0.7,
-  labelColor: () => STATE_COLOR,
-  color: () => STATE_COLOR,
-};
 const Statistics = ({ navigation }) => {
+
+  const STATE_COLOR = COLORS.green;
+
+  const chartConfig = {
+    backgroundGradientFrom: COLORS.black_icons,
+    backgroundGradientTo: COLORS.black_icons,
+    strokeWidth: 5,
+    decimalPlaces: 0,
+    barPercentage: 0.7,
+    labelColor: () => STATE_COLOR,
+    color: () => STATE_COLOR,
+  };
+
   const width = 400;
   const height = 350;
 
@@ -136,13 +139,15 @@ const Statistics = ({ navigation }) => {
         >
           <Text style={styles.bottom_text}>
             Something
-            Nicewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwnjbjbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwe
+            Nicewwwwwwwwwwwwwwnjbjbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwe
           </Text>
         </ScrollView>
       </View>
     </SafeAreaView>
   );
 };
+
+export default Statistics;
 
 const styles = StyleSheet.create({
   container: {
@@ -213,4 +218,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Statistics;
+

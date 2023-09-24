@@ -6,7 +6,7 @@ import { images, icons } from "../../constants";
 const CustomMarker = ({forest, index,onMarkerPress}) => {
 
   const { title, coordinates, fire_alarm } =forest;
-  console.log("======================");
+  
   return (
     <Marker
       key={index}
