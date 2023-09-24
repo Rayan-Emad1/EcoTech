@@ -22,6 +22,7 @@ const getAllForestsDetails = async (_, res) => {
       id:forest.id,
       name: forest.name,
       coordinates: forest.coordinates,
+      address: forest.address,
       fire_alarm: forest.fire_alarm,
       description: forest.description,
       current_temperature: forest.current_temperature.value,
