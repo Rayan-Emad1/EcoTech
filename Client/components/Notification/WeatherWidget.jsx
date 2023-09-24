@@ -10,26 +10,38 @@ import React from "react";
 
 import { COLORS, SIZES, images } from "../../constants/index";
 
-const WeatherWidget = ({ navigation }) => {
+const WeatherWidget = ({ forest, navigation }) => {
+  const {id, address, current_temperature, fire_alarm, condition } = forest;
   return (
     <Pressable
-      onPress={() => navigation.navigate("Statistics")}
+      onPress={() => navigation.navigate("Statistics" ,{id})}
       style={{ margin: 20, height: 180 }}
     >
       <ImageBackground
-        source={images.red_background}
+        source={fire_alarm ? images.red_background : images.green_background}
         style={styles.background_image}
       >
         <View style={styles.widget_container}>
           <View style={styles.left_side}>
-            <Text style={styles.widget_temperature}>32°C</Text>
-            <Text style={styles.widget_average}>H:32°C L:28°C</Text>
-            <Text style={styles.widget_location}>
-              Shouf National Ceders, Lebanon
+            <Text style={styles.widget_temperature}>
+              {current_temperature}°C
             </Text>
+            <Text style={styles.widget_average}>H:32°C L:28°C</Text>
+            <Text style={styles.widget_location}>{address}</Text>
           </View>
           <View style={styles.right_side}>
-            <Image style={styles.widget_weather_image} source={images.rainy} />
+            <Image
+              style={styles.widget_weather_image}
+              source={
+                condition === "sunny"
+                  ? images.sunny
+                  : condition === "rainy"
+                  ? images.rainy
+                  : condition === "stormy"
+                  ? images.stormy
+                  : images.night
+              }
+            />
           </View>
         </View>
       </ImageBackground>
