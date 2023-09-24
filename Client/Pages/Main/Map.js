@@ -22,6 +22,53 @@ const Map = () => {
   const [showCards, setShowCards] = useState(false);
   const [searchText, setSearchText] = useState("");
 
+  const [forests, setForests] = useState([
+    {
+      title: "Barouk National Park",
+      location: {
+        latitude: 33.937287,
+        longitude: 35.81056445540316,
+      },
+      description: "Something Cool",
+    },
+    {
+      title: "second",
+      location: {
+        latitude: 36.83728746204912,
+        longitude: 37.91056445540316,
+      },
+      description: "Something Cool",
+    },
+    {
+      title: "third",
+      location: {
+        latitude: 35.83728746204912,
+        longitude: 35.91056445540316,
+      },
+      description: "Something Cool",
+    },
+    {
+      title: "forth",
+      location: {
+        latitude: 30.83728746204912,
+        longitude: 36.91056445540316,
+      },
+      description: "Something Cool",
+    },
+  ]);
+
+  let mapIndex = 0;
+  let mapAnimation = new Animated.Value(0);
+  const _map = useRef(null);
+  const _scrollView = useRef(null);
+
+  const region = {
+    latitude: 33.83728746204912,
+    latitudeDelta: 2.1746411420983733,
+    longitude: 35.91056445540316,
+    longitudeDelta: 1.4095237243800227,
+  };
+
   //TO FETCH AND ADD DATA
   const forests_locations = [
     {
@@ -58,22 +105,9 @@ const Map = () => {
     },
   ];
 
-  const region = {
-    latitude: 33.83728746204912,
-    latitudeDelta: 2.1746411420983733,
-    longitude: 35.91056445540316,
-    longitudeDelta: 1.4095237243800227,
-  };
-
-  const [state, setState] = useState(forests_locations);
-
-  let mapIndex = 0;
-  let mapAnimation = new Animated.Value(0);
-  const _map = useRef(null);
-  const _scrollView = useRef(null);
-
   const getPermissions = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
+
     if (status !== "granted") {
       console.log("Please grant location permissions");
       return;
@@ -83,26 +117,27 @@ const Map = () => {
     setLocation(currentLocation);
   };
 
-  const showForestLocation = () => {
-    return forests_locations.map((item, index) => {
-      return (
-        <Marker
-          key={index}
-          coordinate={item.location}
-          image={images.safe_pin}
-          onPress={(e) => onMarkerPress(e)}
-        >
-          <Callout tooltip style={styles.callout_container}>
-            <View style={styles.callout_view_container}>
-              <View style={styles.callout_text_container}>
-                <Image source={icons.safe} style={styles.icon_style} />
-                <Text style={styles.callout_text}>{item.title}</Text>
-              </View>
+  const showForestLocation = (forest, index) => {
+    console.log(forest.location);
+    console.log(forest.title);
+    console.log("======================");
+    return (
+      <Marker
+        key={index}
+        coordinate={forest.location}
+        image={images.safe_pin}
+        onPress={(e) => onMarkerPress(e)}
+      >
+        <Callout tooltip style={styles.callout_container}>
+          <View style={styles.callout_view_container}>
+            <View style={styles.callout_text_container}>
+              <Image source={icons.safe} style={styles.icon_style} />
+              <Text style={styles.callout_text}>{forest.title}</Text>
             </View>
-          </Callout>
-        </Marker>
-      );
-    });
+          </View>
+        </Callout>
+      </Marker>
+    );
   };
 
   const handleMapLongPress = async () => {
@@ -130,8 +165,8 @@ const Map = () => {
 
   const handleMapAnimation = ({ value }) => {
     let index = Math.floor(value / CARD_WIDTH + 0.2);
-    if (index >= state.length) {
-      index = state.length - 1;
+    if (index >= forests.length) {
+      index = forests.length - 1;
     }
     if (index <= 0) {
       index = 0;
@@ -142,7 +177,7 @@ const Map = () => {
     const regionTimeout = setTimeout(() => {
       if (mapIndex !== index) {
         mapIndex = index;
-        const { location } = state[index];
+        const { location } = forests[index];
         console.log(location),
           _map.current.animateToRegion(
             {
@@ -175,7 +210,6 @@ const Map = () => {
   useEffect(() => {
     mapAnimation.addListener(handleMapAnimation);
     return () => {
-      // Clean up by removing the listener
       mapAnimation.removeListener(handleMapAnimation);
     };
   });
@@ -194,7 +228,9 @@ const Map = () => {
         onLongPress={handleMapLongPress}
         onPress={() => Keyboard.dismiss()}
       >
-        {showForestLocation()}
+        {forests.map((forest, index) => {
+          return showForestLocation(forest, index);
+        })}
       </MapView>
 
       {showCards && (
