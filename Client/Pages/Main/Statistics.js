@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView, Text, ScrollView, View, StyleSheet } from "react-native";
 import { LineChart, BarChart } from "react-native-chart-kit";
 
-import { HourlyHumid, WeeklyHumid, HourlyTemp, WeeklyTemp } from "./data";
 import { DropDown, BackButton } from "../../components";
 import { COLORS, SIZES } from "../../constants";
 
-const Statistics = ({ navigation, route }) => {
-  const { id } = route.params;
+import { HourlyHumid, WeeklyHumid, HourlyTemp, WeeklyTemp } from "./data";
+import { fetchAndTransformForestData } from "../../constants/request";
 
-  const STATE_COLOR = COLORS.red;
+const Statistics = ({ navigation, route }) => {
+  const { id,address, current_temperature, fire_alarm } = route.params;
+  const STATE_COLOR = fire_alarm? COLORS.red: COLORS.green;
+
+
 
   const chartConfig = {
     backgroundGradientFrom: COLORS.black_icons,
@@ -27,6 +30,7 @@ const Statistics = ({ navigation, route }) => {
   const [valueType, setValueType] = useState("temperature");
   const [timeType, setTimeType] = useState("hourly");
 
+
   const handleValueTypeChange = (newValueType) => {
     setValueType(newValueType);
   };
@@ -34,14 +38,17 @@ const Statistics = ({ navigation, route }) => {
     setTimeType(newTimeType);
   };
 
+
+
+
   return (
     <SafeAreaView style={styles.container}>
       <BackButton navigation={navigation} />
       <View style={styles.top}>
-        <Text style={styles.widget_temperature}>32°C</Text>
+        <Text style={styles.widget_temperature}>{current_temperature}°C</Text>
         <Text style={styles.widget_average}>H:32°C L:28°C</Text>
         <Text style={styles.widget_location}>
-          Shouf National Ceders, Lebanon
+          {address}
         </Text>
       </View>
       <View style={styles.backgroundColor}>
