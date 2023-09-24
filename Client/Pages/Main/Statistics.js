@@ -8,10 +8,13 @@ import { COLORS, SIZES } from "../../constants";
 import { fetchAndTransformForestData } from "../../constants/request";
 
 const Statistics = ({ navigation, route }) => {
-  const { id,address, current_temperature, fire_alarm } = route.params;
-  const STATE_COLOR = fire_alarm? COLORS.red: COLORS.green;
+  const { id, address, current_temperature, fire_alarm } = route.params;
+  const STATE_COLOR = fire_alarm ? COLORS.red : COLORS.green;
 
-
+  const [hourlyHumid, setHourlyHumid] = useState(null);
+  const [weeklyHumid, setWeeklyHumid] = useState(null);
+  const [hourlyTemp, setHourlyTemp] = useState(null);
+  const [weeklyTemp, setWeeklyTemp] = useState(null);
 
   const chartConfig = {
     backgroundGradientFrom: COLORS.black_icons,
@@ -29,27 +32,29 @@ const Statistics = ({ navigation, route }) => {
   const [valueType, setValueType] = useState("temperature");
   const [timeType, setTimeType] = useState("hourly");
 
-
   const handleValueTypeChange = (newValueType) => {
     setValueType(newValueType);
   };
   const handleTimeTypeChange = (newTimeType) => {
     setTimeType(newTimeType);
   };
+
   const fetchData = async () => {
     try {
       const forest = await fetchAndTransformForestData(id);
-      console.log("Transformed Forest Data:", forest);
+
+      setHourlyHumid(forest.hourlyHumidData);
+      setWeeklyHumid(forest.weeklyHumidData);
+      setHourlyTemp(forest.hourlyTempData);
+      setWeeklyTemp(forest.weeklyTempData);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
-  
+
   useEffect(() => {
     fetchData();
   }, [id]);
-
-
 
   return (
     <SafeAreaView style={styles.container}>
@@ -57,9 +62,7 @@ const Statistics = ({ navigation, route }) => {
       <View style={styles.top}>
         <Text style={styles.widget_temperature}>{current_temperature}°C</Text>
         <Text style={styles.widget_average}>H:32°C L:28°C</Text>
-        <Text style={styles.widget_location}>
-          {address}
-        </Text>
+        <Text style={styles.widget_location}>{address}</Text>
       </View>
       <View style={styles.backgroundColor}>
         <View style={styles.dropDownContainer}>
@@ -77,11 +80,11 @@ const Statistics = ({ navigation, route }) => {
           />
         </View>
 
-        {valueType == "temperature" && timeType == "weekly" && (
+        {valueType == "temperature" && timeType == "weekly" && weeklyTemp && (
           <LineChart
             yAxisSuffix="°C"
             yAxisInterval={10}
-            data={WeeklyTemp}
+            data={weeklyTemp}
             width={width - 20}
             height={height}
             withInnerLines={false}
@@ -92,7 +95,7 @@ const Statistics = ({ navigation, route }) => {
             yLabelsOffset={14}
           />
         )}
-        {valueType == "temperature" && timeType == "hourly" && (
+        {valueType == "temperature" && timeType == "hourly" && hourlyTemp &&(
           <View style={styles.scrollViewContainer}>
             <ScrollView
               horizontal={true}
@@ -100,7 +103,7 @@ const Statistics = ({ navigation, route }) => {
               contentOffset={{ x: 25, y: 0 }}
             >
               <LineChart
-                data={HourlyTemp}
+                data={hourlyTemp}
                 width={700}
                 yAxisSuffix="°C"
                 withInnerLines={false}
@@ -114,7 +117,7 @@ const Statistics = ({ navigation, route }) => {
             </ScrollView>
           </View>
         )}
-        {valueType == "humidity" && timeType == "hourly" && (
+        {valueType == "humidity" && timeType == "hourly" && hourlyHumid && (
           <View style={styles.scrollViewContainer}>
             <ScrollView
               horizontal={true}
@@ -122,7 +125,7 @@ const Statistics = ({ navigation, route }) => {
               contentOffset={{ x: 25, y: 0 }}
             >
               <BarChart
-                data={HourlyHumid}
+                data={hourlyHumid}
                 yAxisSuffix="%"
                 width={600}
                 withInnerLines={false}
@@ -136,11 +139,11 @@ const Statistics = ({ navigation, route }) => {
             </ScrollView>
           </View>
         )}
-        {valueType == "humidity" && timeType == "weekly" && (
+        {valueType == "humidity" && timeType == "weekly" && weeklyHumid && (
           <BarChart
             yAxisSuffix="%"
             yAxisInterval={10}
-            data={WeeklyHumid}
+            data={weeklyHumid}
             width={width - 20}
             height={height}
             chartConfig={chartConfig}
