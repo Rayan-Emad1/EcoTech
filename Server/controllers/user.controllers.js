@@ -72,6 +72,7 @@ const getForestData = async (req, res) => {
 
     const response = {
       forestName: forest.name,
+      fire_alarm: forest.fire_alarm,
       threeWeeksOfData: {
         currentWeek: {
           temperature: current_week_temperature,
