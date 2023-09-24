@@ -67,7 +67,7 @@ const Map = () => {
   };
 
   const handleSearch = async (searchValue) => {
-    const matchingForest = forests.find((forest) =>
+    const matchingForest = await forests.find((forest) =>
       forest.name.toLowerCase().includes(searchValue.toLowerCase())
     );
 
@@ -79,6 +79,8 @@ const Map = () => {
         x = x - SPACING_FOR_CARD_INSET;
       }
       _scrollView.current.scrollTo({ x: x, y: 0, animated: true });
+    }else{
+      setShowCards(false);
     }
   };
 
