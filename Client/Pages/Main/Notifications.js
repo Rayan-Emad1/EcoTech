@@ -1,19 +1,26 @@
 import { StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import React from "react";
+import { useSelector } from "react-redux";
+
 import WeatherWidget from "../../components/Notification/WeatherWidget";
 
+
 const Notifications = ({ navigation }) => {
+
+  const forests = useSelector((state) => state.forests);
+  const forestsArray = Object.values(forests);
+
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
-        <WeatherWidget navigation={navigation} />
-        <WeatherWidget navigation={navigation} />
-        <WeatherWidget navigation={navigation} />
-        <WeatherWidget navigation={navigation} />
+        {forestsArray.map((forest, index) => (
+          <WeatherWidget key={index} forest={forest} navigation={navigation} />
+        ))}
       </SafeAreaView>
     </ScrollView>
   );
 };
+
 
 export default Notifications;
 
