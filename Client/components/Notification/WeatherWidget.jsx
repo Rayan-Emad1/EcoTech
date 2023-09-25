@@ -11,7 +11,7 @@ import React from "react";
 import { COLORS, SIZES, images } from "../../constants/index";
 
 const WeatherWidget = ({ forest, navigation }) => {
-  const {id, address, current_temperature, fire_alarm, condition ,forecast } = forest;
+  const {id, name,address, current_temperature, fire_alarm, condition ,forecast } = forest;
   return (
     <Pressable
       onPress={() => navigation.navigate("Statistics" ,{id,address, forecast, current_temperature, fire_alarm})}
@@ -27,6 +27,7 @@ const WeatherWidget = ({ forest, navigation }) => {
               {current_temperature}°C
             </Text>
             <Text style={styles.widget_average}>H:32°C L:28°C</Text>
+            <Text style={[styles.widget_location, {marginTop:10}]}>{name}</Text>
             <Text style={styles.widget_location}>{address}</Text>
           </View>
           <View style={styles.right_side}>
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-evenly",
     alignItems: "flex-start",
-    gap: 15,
+    gap: 10,
   },
   widget_temperature: {
     fontWeight: "900",
