@@ -27,27 +27,21 @@ const createForest = async (req, res) => {
 
 const updateForestData = async (req, res) => {
   try {
-
-    const { forestId, temperature, humidity } = req.body;
-
+    const { forestId } = req.body;
     const forest = await Forest.findById(forestId);
 
     if (!forest) {
       return res.status(404).json({ message: "Forest not found" });
     }
 
-    console.log ("before prediction:  " , req.body);
+    const reqAI = await OpenAiPrediction(req.body);
+
+    console.log("before prediction:  ", req.body);
     console.log("===================================================");
     console.log("===================================================");
-    
-    const response = await OpenAiPrediction(req.body);
+    console.log("after prediction:  ", reqAI);
 
-    console.log ("after prediction:  " , response);
-
-
-    return res.status(200).json({ "successsssssssss": response });
-
-
+    const { temperature, humidity } = reqAI;
 
     forest.current_temperature = temperature[0];
     forest.current_humidity = humidity[0];
