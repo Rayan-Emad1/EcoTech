@@ -1,9 +1,10 @@
 const Forest = require("../models/forests.model");
 const { updateDataField } = require("../Logic/functions");
+const { OpenAiPrediction } = require("../configs/open.ai");
 
 const createForest = async (req, res) => {
   try {
-    const { coordinates, name, description,address } = req.body;
+    const { coordinates, name, description, address } = req.body;
 
     const new_forest = new Forest({
       name,
@@ -26,12 +27,27 @@ const createForest = async (req, res) => {
 
 const updateForestData = async (req, res) => {
   try {
+
     const { forestId, temperature, humidity } = req.body;
+
     const forest = await Forest.findById(forestId);
 
     if (!forest) {
       return res.status(404).json({ message: "Forest not found" });
     }
+
+    console.log ("before prediction:  " , req.body);
+    console.log("===================================================");
+    console.log("===================================================");
+    
+    const response = await OpenAiPrediction(req.body);
+
+    console.log ("after prediction:  " , response);
+
+
+    return res.status(200).json({ "successsssssssss": response });
+
+
 
     forest.current_temperature = temperature[0];
     forest.current_humidity = humidity[0];
