@@ -36,6 +36,8 @@ const updateForestData = async (req, res) => {
 
     const reqAI = await OpenAiPrediction(req.body);
 
+    console.log("===================================================");
+    console.log("===================================================");
     console.log("before prediction:  ", req.body);
     console.log("===================================================");
     console.log("===================================================");
