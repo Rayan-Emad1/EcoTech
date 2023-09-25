@@ -109,7 +109,6 @@ const fetchAndTransformForestData = async (forestId) => {
     );
     const forestData = response.data;
 
-
     if (
       forestData.todaysData.temperature.length === 0 ||
       forestData.threeWeeksOfData.currentWeek.temperature.length === 0 ||
@@ -125,8 +124,8 @@ const fetchAndTransformForestData = async (forestId) => {
     }
 
     const colorForFireAlarm = forestData.fire_alarm
-      ? "rgba(255, 0, 0, 1)"
-      : "rgba(0, 255, 0, 1)";
+      ? "rgba(150, 0, 0, 0.8)"
+      : "rgba(0, 150, 0, 0.8)";
 
     const hourlyRealTemperatureData = forestData.todaysData.temperature
       .filter((data) => data.source === "real")
@@ -144,9 +143,10 @@ const fetchAndTransformForestData = async (forestId) => {
         },
         {
           data: hourlyRealTemperatureData,
-          color: (opacity = 1) => "rgba(255, 255, 255, " + opacity + ")",
+          color: (opacity = 1) => "rgba(255, 2, 255, " + opacity + ")",
           legend: ["Real Values"],
         },
+
       ],
     };
 
@@ -156,11 +156,14 @@ const fetchAndTransformForestData = async (forestId) => {
         .map((data) => data.value);
 
     const weeklyTempData = {
-      labels: forestData.threeWeeksOfData.currentWeek.temperature
-        .map((data) => `${data.day}/${data.month}`),
+      labels: forestData.threeWeeksOfData.currentWeek.temperature.map(
+        (data) => `${data.day}/${data.month}`
+      ),
       datasets: [
         {
-          data: forestData.threeWeeksOfData.currentWeek.temperature.map((data) => data.value),
+          data: forestData.threeWeeksOfData.currentWeek.temperature.map(
+            (data) => data.value
+          ),
           color: () => colorForFireAlarm,
           legend: ["Predicted Values"],
         },
@@ -172,16 +175,13 @@ const fetchAndTransformForestData = async (forestId) => {
       ],
     };
 
-
     const hourlyHumidData = {
       labels: forestData.todaysData.humidity
         .filter((data) => data.source === "real")
         .map((data) => `${data.hour}:00`),
       datasets: [
         {
-          data: forestData.todaysData.humidity.map(
-            (data) => data.value
-          ),
+          data: forestData.todaysData.humidity.map((data) => data.value),
           color: (opacity = 1) => "rgba(244, 244, 244, " + opacity + ")",
           legend: ["Real Values"],
         },
