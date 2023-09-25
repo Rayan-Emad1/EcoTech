@@ -12,7 +12,8 @@ const openai = new OpenAI({
 // Prediction function
 const OpenAiPrediction = async (input) => {
 
-
+  while (!responseValid) {
+    try {
       // Get OpenAI response
       const response = await openai.completions.create({
         model: "text-davinci-003",
@@ -39,7 +40,11 @@ const OpenAiPrediction = async (input) => {
       } else {
         console.log("Invalid response, retrying...");
       }
-    
+    } catch (error) {
+      console.error("Error from OpenAI:", error);
+      throw error; // Rethrow the error for the calling function to handle
+    }
+  }
 };
 
 // Export function
