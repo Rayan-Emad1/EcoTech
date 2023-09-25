@@ -89,7 +89,7 @@ You must follow this JSON format strictly. If the response format is not JSON or
         model: "text-davinci-003",
         prompt: prompt,
         temperature: 0.8,
-        max_tokens: 1200,
+        max_tokens: 1500,
       });
 
       // Check if the response is valid JSON
