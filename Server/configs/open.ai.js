@@ -11,7 +11,13 @@ const openai = new OpenAI({
 
 // Prediction function
 const OpenAiPrediction = async (input) => {
-
+  // Get OpenAI response
+  const response = await openai.completions.create({
+    model: "text-davinci-003",
+    prompt: "say test",
+    temperature: 0.7,
+    max_tokens: 500,
+  });
 };
 
 // Export function
