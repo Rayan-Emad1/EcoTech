@@ -4,3 +4,5 @@ EMAIL = ""
 PASSWORD = ""
 
 MONGO_URL=
+
+OPENAI_API_KEY = ""
