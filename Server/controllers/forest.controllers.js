@@ -41,10 +41,14 @@ const updateForestData = async (req, res) => {
     console.log("===================================================");
     console.log("after prediction:  ", reqAI);
 
-    const { temperature, humidity } = reqAI;
+    const { temperature, humidity , forecast , fire_alarm  , condition } = reqAI;
 
     forest.current_temperature = temperature[0];
     forest.current_humidity = humidity[0];
+    forest.forecast = forecast;
+    forest.fire_alarm = fire_alarm;
+    forest.condition = condition;
+
     // forest.current_wind = wind[0];
 
     if (temperature) {
