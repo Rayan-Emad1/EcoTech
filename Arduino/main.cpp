@@ -11,13 +11,13 @@ const char* forestId = "650feb23594bb545d4cdd338";
 
 #define DHTPIN 5 // D1
 DHT dht(DHTPIN, DHT11);
+
+// Arrays to store temperature and humidity data
 float temperatureValues[60] = {0};  // Store up to 60 readings
 float humidityValues[60] = {0};     // Store up to 60 readings
 int readingsCount = 0;
 int lastHour = -1; // Initialize to an invalid hour
 int lastDay = -1;  // Initialize to an invalid day
-
-
 
 void setup() {
   Serial.begin(9600);
@@ -29,13 +29,11 @@ void setup() {
   } else {
     Serial.println("Error in WiFi connection");
   }
-
-  //setTime(hour, minute, second, day, month, year)
+//setTime(hour, minute, second, day, month, year)
   setTime(  23,     59,     50,  25,     9, 2023);  
  // Initialize lastHour and lastDay to current values
   lastHour = hour();
   lastDay = day();
-
 }
 
 void loop() {
@@ -62,7 +60,7 @@ void loop() {
     Serial.println("Failed to read from DHT sensor!");
   }
 
-    // Check if the hour has changed
+  // Check if the hour has changed
   int currentHour = hour();
   if (currentHour != lastHour) {
     // Send data only when the hour changes
@@ -77,11 +75,7 @@ void loop() {
       lastDay = currentDay;
     }
   }
-
-
-
 }
-
 
 void setupWifi() {
   //Connect to wifi
@@ -99,7 +93,6 @@ void setupWifi() {
     Serial.println("Connected to " + (WiFi.localIP()).toString());
   }
 }
-
 
 void sendSensorData(int currentHour) {
   // Create a JSON object
@@ -147,7 +140,6 @@ void sendSensorData(int currentHour) {
   // Reset readingsCount
   readingsCount = 0;
 }
-
 
 void sendToServer(String data) {
   WiFiClient wifiClient; // Create a WiFiClient object
