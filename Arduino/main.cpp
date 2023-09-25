@@ -4,10 +4,20 @@
 #include <ESP8266HTTPClient.h>
 #include <TimeLib.h>
 
-
+const char* ssid = "Rayan";
+const char* password = "Rayan@76179303"; // //Dont Stand Under My Balcony
 
 
 void setup() {
+  Serial.begin(9600);
+
+  setupWifi();
+
+  if (WiFi.status() == WL_CONNECTED) {
+    Serial.println("WiFi connection");
+  } else {
+    Serial.println("Error in WiFi connection");
+  }
 
 }
 
