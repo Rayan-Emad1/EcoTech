@@ -1,9 +1,20 @@
-import { Configuration, OpenAIApi } from "openai";
+// Import OpenAI modules
+const OpenAI = require("openai");
 
-const configuration = new Configuration({
-  organization: "org-S9RajxvDQOHXO6LOujKaylDf",
-  apiKey: process.env.OPENAI_API_KEY,
+require("dotenv").config();
+const { OPENAI_API_KEY } = process.env;
+
+// Configure API key
+const openai = new OpenAI({
+  apiKey: OPENAI_API_KEY,
 });
 
-const openai = new OpenAIApi(configuration);
-const response = await openai.listEngines();
+// Prediction function
+const OpenAiPrediction = async (input) => {
+
+};
+
+// Export function
+module.exports = {
+  OpenAiPrediction,
+};
