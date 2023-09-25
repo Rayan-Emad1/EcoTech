@@ -6,6 +6,8 @@
 
 const char* ssid = "Rayan";
 const char* password = "Rayan@76179303"; // //Dont Stand Under My Balcony
+const char* serverUrl = "http://192.168.0.2:8080/forest/update-forest-data";
+const char* forestId = "650feb23594bb545d4cdd338";
 
 #define DHTPIN 5 // D1
 DHT dht(DHTPIN, DHT11);
@@ -144,4 +146,31 @@ void sendSensorData(int currentHour) {
 
   // Reset readingsCount
   readingsCount = 0;
+}
+
+
+void sendToServer(String data) {
+  WiFiClient wifiClient; // Create a WiFiClient object
+
+  HTTPClient http;
+  http.begin(wifiClient, serverUrl); // Use WiFiClient object here
+
+  http.addHeader("Content-Type", "application/json");
+
+  int httpResponseCode = http.POST(data);
+
+  if (httpResponseCode > 0) {
+    String response = http.getString();
+    Serial.println("HTTP Response code: " + String(httpResponseCode));
+
+    Serial.println("*****************************");
+    Serial.println("*****************************");
+    Serial.println(response);
+    Serial.println("*****************************");
+    Serial.println("*****************************");
+  } else {
+    Serial.println("Error sending data to server");
+  }
+
+  http.end();
 }
