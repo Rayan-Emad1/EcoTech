@@ -8,7 +8,7 @@ import { COLORS, SIZES } from "../../constants";
 import { fetchAndTransformForestData } from "../../constants/request";
 
 const Statistics = ({ navigation, route }) => {
-  const { id, address, current_temperature, fire_alarm } = route.params;
+  const { id, address, current_temperature, fire_alarm, forecast } = route.params;
   const STATE_COLOR = fire_alarm ? COLORS.red : COLORS.green;
 
   const [hourlyHumid, setHourlyHumid] = useState(null);
@@ -47,6 +47,7 @@ const Statistics = ({ navigation, route }) => {
       setWeeklyHumid(forest.weeklyHumidData);
       setHourlyTemp(forest.hourlyTempData);
       setWeeklyTemp(forest.weeklyTempData);
+      console.log(forest.hourlyTempData.datasets)
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -112,7 +113,6 @@ const Statistics = ({ navigation, route }) => {
                 chartConfig={chartConfig}
                 bezier
                 fromZero
-                showValuesOnTopOfBars
               />
             </ScrollView>
           </View>
@@ -161,8 +161,7 @@ const Statistics = ({ navigation, route }) => {
           showsVerticalScrollIndicator={true}
         >
           <Text style={styles.bottom_text}>
-            Something
-            Nicewwwwwwwwwwwwwwnjbjbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwe
+            {forecast}
           </Text>
         </ScrollView>
       </View>
@@ -220,8 +219,9 @@ const styles = StyleSheet.create({
     maxHeight: 140,
   },
   bottom_text: {
-    fontWeight: "900",
+    fontWeight: "400",
     fontSize: SIZES.small,
+    color:COLORS.black_icons,
   },
 
   scrollViewContainer: {
