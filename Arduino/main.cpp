@@ -60,6 +60,22 @@ void loop() {
     Serial.println("Failed to read from DHT sensor!");
   }
 
+    // Check if the hour has changed
+  int currentHour = hour();
+  if (currentHour != lastHour) {
+    // Send data only when the hour changes
+    sendSensorData(currentHour);
+
+    // Update lastHour
+    lastHour = currentHour;
+
+    // If it's a new day, update lastDay
+    int currentDay = day();
+    if (currentDay != lastDay) {
+      lastDay = currentDay;
+    }
+  }
+
 
 
 }
@@ -80,4 +96,52 @@ void setupWifi() {
   if (WiFi.status() == WL_CONNECTED) {
     Serial.println("Connected to " + (WiFi.localIP()).toString());
   }
+}
+
+
+void sendSensorData(int currentHour) {
+  // Create a JSON object
+  DynamicJsonDocument jsonDoc(256);
+  jsonDoc["forestId"] = forestId;
+
+  // Calculate average temperature and humidity
+  float temperatureSum = 0;
+  float humiditySum = 0;
+  for (int i = 0; i < readingsCount; i++) {
+    temperatureSum += temperatureValues[i];
+    humiditySum += humidityValues[i];
+  }
+  float averageTemperature = temperatureSum / readingsCount;
+  float averageHumidity = humiditySum / readingsCount;
+
+  // // Adjust the hour value to be in the range of 1 to 24
+  if (currentHour == 0 ) {
+    currentHour = 24;
+  }
+
+  // Add average temperature data
+  JsonArray temperatureArray = jsonDoc.createNestedArray("temperature");
+  JsonObject tempObj = temperatureArray.createNestedObject();
+  tempObj["value"] = averageTemperature;
+  tempObj["hour"] = currentHour; // Use adjusted hour value
+  tempObj["day"] = lastDay;      // Use lastDay
+  tempObj["source"] = "predicted"; // Set the source to "predicted"
+
+  // Add average humidity data
+  JsonArray humidityArray = jsonDoc.createNestedArray("humidity");
+  JsonObject humidityObj = humidityArray.createNestedObject();
+  humidityObj["value"] = averageHumidity;
+  humidityObj["hour"] = currentHour; // Use adjusted hour value
+  humidityObj["day"] = lastDay;      // Use lastDay
+  humidityObj["source"] = "real";    // Set the source to "real"
+
+  // Convert JSON to a string
+  String jsonString;
+  serializeJson(jsonDoc, jsonString);
+
+  // Send data to the server
+  sendToServer(jsonString);
+
+  // Reset readingsCount
+  readingsCount = 0;
 }
