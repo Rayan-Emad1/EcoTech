@@ -2,6 +2,7 @@ import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const BASE_URL = "http://192.168.0.2:8080/";
+// const BASE_URL = "http://172.20.10.3:8080/";
 
 const login = async (email, password) => {
   try {
@@ -143,7 +144,7 @@ const fetchAndTransformForestData = async (forestId) => {
         },
         {
           data: hourlyRealTemperatureData,
-          color: (opacity = 1) => "rgba(255, 2, 255, " + opacity + ")",
+          color: (opacity = 1) => "rgba(255, 255, 255, " + opacity + ")",
           legend: ["Real Values"],
         },
 
