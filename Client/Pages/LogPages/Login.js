@@ -121,7 +121,7 @@ const Login = ({ navigation }) => {
               style={styles.create_account_link}
               onPress={() => navigation.navigate("Credentials")}
             >
-              {" "}
+         
               Create an Account
             </Text>
           </View>
@@ -160,11 +160,11 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   bottom_container: {
-    flex: 1,
+    flex: 0.8,
     width: "100%",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingVertical: 40,
+    paddingVertical: 50,
   },
   showPasswordContainer: {
     flexDirection: "row",
