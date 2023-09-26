@@ -7,18 +7,26 @@ import {
   TextInput,
   Pressable,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native"; 
 import { COLORS, icons } from "../../constants/index";
 
-const CustomHeader = ({ setSearchValue }) => {
+const CustomHeader = ({ setSearchValue  }) => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const toggleSearch = () => {
     setIsSearchVisible(!isSearchVisible);
     setSearchValue("")
   };
 
+  const navigation = useNavigation();
+
+
+  const navigateToProfile = () => {
+    navigation.navigate('SettingsStack', { screen: 'Profile' });
+  };
+
   return (
     <View style={styles.top}>
-      <Pressable style={styles.Icon_background}>
+      <Pressable  onPress={navigateToProfile}  style={styles.Icon_background}>
         <Image source={icons.profile_search} />
       </Pressable>
       <View>
