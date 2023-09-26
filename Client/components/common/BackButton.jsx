@@ -2,11 +2,20 @@ import { StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { icons } from "../../constants/index";
 
-const BackButton = ({ navigation }) => {
+const BackButton = ({ navigation , place }) => {
+
+const handleNavigate = () => {
+  if(place == "Profile") {
+    navigation.navigate('SettingsStack', { screen: 'Settings' });
+  }else{
+    navigation.goBack()
+  }
+}
+
   return (
     <TouchableOpacity
       style={styles.back_button_container}
-      onPress={() => navigation.goBack()}
+      onPress={() => handleNavigate()}
     >
       <Image
         style={styles.back_button}
