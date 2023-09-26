@@ -49,14 +49,27 @@ const TabPages = () => {
       <Tab.Screen
         name="SettingsStack"
         component={SettingsStack}
-        options={{
+        options={({ route }) => ({
           tabBarIcon: ({ color, size }) => (
             <Image
               source={icons.setting}
               style={{ tintColor: color, width: size, height: size }}
             />
           ),
-        }}
+          // Set the default screen to "Settings" when navigating to "SettingsStack"
+          tabBarBadge: null,
+          tabBarBadgeStyle: { display: "none" },
+          tabBarActiveTintColor: COLORS.black,
+          tabBarInactiveTintColor: COLORS.black,
+          tabBarActiveBackgroundColor: COLORS.black,
+          tabBarInactiveBackgroundColor: COLORS.black,
+          tabBarStyle: { borderTopWidth: 0 },
+          tabBarLabelStyle: { display: "none" },
+          tabBarPressColor: "transparent",
+          tabBarOnPress: ({ navigation }) => {
+            navigation.navigate("Settings");
+          },
+        })}
       />
     </Tab.Navigator>
   );
