@@ -13,7 +13,6 @@ import { SubmitButton, CustomInput } from "../../components";
 
 import { updateProfile } from "../../constants/request";
 
-
 import { useSelector, useDispatch } from "react-redux";
 import { updateUser } from "../../Redux-components/Redux-actions/user";
 
@@ -21,8 +20,6 @@ const Profile = ({ navigation, route }) => {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
   const [errorMessage, setErrorMessage] = useState("");
-
- 
 
   const [form, setForm] = useState({
     firstName: "",
@@ -45,7 +42,7 @@ const Profile = ({ navigation, route }) => {
       birthday: form.birthday || user?.birthday,
       address: form.address || user?.address,
     };
-  
+
     if (
       updatedData.first_name === user?.first_name &&
       updatedData.last_name === user?.last_name &&
@@ -55,13 +52,11 @@ const Profile = ({ navigation, route }) => {
       setErrorMessage("No changes to update");
       return;
     }
-  
-    
-  
+
     try {
       const response = await updateProfile(updatedData);
-  
-      if (response.message === 'Updated User Successful') {
+
+      if (response.message === "Updated User Successful") {
         setErrorMessage("Updated User Successful");
         dispatch(updateUser(updatedData));
       } else {
@@ -76,7 +71,7 @@ const Profile = ({ navigation, route }) => {
     const formattedDate = numericText
       .slice(0, 10)
       .replace(/(\d{2})(\d{2})(\d{4})/, "$1/$2/$3");
-  
+
     const [day, month, year] = formattedDate.split("/");
     if (
       day > 31 ||
@@ -87,13 +82,13 @@ const Profile = ({ navigation, route }) => {
       year < 1900
     ) {
     } else {
-      handleChange('birthday', formattedDate);
+      handleChange("birthday", formattedDate);
     }
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <BackButton navigation={navigation}  place ={route.name}/>
+      <BackButton navigation={navigation} place={route.name} />
 
       <View style={styles.header_setting}>
         <Image source={images.profile} style={{ margin: 10 }} />
@@ -155,7 +150,7 @@ const Profile = ({ navigation, route }) => {
 export default Profile;
 
 const styles = StyleSheet.create({
-    errorMessage: {
+  errorMessage: {
     marginTop: 10,
     color: "red",
     fontSize: SIZES.small,

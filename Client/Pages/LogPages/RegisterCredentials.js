@@ -4,8 +4,6 @@ import {
   Text,
   StyleSheet,
   SafeAreaView,
-  Pressable,
-  Image,
   Keyboard,
   TouchableWithoutFeedback,
 } from "react-native";

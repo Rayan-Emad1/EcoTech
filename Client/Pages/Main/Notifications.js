@@ -21,7 +21,7 @@ const Notifications = ({ navigation }) => {
 
   useEffect(() => {
     handleSearch(searchText);
-    console.log(searchText)
+    console.log(searchText);
   }, [searchText]);
 
   return (

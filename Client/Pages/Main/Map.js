@@ -43,7 +43,6 @@ const Map = () => {
   };
 
   const getPermissions = async () => {
-
     ForestData = await getForests();
     setForestsLocally(ForestData);
     dispatch(setForests(ForestData));
@@ -79,7 +78,7 @@ const Map = () => {
         x = x - SPACING_FOR_CARD_INSET;
       }
       _scrollView.current.scrollTo({ x: x, y: 0, animated: true });
-    }else{
+    } else {
       setShowCards(false);
     }
   };

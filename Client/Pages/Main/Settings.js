@@ -12,13 +12,15 @@ import { SIZES, COLORS, images, icons } from "../../constants";
 import { useSelector } from "react-redux";
 
 const Settings = ({ navigation }) => {
-  const user = useSelector(state => state.user.user);
+  const user = useSelector((state) => state.user.user);
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header_setting}>
         <Image source={images.profile} />
-        <Text style={styles.header_name}>{user?.first_name} {user?.last_name}</Text>
+        <Text style={styles.header_name}>
+          {user?.first_name} {user?.last_name}
+        </Text>
         <Text style={styles.header_email}>{user?.email}</Text>
       </View>
 

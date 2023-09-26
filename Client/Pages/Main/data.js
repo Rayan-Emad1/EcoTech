@@ -61,7 +61,6 @@ const HourlyTemp = {
       color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
       legend: ["Real Values"],
     },
-
   ],
 };
 
@@ -78,7 +77,6 @@ const WeeklyTemp = {
       color: (opacity = 1) => `rgba(244, 244, 244, ${opacity})`,
       legend: ["Real Values"],
     },
-
   ],
 };
 

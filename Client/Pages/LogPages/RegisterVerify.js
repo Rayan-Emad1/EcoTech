@@ -11,8 +11,7 @@ import {
 import OTPInputView from "@twotalltotems/react-native-otp-input";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-
-import {CustomTitle,BackButton,SubmitButton} from "../../components";
+import { CustomTitle, BackButton, SubmitButton } from "../../components";
 import { COLORS, SIZES } from "../../constants";
 import { verify } from "../../constants/request";
 

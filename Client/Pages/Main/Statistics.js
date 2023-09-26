@@ -8,7 +8,8 @@ import { COLORS, SIZES } from "../../constants";
 import { fetchAndTransformForestData } from "../../constants/request";
 
 const Statistics = ({ navigation, route }) => {
-  const { id, address, current_temperature, fire_alarm, forecast } = route.params;
+  const { id, address, current_temperature, fire_alarm, forecast } =
+    route.params;
   const STATE_COLOR = fire_alarm ? COLORS.red : COLORS.green;
 
   const [hourlyHumid, setHourlyHumid] = useState(null);
@@ -47,7 +48,7 @@ const Statistics = ({ navigation, route }) => {
       setWeeklyHumid(forest.weeklyHumidData);
       setHourlyTemp(forest.hourlyTempData);
       setWeeklyTemp(forest.weeklyTempData);
-      console.log(forest.hourlyTempData.datasets)
+      console.log(forest.hourlyTempData.datasets);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -96,7 +97,7 @@ const Statistics = ({ navigation, route }) => {
             yLabelsOffset={14}
           />
         )}
-        {valueType == "temperature" && timeType == "hourly" && hourlyTemp &&(
+        {valueType == "temperature" && timeType == "hourly" && hourlyTemp && (
           <View style={styles.scrollViewContainer}>
             <ScrollView
               horizontal={true}
@@ -160,9 +161,7 @@ const Statistics = ({ navigation, route }) => {
           style={styles.bottom_text_container}
           showsVerticalScrollIndicator={true}
         >
-          <Text style={styles.bottom_text}>
-            {forecast}
-          </Text>
+          <Text style={styles.bottom_text}>{forecast}</Text>
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -221,7 +220,7 @@ const styles = StyleSheet.create({
   bottom_text: {
     fontWeight: "400",
     fontSize: SIZES.small,
-    color:COLORS.black_icons,
+    color: COLORS.black_icons,
   },
 
   scrollViewContainer: {
