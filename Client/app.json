@@ -5,6 +5,9 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "notification":{
+      "icon":"./assets/images/push_notification_icon.png"
+   },
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -31,6 +34,15 @@
         "projectId": "fa2e73bf-4166-490d-8938-f704aaf0674f"
       }
     },
-    "owner": "rayan_emad"
+    "owner": "rayan_emad",
+    "plugins": [
+      [
+         "expo-notifications",
+         {
+             "icon": "./assets/images/push_notification_icon.png",
+             "color": "#ffffff"
+         }
+      ]
+   ]
   }
 }
