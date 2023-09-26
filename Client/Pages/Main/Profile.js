@@ -17,10 +17,12 @@ import { updateProfile } from "../../constants/request";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUser } from "../../Redux-components/Redux-actions/user";
 
-const Profile = ({ navigation }) => {
+const Profile = ({ navigation, route }) => {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
   const [errorMessage, setErrorMessage] = useState("");
+
+ 
 
   const [form, setForm] = useState({
     firstName: "",
@@ -91,7 +93,7 @@ const Profile = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <BackButton navigation={navigation} />
+      <BackButton navigation={navigation}  place ={route.name}/>
 
       <View style={styles.header_setting}>
         <Image source={images.profile} style={{ margin: 10 }} />
