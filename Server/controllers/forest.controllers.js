@@ -1,6 +1,7 @@
 const Forest = require("../models/forests.model");
 const { updateDataField } = require("../Logic/functions");
 const { OpenAiPrediction } = require("../configs/open.ai");
+const axios = require("axios"); 
 
 const createForest = async (req, res) => {
   try {
@@ -47,11 +48,12 @@ const updateForestData = async (req, res) => {
 
     forest.current_temperature = temperature[0];
     forest.current_humidity = humidity[0];
+    // forest.current_wind = wind[0];
+
     forest.forecast = forecast;
     forest.fire_alarm = fire_alarm;
     forest.condition = condition;
 
-    // forest.current_wind = wind[0];
 
     if (temperature) {
       updateDataField(forest.temperature, temperature);
@@ -64,6 +66,27 @@ const updateForestData = async (req, res) => {
     // }
 
     await forest.save();
+
+
+    if (fire_alarm) { 
+      const currentDate = new Date().toLocaleString('en-US', { 
+        year: 'numeric', 
+        month: 'numeric', 
+        day: 'numeric', 
+        hour: 'numeric', 
+        minute: 'numeric', 
+        hour12: true 
+      });
+    
+      axios.post('https://app.nativenotify.com/api/notification', {
+        appId: 12578,
+        appToken: "wJIayC4Y0PfbCVsaKsZxN9",
+        title: "Emergency Alert",
+        body: `Forest Fire Alert in ${forest.name}! Evacuate immediately to a safe location. Follow emergency procedures and stay updated for instructions. Your safety is our priority.`,
+        dateSent: currentDate,
+      });
+    }
+    
 
     res.status(200).json({ message: "Data updated successfully" });
   } catch (error) {
