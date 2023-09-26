@@ -62,17 +62,15 @@ As a General User, I want to:
 
 > We designed EcoTech using wireframes and mockups, iterating on the design to ensure easy navigation and a seamless user experience. 
 
-### Wireframes 
-
-| Login screen  | Register screen | Landing screen | 
-| ---| ---| ---|   
-| ![Login](./readme/demo/1440x1024.png) | ![Register](./readme/demo/1440x1024.png) | ![Landing](./readme/demo/1440x1024.png) | 
 
 ### Mockups 
 
-| Home screen  | Map Screen | Plant Trees Screen | 
-| ---| ---| ---|  
-| ![Home](./readme/demo/1440x1024.png) | ![Map](./readme/demo/1440x1024.png)  | ![Plant Trees](./readme/demo/1440x1024.png) | 
+| Login  | Sign up-1 | Sign up-2 | Sign up-3 | Sign up-4 | 
+| ---| ---| ---| ---| ---|
+| ![Login](./readme/demo/login.png) | ![Sign up-1](./readme/demo/Sign-up-1.png)  | ![Sign up-2](./readme/demo/Sign-up-2.png) | ![Sign up-3](./readme/demo/Sign-up-3.png) | ![Sign up-4](./readme/demo/Sign-up-4.png) | 
+| Map  | Weather Widgets | Statistics | Settings | Profile | 
+| ---| ---| ---| ---| ---|
+| ![Map](./readme/demo/Map.png) | ![ Weather Widgets](./readme/demo/Widgets.png)  | ![Statistics](./readme/demo/Statistics.png) | ![Settings](./readme/demo/Settings.png) | ![Profile](./readme/demo/Profile.png) | 
 
 <br><br> 
 
@@ -88,7 +86,7 @@ As a General User, I want to:
 
 | Login screen  | Register screen | Landing screen | Monitoring screen | 
 | ---| ---| ---| ---|   
-| ![Login](https://placehold.co/900x1600) | ![Register](https://placehold.co/900x1600) | ![Landing](https://placehold.co/900x1600) | ![Monitoring](https://placehold.co/900x1600) | 
+| ![Login](https://placehold) | ![Register](https://placehold.co/900x1600) | ![Landing](https://placehold.co/900x1600) | ![Monitoring](https://placehold.co/900x1600) | 
 | News screen  | Tree Planting Screen | Notification Settings | Evacuation Information | 
 | ![News](https://placehold.co/900x1600) | ![Plant Trees](https://placehold.co/900x1600) | ![Notifications](https://placehold.co/900x1600) | ![Evacuation](https://placehold.co/900x1600) | 
 
