@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
   },
   bottom_text: {
     fontWeight: "400",
-    fontSize: SIZES.small,
+    fontSize: SIZES.medium,
     color: COLORS.black_icons,
   },
 
