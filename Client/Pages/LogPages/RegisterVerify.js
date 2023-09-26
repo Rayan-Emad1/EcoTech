@@ -4,7 +4,6 @@ import {
   Text,
   View,
   SafeAreaView,
-  Alert,
   Keyboard,
   TouchableWithoutFeedback,
 } from "react-native";
@@ -13,7 +12,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { CustomTitle, BackButton, SubmitButton } from "../../components";
 import { COLORS, SIZES } from "../../constants";
-import { verify } from "../../constants/request";
+import { verify, registerUser } from "../../constants/request";
 
 import { useDispatch } from "react-redux";
 import { setUser } from "../../Redux-components/Redux-actions/user";
@@ -34,10 +33,10 @@ const RegisterVerify = ({ navigation, route }) => {
         dispatch(setUser(response.user));
         navigation.replace("Main");
       } else {
-        Alert.alert("Error", "Invalid OTP");
+        setErrorMessage("Error: Invalid OTP");
       }
     } catch (error) {
-      Alert.alert("Error", `Verification failed. ${error.message}`);
+      setErrorMessage(`Error: Verification failed. ${error.message}`);
     }
   };
 
@@ -56,6 +55,7 @@ const RegisterVerify = ({ navigation, route }) => {
           "User registered. Check your email for verification." ||
         response.message === "Send verification Code"
       ) {
+        console.log(response.message);
         setErrorMessage("Send verification Code Again");
       }
     } catch (error) {
@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
     width: "75%",
     backgroundColor: "grey",
     borderRadius: 55,
+    marginBottom: 15,
   },
   complete: {
     flex: 1,
