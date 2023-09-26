@@ -17,10 +17,13 @@ const TabPages = () => {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          backgroundColor: COLORS.black,
           borderTopWidth: 0,
+          height: 100,
         },
+        tabBarActiveTintColor: COLORS.green,
+        tabBarInactiveTintColor: "grey",
       }}
+      
     >
       <Tab.Screen
         name="Map"
@@ -29,7 +32,7 @@ const TabPages = () => {
           tabBarIcon: ({ color, size }) => (
             <Image
               source={icons.forest}
-              style={{ tintColor: color, width: size, height: size }}
+              style={{ tintColor: color, width: 36, height: 36 }}
             />
           ),
         }}
@@ -41,8 +44,9 @@ const TabPages = () => {
           tabBarIcon: ({ color, size }) => (
             <Image
               source={icons.statistics}
-              style={{ tintColor: color, width: size, height: size }}
+              style={{ tintColor: color, width: 36, height: 36 }}
             />
+
           ),
         }}
       />
@@ -53,19 +57,9 @@ const TabPages = () => {
           tabBarIcon: ({ color, size }) => (
             <Image
               source={icons.setting}
-              style={{ tintColor: color, width: size, height: size }}
+              style={{ tintColor: color, width: 36, height: 36 }}
             />
           ),
-          // Set the default screen to "Settings" when navigating to "SettingsStack"
-          tabBarBadge: null,
-          tabBarBadgeStyle: { display: "none" },
-          tabBarActiveTintColor: COLORS.black,
-          tabBarInactiveTintColor: COLORS.black,
-          tabBarActiveBackgroundColor: COLORS.black,
-          tabBarInactiveBackgroundColor: COLORS.black,
-          tabBarStyle: { borderTopWidth: 0 },
-          tabBarLabelStyle: { display: "none" },
-          tabBarPressColor: "transparent",
           tabBarOnPress: ({ navigation }) => {
             navigation.navigate("Settings");
           },
