@@ -52,7 +52,7 @@ const RegisterPassword = ({ navigation, route }) => {
         response.message === "Send verification Code"
       ) {
         setErrorMessage("Send verification Code");
-        navigation.navigate("Verify", {email});
+        navigation.navigate("Verify", {email, firstName, lastName, date , password});
       }
     } catch (error) {
       setErrorMessage(
@@ -171,12 +171,6 @@ const styles = StyleSheet.create({
     marginRight: 8,
     borderRadius: 8,
     borderBlockColor: COLORS.black,
-  },
-  errorMessage: {
-    marginTop: 10,
-    color: "red",
-    fontSize: SIZES.small,
-    fontWeight: "900",
   },
   errorMessage: {
     marginTop: 10,

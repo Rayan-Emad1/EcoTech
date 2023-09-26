@@ -22,7 +22,8 @@ const RegisterVerify = ({ navigation, route }) => {
   const dispatch = useDispatch();
 
   const [otp, setOtp] = useState("");
-  const { email } = route.params;
+  const [errorMessage, setErrorMessage] = useState("");
+  const { email, firstName, lastName, date, password } = route.params;
 
   const handleVerify = async () => {
     try {
@@ -37,6 +38,30 @@ const RegisterVerify = ({ navigation, route }) => {
       }
     } catch (error) {
       Alert.alert("Error", `Verification failed. ${error.message}`);
+    }
+  };
+
+  const handleResend = async () => {
+    try {
+      const response = await registerUser({
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        password,
+        birthday: date,
+      });
+
+      if (
+        response.message ===
+          "User registered. Check your email for verification." ||
+        response.message === "Send verification Code"
+      ) {
+        setErrorMessage("Send verification Code Again");
+      }
+    } catch (error) {
+      setErrorMessage(
+        error.response.data.message ? error.response.data.message : error.data
+      );
     }
   };
 
@@ -66,14 +91,15 @@ const RegisterVerify = ({ navigation, route }) => {
           <Text style={{ color: COLORS.black_icons }}>
             Did not Receive OTP ?
           </Text>
-          <Text style={styles.OTP_link} onPress={() => <Alert title="hello" />}>
-            Resend Code
-          </Text>
+          <TouchableWithoutFeedback onPress={() => handleResend()}>
+            <Text style={styles.OTP_link}>Resend Code</Text>
+          </TouchableWithoutFeedback>
         </View>
         <Text style={styles.progressText}>3 of 3</Text>
         <View style={styles.progressContainer}>
           <View style={styles.complete} />
         </View>
+        <Text style={styles.errorMessage}>{errorMessage}</Text>
         <SubmitButton text="Verify" onPress={handleVerify} set_color="green" />
       </SafeAreaView>
     </TouchableWithoutFeedback>
@@ -125,5 +151,11 @@ const styles = StyleSheet.create({
     marginLeft: SIZES.medium,
     fontSize: SIZES.small,
     color: COLORS.black,
+  },
+  errorMessage: {
+    marginTop: 10,
+    color: "red",
+    fontSize: SIZES.small,
+    fontWeight: "900",
   },
 });
