@@ -35,6 +35,8 @@ const getAllForestsDetails = async (_, res) => {
       // last_update: forest.current_temperature.timestamp,
     }));
 
+    console.log(formattedForests)
+
     res.status(200).json(formattedForests);
   } catch (error) {
     console.error(error);
@@ -99,6 +101,7 @@ const getForestData = async (req, res) => {
         // wind: todays_wind,
       },
     };
+    console.log(response)
 
     res.json(response);
   } catch (err) {
