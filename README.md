@@ -94,6 +94,38 @@ As a General User, I want to:
 ---|
 | ![News](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Admin.GIF) |
 
+
+### OpenAI
+ 
+Before prediction:
+```sh
+{
+  forestId: '650feb23594bb545d4cdd338',
+  temperature: [ { value: 17.5, hour: 10, day: 4, source: 'real' } ],
+  humidity: [ { value: 35, hour: 10, day: 4, source: 'real' } ]
+}
+```
+After prediction: 
+```sh 
+  {
+  forestId: '650feb23594bb545d4cdd338',
+  temperature: [
+    { value: 17.5, hour: 10, day: 4, source: 'real' },
+    { value: 18.2, hour: 11, day: 4, source: 'predicted' },
+    { value: 19.1, hour: 12, day: 4, source: 'predicted' }
+  ],
+  humidity: [
+    { value: 35, hour: 10, day: 4, source: 'real' },
+    { value: 33, hour: 11, day: 4, source: 'predicted' },
+    { value: 32, hour: 12, day: 4, source: 'predicted' }
+  ],
+  forecast: 'The forecast for the next two hours is warmer temperatures and lower humidity. The temperature is expected to reach a high of 19.1°C, with a humidity of 32%. Conditions are expected to be sunny.',
+  fire_alarm: false,
+  condition: 'sunny'
+}
+
+```
+
 <br><br> 
 
 
