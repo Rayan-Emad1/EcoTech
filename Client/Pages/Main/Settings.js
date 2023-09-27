@@ -45,15 +45,15 @@ const Settings = ({ navigation }) => {
         </View>
         <View style={styles.settings_input}>
           <View style={styles.icon}>
-            <Image source={icons.notification} />
+            <Image source={icons.admin} />
           </View>
           <View style={styles.setting_text}>
-            <Text style={{ fontSize: SIZES.medium }}>Notifications </Text>
+            <Text style={{ fontSize: SIZES.medium }}>Admin Panel </Text>
             <Text style={{ fontSize: SIZES.xSmall }}>
-              Allow push notifications
+              Create new forest
             </Text>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Admin")}>
             <Image
               style={styles.forward_button}
               source={icons.chevronRight}
