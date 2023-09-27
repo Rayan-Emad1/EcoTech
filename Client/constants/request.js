@@ -16,6 +16,16 @@ const login = async (email, password) => {
   }
 };
 
+const sendResetCode = async (email) => {
+  try {
+    const response = await axios.post(`${BASE_URL}auth/reset_code`, { email });
+    return response.data.message;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
 const checkEmail = async (email) => {
   try {
     const response = await axios.post(`${BASE_URL}auth/check_email`, {
@@ -224,4 +234,6 @@ export {
   updateProfile,
   getForests,
   fetchAndTransformForestData,
+  sendResetCode,
+  resetPassword
 };
