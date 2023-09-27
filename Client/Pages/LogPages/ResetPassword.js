@@ -36,9 +36,44 @@ const ResetPassword = ({ navigation, route }) => {
           subtitle={`A verification code has been sent to ${email}. Please enter the code and reset your password.`}
         />
 
+        <View style={styles.input_container}>
+          <CustomInput
+            title="Verification Code"
+            placeholder="Enter Your Verification Code"
+            value={code}
+            onChangeText={(text) => setCode(text)}
+            secureTextEntry={!showPassword}
+          />
+          <CustomInput
+            title="New Password"
+            placeholder="Enter Your New Password"
+            value={password}
+            keyboardType="password"
+            onChangeText={(text) => setPassword(text)}
+            secureTextEntry={!showPassword}
+          />
+          <CustomInput
+            title="Confirm New Password"
+            placeholder="Confirm Your new Password"
+            value={confirmPassword}
+            keyboardType="password"
+            onChangeText={(text) => setConfirmPassword(text)}
+            secureTextEntry={!showPassword}
+          />
 
+          <View style={styles.checkboxContainer}>
+            <Checkbox
+              style={styles.checkbox}
+              value={showPassword}
+              onValueChange={() => setShowPassword(!showPassword)}
+            />
+            <Text>Show Password</Text>
+          </View>
 
-    
+          <Text style={styles.errorMessage}>{errorMessage}</Text>
+
+          <SubmitButton text="Reset" onPress={handleReset} set_color="green" />
+        </View>
       </SafeAreaView>
     </TouchableWithoutFeedback>
   );
