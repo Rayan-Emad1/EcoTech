@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 
-import MapView from "react-native-maps";
+import MapView, {Marker} from "react-native-maps";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { BackButton, SubmitButton, CustomInput } from "../../components";
 
-const region = {
-  latitude: 33.83728746204912,
-  latitudeDelta: 2.1746411420983733,
-  longitude: 35.91056445540316,
-  longitudeDelta: 1.4095237243800227,
-};
+import {BackButton, SubmitButton, CustomInput} from "../../components";
+
 
 const Admin = ({ navigation }) => {
+  const region = {
+    latitude: 33.83728746204912,
+    latitudeDelta: 2.1746411420983733,
+    longitude: 35.91056445540316,
+    longitudeDelta: 1.4095237243800227,
+  };
+
+    const [DraggableCoord, setDraggableCoord] = useState({
+      latitude: 33.77609416258676,
+      longitude: 35.70566362482342,
+    });
+
+    useEffect(() => {
+      console.log(DraggableCoord);
+    }, [DraggableCoord]);
+
   return (
     <SafeAreaView style={styles.container}>
       <BackButton navigation={navigation} />
@@ -23,13 +34,20 @@ const Admin = ({ navigation }) => {
           height: "100%",
         }}
       >
-        <MapView style={styles.map} initialRegion={region}></MapView>
+        <MapView style={styles.map} initialRegion={region}>
+          <Marker
+            draggable
+            pinColor="#00A72F"
+            coordinate={DraggableCoord}
+            onDragEnd={(e) => setDraggableCoord(e.nativeEvent.coordinate)}
+          />
+        </MapView>
 
         <View style={styles.input_container}>
           <CustomInput
             title="Forest Name"
             placeholder=""
-            customWidth = "95%"
+            customWidth="95%"
             value=""
             onChangeText={(text) => handleChange("firstName", text)}
           />
@@ -37,14 +55,14 @@ const Admin = ({ navigation }) => {
             title="Forest Address"
             placeholder=""
             value=""
-            customWidth = "95%"
+            customWidth="95%"
             onChangeText={(text) => handleChange("lastName", text)}
           />
           <CustomInput
             title="Forest Description"
             placeholder=""
             value=""
-            customWidth = "95%"
+            customWidth="95%"
             onChangeText={(text) => handleDate(text)}
           />
           <SubmitButton
@@ -68,8 +86,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   map: {
-    width: 400,
-    height: 400,
+    width: 390,
+    height: 390,
     borderRadius: 20,
     marginVertical: "3%",
   },
