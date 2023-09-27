@@ -16,7 +16,7 @@ import temperature from "../assets/icons/temperature.png";
 import google from "../assets/icons/google.png";
 import apple from "../assets/icons/apple.png";
 import facebook from "../assets/icons/facebook.png";
-import notification from "../assets/icons/notification.png";
+import admin from "../assets/icons/admin.png";
 import profile_search from "../assets/icons/profile_search.png";
 import temp_dropdown from "../assets/icons/temp_dropdown.png";
 import humi_dropdown from "../assets/icons/humi_dropdown.png";
@@ -46,6 +46,6 @@ export default {
   google,
   apple,
   facebook,
-  notification,
+  admin,
   profile_search,
 };
