@@ -34,6 +34,7 @@ const OpenAiPrediction = async (input) => {
   - A forecast text summarizing the predicted conditions
   - A "condition" value of "sunny", "rainy", "stormy" or "night"
   - Never change real value or forestId
+  -Make sure the hours is between 1 and 24 inclusive
   
   Follow these examples format and not data
   
@@ -55,18 +56,18 @@ const OpenAiPrediction = async (input) => {
     "condition": "sunny"
   }
 
-  Example 2: if real input time was at hour:23 and day:27:
+  Example 2: if real input time was at hour:24 and day:27:
   {
     "forestId": "650feb23594bb545d4cdd338",
     "temperature": [
-      { "value": 17.5, "hour": 23, "day": 27, "source": "real"},  
-      { "value": 18, "hour": 24, "day": 27, "source": "predicted"},
-      { "value": 18.5, "hour": 1, "day": 28, "source": "predicted"}
+      { "value": 17.5, "hour": 24, "day": 27, "source": "real"},  
+      { "value": 18, "hour": 1, "day": 28, "source": "predicted"},
+      { "value": 18.5, "hour": 2, "day": 28, "source": "predicted"}
     ],
     "humidity": [
-      { "value": 35, "hour": 23, "day": 27, "source": "real"},
-      { "value": 34, "hour": 24, "day": 27, "source": "predicted"},  
-      { "value": 33, "hour": 1, "day": 28, "source": "predicted"}
+      { "value": 35, "hour": 24, "day": 27, "source": "real"},
+      { "value": 34, "hour": 1, "day": 28, "source": "predicted"},  
+      { "value": 33, "hour": 2, "day": 28, "source": "predicted"}
     ],
     "forecast": "Sample forecast text",
     "fire_alarm": false,
