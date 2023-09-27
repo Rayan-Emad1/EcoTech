@@ -19,13 +19,39 @@ import Checkbox from "expo-checkbox";
 import { resetPassword } from "../../constants/request";
 
 const ResetPassword = ({ navigation, route }) => {
-
   const [code, setCode] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const { email } = route.params;
+
+  const handleReset = async () => {
+    try {
+      if (password.length < 8) {
+        setErrorMessage("Password must be at least 8 characters long");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        setErrorMessage("Passwords do not match");
+        return;
+      }
+
+      const response = await resetPassword(email, code, password);
+
+      if (response === "Password reset successful") {
+        setErrorMessage("Password Reset Successful");
+        setTimeout(() => {
+          navigation.navigate("Login");
+        }, 3000);
+      } else {
+        setErrorMessage(response);
+      }
+    } catch (error) {
+      setErrorMessage(error.response ? error.message : error.response.data);
+    }
+  };
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
