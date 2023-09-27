@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
-
-import MapView, {Marker} from "react-native-maps";
+import React, { useState } from "react";
+import { StyleSheet, View, ScrollView, Alert } from "react-native";
+import MapView, { Marker } from "react-native-maps";
 import { SafeAreaView } from "react-native-safe-area-context";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
 
-
-import {BackButton, SubmitButton, CustomInput} from "../../components";
-
+import { BackButton, SubmitButton, CustomInput } from "../../components";
 
 const Admin = ({ navigation }) => {
   const region = {
@@ -16,14 +15,41 @@ const Admin = ({ navigation }) => {
     longitudeDelta: 1.4095237243800227,
   };
 
-    const [DraggableCoord, setDraggableCoord] = useState({
+  const [DraggableCoord, setDraggableCoord] = useState({
+    latitude: 33.77609416258676,
+    longitude: 35.70566362482342,
+  });
+
+  const [forestData, setForestData] = useState({
+    name: "",
+    description: "",
+    address: "",
+    coordinates: {
       latitude: 33.77609416258676,
       longitude: 35.70566362482342,
-    });
+    },
+  });
 
-    useEffect(() => {
-      console.log(DraggableCoord);
-    }, [DraggableCoord]);
+  const handleChange = (field, text) => {
+    setForestData((prevData) => ({
+      ...prevData,
+      [field]: text,
+    }));
+  };
+
+  const handleMarkerDragEnd = (e) => {
+    const { latitude, longitude } = e.nativeEvent.coordinate;
+    setDraggableCoord({ latitude, longitude });
+    setForestData((prevData) => ({
+      ...prevData,
+      coordinates: {
+        latitude,
+        longitude,
+      },
+    }));
+  };
+
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -39,7 +65,7 @@ const Admin = ({ navigation }) => {
             draggable
             pinColor="#00A72F"
             coordinate={DraggableCoord}
-            onDragEnd={(e) => setDraggableCoord(e.nativeEvent.coordinate)}
+            onDragEnd={handleMarkerDragEnd}
           />
         </MapView>
 
@@ -48,26 +74,26 @@ const Admin = ({ navigation }) => {
             title="Forest Name"
             placeholder=""
             customWidth="95%"
-            value=""
-            onChangeText={(text) => handleChange("firstName", text)}
+            value={forestData.name}
+            onChangeText={(text) => handleChange("name", text)}
           />
           <CustomInput
             title="Forest Address"
             placeholder=""
-            value=""
+            value={forestData.address}
             customWidth="95%"
-            onChangeText={(text) => handleChange("lastName", text)}
+            onChangeText={(text) => handleChange("address", text)}
           />
           <CustomInput
             title="Forest Description"
             placeholder=""
-            value=""
+            value={forestData.description}
             customWidth="95%"
-            onChangeText={(text) => handleDate(text)}
+            onChangeText={(text) => handleChange("description", text)}
           />
           <SubmitButton
             text="Create Forest"
-            onPress={() => handleSubmit()}
+            onPress={handleSubmit}
             set_color="green"
           />
           <View style={{ height: 250, width: 1 }}></View>
