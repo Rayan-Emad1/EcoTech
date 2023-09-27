@@ -25,6 +25,19 @@ const sendResetCode = async (email) => {
   }
 };
 
+const resetPassword = async (email, verificationCode, newPassword) => {
+  try {
+    const response = await axios.post(`${BASE_URL}auth/reset_password`, {
+      email,
+      verification_code: verificationCode,
+      new_password: newPassword,
+    });
+    return response.data.message;
+  } catch (error) {
+    console.log(error.message)
+    return error.message;
+  }
+};
 
 const checkEmail = async (email) => {
   try {
