@@ -49,7 +49,56 @@ const Admin = ({ navigation }) => {
     }));
   };
 
+  const handleSubmit = async () => {
+    if (
+      !forestData.name ||
+      !forestData.description ||
+      !forestData.address
+    ) {
+      Alert.alert("Error", "Please fill in all the fields.");
+      return;
+    }
 
+    try {
+      const token = await AsyncStorage.getItem("token");
+      const headers = {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      };
+
+      const response = await axios.post(
+        "http://192.168.0.2:8080/forest/create_forest",
+        {
+          name: forestData.name,
+          description: forestData.description,
+          address: forestData.address,
+          coordinates: {
+            latitude: forestData.coordinates.latitude,
+            longitude: forestData.coordinates.longitude,
+          },
+        },
+        { headers }
+      );
+        console.log(response.data)
+      if (response.status === 201) {
+        Alert.alert("Success", `Forest created successfully.  Forest ID : \n${response.data._id} `);
+        setForestData({
+            name: "",
+            description: "",
+            address: "",
+            coordinates: {
+              latitude: 0,
+              longitude: 0,
+            },
+          });
+      } else {
+        Alert.alert("Error", "An error occurred while creating the forest.");
+      }
+    } catch (error) {
+      console.error("Error creating forest:", error.message);
+      Alert.alert("Error", "An error occurred while creating the forest.");
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
