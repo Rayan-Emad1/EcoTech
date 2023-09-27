@@ -9,9 +9,10 @@ const CustomInput = ({
   onChangeText,
   secureTextEntry,
   keyboardType = "default",
+  customWidth = "80%",
 }) => {
   return (
-    <View style={styles.input_container}>
+    <View style={[styles.input_container, { width: customWidth }]}>
       <Text style={styles.input_title}>{title}</Text>
       <TextInput
         style={styles.input}
@@ -20,7 +21,7 @@ const CustomInput = ({
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
-        maxLength={title === "Date of Birth" ? 9 : 40}
+        maxLength={title === "Date of Birth" ? 9 : 70}
       />
     </View>
   );
@@ -29,7 +30,6 @@ const CustomInput = ({
 const styles = StyleSheet.create({
   input_container: {
     marginBottom: SIZES.large,
-    width: "80%",
   },
   input_title: {
     position: "relative",
