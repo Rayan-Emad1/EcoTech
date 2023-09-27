@@ -92,8 +92,14 @@ As a General User, I want to:
 
 | Create Forest |
 ---|
-| ![News](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Admin.GIF) |
+| ![Create_Forest](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Admin.GIF) |
 
+
+### Arduino
+
+| Circuit diagram |
+---|
+| ![Circuit Diagram](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Circuit.png) |
 
 ### OpenAI
  
