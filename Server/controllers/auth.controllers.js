@@ -1,13 +1,16 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/users.model");
-const { sendVerificationEmail } = require("../configs/nodemailer");
+const {
+  sendVerificationEmail,
+  sendResetPasswordEmail,
+} = require("../configs/nodemailer");
 const Joi = require("joi");
 
 const jwtSecret = process.env.JWT_SECRET;
 
-const generateVerificationCode = () => {
-  const code_length = 4;
+const generateVerificationCode = (x) => {
+  const code_length = x ? x : 4;
   let verification_code = 0;
   for (let i = 0; i < code_length; i++) {
     const digit = Math.floor(Math.random() * 10);
@@ -195,4 +198,27 @@ const updateUser = async (req, res) => {
   }
 };
 
-module.exports = { checkEmail, registerUser, verify, login, updateUser };
+const sendResetCode = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "Email is not found" });
+    }
+
+    const verification_code = generateVerificationCode(6);
+    user.verification_code = verification_code;
+    await user.save();
+
+    sendResetPasswordEmail(user.first_name, email, verification_code);
+
+    res.status(200).json({ message: "Verification code sent to email" });
+  } catch (error) {
+    res.status(500).json({ message: "Verification code not send" });
+  }
+};
+
+
+
+module.exports = { checkEmail, registerUser, verify, login, updateUser , sendResetCode, resetPassword  };
