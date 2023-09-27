@@ -67,7 +67,7 @@ As a General User, I want to:
 
 | Login  | Sign up-1 | Sign up-2 | Sign up-3 | Sign up-4 | 
 | ---| ---| ---| ---| ---|
-| ![Login](./readme/demo/login.png) | ![Sign up-1](./readme/demo/SIgn-up-1.png.png)  | ![Sign up-2](./readme/demo/Sign-up-2.png) | ![Sign up-3](./readme/demo/Sign-up-3.png) | ![Sign up-4](./readme/demo/Sign-up-4.png) | 
+| ![Login](./readme/demo/login.png) | ![Sign up-1](./readme/demo/SIgn-up-1.png)  | ![Sign up-2](./readme/demo/Sign-up-2.png) | ![Sign up-3](./readme/demo/Sign-up-3.png) | ![Sign up-4](./readme/demo/Sign-up-4.png) | 
 | Map  | Weather Widgets | Statistics | Settings | Profile | 
 | ---| ---| ---| ---| ---|
 | ![Map](./readme/demo/Map.png) | ![ Weather Widgets](./readme/demo/Widgets.png)  | ![Statistics](./readme/demo/Statistics.png) | ![Settings](./readme/demo/Settings.png) | ![Profile](./readme/demo/Profile.png) | 
