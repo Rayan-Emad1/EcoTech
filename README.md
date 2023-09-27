@@ -86,7 +86,7 @@ As a General User, I want to:
 
 | Register  | Map | Statistic | Profile | Push Notification | 
 | ---| ---| ---| ---| ---|
-| ![Register](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Register.GIF) | ![Map](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Map.GIF)  | ![Statistic](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Statistics.GIF) | ![Profile](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Profile.GIF) | ![Push Notification](./readme/demo/Sign-up-4.png) | 
+| ![Register](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Register.GIF) | ![Map](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Map.GIF)  | ![Statistic](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Statistics.GIF) | ![Profile](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Profile.GIF) | ![Push Notification](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Push%20Notification.GIF) | 
 
 ### Admin Screen
 
