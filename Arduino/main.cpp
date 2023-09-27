@@ -146,6 +146,7 @@ void sendToServer(String data) {
 
   HTTPClient http;
   http.begin(wifiClient, serverUrl); // Use WiFiClient object here
+  http.setTimeout(10000);
 
   http.addHeader("Content-Type", "application/json");
 
