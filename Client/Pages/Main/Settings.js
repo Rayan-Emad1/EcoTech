@@ -43,24 +43,26 @@ const Settings = ({ navigation }) => {
             />
           </TouchableOpacity>
         </View>
-        <View style={styles.settings_input}>
-          <View style={styles.icon}>
-            <Image source={icons.admin} />
+
+        {user?.role === "admin" && (
+          <View style={styles.settings_input}>
+            <View style={styles.icon}>
+              <Image source={icons.admin} />
+            </View>
+            <View style={styles.setting_text}>
+              <Text style={{ fontSize: SIZES.medium }}>Admin Panel </Text>
+              <Text style={{ fontSize: SIZES.xSmall }}>Create new forest</Text>
+            </View>
+            <TouchableOpacity onPress={() => navigation.navigate("Admin")}>
+              <Image
+                style={styles.forward_button}
+                source={icons.chevronRight}
+                resizeMode="stretch"
+              />
+            </TouchableOpacity>
           </View>
-          <View style={styles.setting_text}>
-            <Text style={{ fontSize: SIZES.medium }}>Admin Panel </Text>
-            <Text style={{ fontSize: SIZES.xSmall }}>
-              Create new forest
-            </Text>
-          </View>
-          <TouchableOpacity onPress={() => navigation.navigate("Admin")}>
-            <Image
-              style={styles.forward_button}
-              source={icons.chevronRight}
-              resizeMode="stretch"
-            />
-          </TouchableOpacity>
-        </View>
+        )}
+
       </View>
 
       <SubmitButton
