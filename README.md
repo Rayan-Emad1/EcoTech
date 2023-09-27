@@ -60,7 +60,7 @@ As a General User, I want to:
 <img src="./readme/title3.svg"/>
 
 
-> We designed EcoTech using wireframes and mockups, iterating on the design to ensure easy navigation and a seamless user experience. 
+> We designed EcoTech using wireframes and mockups using Figma, iterating on the design to ensure easy navigation and a seamless user experience. 
 
 
 ### Mockups 
