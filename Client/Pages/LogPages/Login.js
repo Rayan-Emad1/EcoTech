@@ -63,7 +63,7 @@ const Login = ({ navigation }) => {
 
   const handleReset = async () => {
     if (!email) {
-      setErrorMessage("Email is required");
+      setErrorMessage("Enter Email to Send Verification Code");
       return;
     }
 
