@@ -6,6 +6,7 @@ import RegisterCredentials from "../Pages/LogPages/RegisterCredentials";
 import RegisterEmail from "../Pages/LogPages/RegisterEmail";
 import RegisterPassword from "../Pages/LogPages/RegisterPassword";
 import RegisterVerify from "../Pages/LogPages/RegisterVerify";
+import ResetPassword from "../Pages/LogPages/ResetPassword";
 import TabPages from "./TabPages";
 
 const Stack = createStackNavigator();
@@ -23,6 +24,7 @@ const StackPages = () => {
       <Stack.Screen name="Email" component={RegisterEmail} />
       <Stack.Screen name="Password" component={RegisterPassword} />
       <Stack.Screen name="Verify" component={RegisterVerify} />
+      <Stack.Screen name="ResetPassword" component={ResetPassword} />
       <Stack.Screen
         name="Main"
         component={TabPages}
