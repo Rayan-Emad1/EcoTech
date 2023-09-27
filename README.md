@@ -91,6 +91,7 @@ As a General User, I want to:
 ### Admin Screen
 
 | Create Forest |
+---|
 | ![News](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Admin.GIF) |
 
 <br><br> 
