@@ -25,7 +25,35 @@ const Admin = ({ navigation }) => {
       >
         <MapView style={styles.map} initialRegion={region}></MapView>
 
-
+        <View style={styles.input_container}>
+          <CustomInput
+            title="Forest Name"
+            placeholder=""
+            customWidth = "95%"
+            value=""
+            onChangeText={(text) => handleChange("firstName", text)}
+          />
+          <CustomInput
+            title="Forest Address"
+            placeholder=""
+            value=""
+            customWidth = "95%"
+            onChangeText={(text) => handleChange("lastName", text)}
+          />
+          <CustomInput
+            title="Forest Description"
+            placeholder=""
+            value=""
+            customWidth = "95%"
+            onChangeText={(text) => handleDate(text)}
+          />
+          <SubmitButton
+            text="Create Forest"
+            onPress={() => handleSubmit()}
+            set_color="green"
+          />
+          <View style={{ height: 250, width: 1 }}></View>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -45,5 +73,10 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginVertical: "3%",
   },
-
+  input_container: {
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  },
 });
