@@ -219,6 +219,30 @@ const sendResetCode = async (req, res) => {
   }
 };
 
+const resetPassword = async (req, res) => {
+  try {
+    const {email, verification_code, new_password} =req.body
+    const user = await User.findOne({ email });
 
+    if (!user) {
+      return res.status(404).json({ message: "Email is not found" });
+    }
+
+    if (user.verification_code !== verification_code) {
+      return res.status(400).json({ message: "Invalid verification code" });
+    }
+
+    // Reset the password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(new_password, salt);
+    user.password = hashedPassword;
+    user.verification_code = null;
+    await user.save();
+
+    return res.status(200).json({ message: "Password reset successful" });
+  } catch (error) {
+    return res.status(500).json({ message: "Password reset failed" });
+  }
+};
 
 module.exports = { checkEmail, registerUser, verify, login, updateUser , sendResetCode, resetPassword  };
