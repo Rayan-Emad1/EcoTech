@@ -82,13 +82,16 @@ As a General User, I want to:
 > Based on the wireframes and mockups, we implemented the EcoTech app with the following features: 
 
 
-### User Screens 
+### Screens 
 
-| Login screen  | Register screen | Landing screen | Monitoring screen | 
-| ---| ---| ---| ---|   
-| ![Login](https://placehold) | ![Register](https://placehold.co/900x1600) | ![Landing](https://placehold.co/900x1600) | ![Monitoring](https://placehold.co/900x1600) | 
-| News screen  | Tree Planting Screen | Notification Settings | Evacuation Information | 
-| ![News](https://placehold.co/900x1600) | ![Plant Trees](https://placehold.co/900x1600) | ![Notifications](https://placehold.co/900x1600) | ![Evacuation](https://placehold.co/900x1600) | 
+| Register  | Map | Statistic | Profile | Push Notification | 
+| ---| ---| ---| ---| ---|
+| ![Register](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Register.GIF) | ![Map](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Map.GIF)  | ![Statistic](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Statistics.GIF) | ![Profile](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Profile.GIF) | ![Push Notification](./readme/demo/Sign-up-4.png) | 
+
+### Admin Screen
+
+| Create Forest |
+| ![News](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Admin.GIF) |
 
 <br><br> 
 
