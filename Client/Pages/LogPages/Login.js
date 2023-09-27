@@ -16,7 +16,7 @@ import { COLORS, SIZES, images, icons } from "../../constants";
 import { SubmitButton, CustomInput } from "../../components";
 import Checkbox from "expo-checkbox";
 
-import { login } from "../../constants/request";
+import { login, sendResetCode } from "../../constants/request";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../Redux-components/Redux-actions/user";
 
@@ -31,7 +31,7 @@ const Login = ({ navigation }) => {
   const handleLogin = async () => {
     if (!email || !password) {
       setErrorMessage("Email and password are required");
-      return; // Exit the function if email or password are missing
+      return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -58,6 +58,33 @@ const Login = ({ navigation }) => {
       if (error == "Too many requests, please try again later.") {
         setErrorMessage("Too many requests, please try again later.");
       }
+    }
+  };
+
+  const handleReset = async () => {
+    if (!email) {
+      setErrorMessage("Email is required");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setErrorMessage("Invalid email format");
+      return;
+    }
+
+    try {
+      const message = await sendResetCode(email);
+
+      if (message === "Verification code sent to email") {
+        setErrorMessage("");
+        navigation.navigate("ResetPassword", { email });
+      } else {
+        setErrorMessage(message);
+      }
+    } catch (error) {
+      console.error(error);
+      setErrorMessage("Error sending reset code");
     }
   };
 
@@ -96,7 +123,11 @@ const Login = ({ navigation }) => {
           <Text style={styles.errorMessage}>{errorMessage}</Text>
 
           <SubmitButton text="Login" onPress={handleLogin} set_color="green" />
-          <Text style={styles.forgot_password}>Forgotten your password?</Text>
+
+          <Pressable onPress={() => handleReset()}>
+            <Text style={styles.forgot_password}>Forgotten your password?</Text>
+          </Pressable>
+          
         </View>
         <View style={styles.bottom_container}>
           <View style={styles.or_separator}>
@@ -121,7 +152,6 @@ const Login = ({ navigation }) => {
               style={styles.create_account_link}
               onPress={() => navigation.navigate("Credentials")}
             >
-         
               Create an Account
             </Text>
           </View>
@@ -160,11 +190,11 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   bottom_container: {
-    flex: 0.8,
+    flex: 1,
     width: "100%",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     alignItems: "center",
-    paddingVertical: 50,
+    paddingVertical: 10,
   },
   showPasswordContainer: {
     flexDirection: "row",
