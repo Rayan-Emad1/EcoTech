@@ -71,19 +71,7 @@ const Profile = ({ navigation, route }) => {
     const formattedDate = numericText
       .slice(0, 10)
       .replace(/(\d{2})(\d{2})(\d{4})/, "$1/$2/$3");
-
-    const [day, month, year] = formattedDate.split("/");
-    if (
-      day > 31 ||
-      day < 1 ||
-      month > 12 ||
-      month < 1 ||
-      year > 2024 ||
-      year < 1900
-    ) {
-    } else {
-      handleChange("birthday", formattedDate);
-    }
+    handleChange("birthday", formattedDate)
   };
 
   return (
