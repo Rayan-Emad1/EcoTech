@@ -7,9 +7,9 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useState } from "react";
-import BackButton from "../../components/common/BackButton";
+
 import { SIZES, COLORS, images } from "../../constants";
-import { SubmitButton, CustomInput } from "../../components";
+import { SubmitButton, CustomInput ,BackButton } from "../../components";
 
 import { updateProfile } from "../../constants/request";
 
@@ -101,8 +101,8 @@ const Profile = ({ navigation, route }) => {
         style={{
           width: "100%",
           flex: 0.75,
-          paddingVertical: 10,
-          maxHeight: 450,
+          paddingTop: 10,
+          maxHeight: 800,
         }}
       >
         <View style={styles.input_container}>
