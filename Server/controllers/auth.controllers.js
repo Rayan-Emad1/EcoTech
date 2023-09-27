@@ -200,6 +200,7 @@ const updateUser = async (req, res) => {
 
 const sendResetCode = async (req, res) => {
   try {
+    console.log(req.body)
     const { email } = req.body;
     const user = await User.findOne({ email });
 
@@ -229,7 +230,7 @@ const resetPassword = async (req, res) => {
     }
 
     if (user.verification_code !== verification_code) {
-      return res.status(400).json({ message: "Invalid verification code" });
+      return res.status(200).json({ message: "Invalid verification code" });
     }
 
     // Reset the password
