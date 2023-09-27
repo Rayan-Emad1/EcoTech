@@ -99,7 +99,7 @@ As a General User, I want to:
 
 | Circuit diagram |
 ---|
-| ![Circuit Diagram](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Circuit.png) |
+| ![Circuit Diagram](readme/Circuit.jpg) |
 
 ### OpenAI
  
