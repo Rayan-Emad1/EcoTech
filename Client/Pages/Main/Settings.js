@@ -49,7 +49,7 @@ const Settings = ({ navigation }) => {
             <View style={styles.icon}>
               <Image source={icons.admin} />
             </View>
-            <View style={styles.setting_text}>
+            <View style={styles.setting_text2}>
               <Text style={{ fontSize: SIZES.medium }}>Admin Panel </Text>
               <Text style={{ fontSize: SIZES.xSmall }}>Create new forest</Text>
             </View>
@@ -126,6 +126,11 @@ const styles = StyleSheet.create({
   setting_text: {
     justifyContent: "flex-start",
     left: -40,
+    position: "relative",
+  },
+  setting_text2: {
+    justifyContent: "flex-start",
+    left: -70,
     position: "relative",
   },
   forward_button: {

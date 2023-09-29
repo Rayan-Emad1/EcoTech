@@ -67,7 +67,7 @@ const Admin = ({ navigation }) => {
       };
 
       const response = await axios.post(
-        "http://192.168.0.2:8080/forest/create_forest",
+        "http://192.168.0.7:8080/forest/create_forest",
         {
           name: forestData.name,
           description: forestData.description,

@@ -48,7 +48,6 @@ const Statistics = ({ navigation, route }) => {
       setWeeklyHumid(forest.weeklyHumidData);
       setHourlyTemp(forest.hourlyTempData);
       setWeeklyTemp(forest.weeklyTempData);
-      console.log(forest.hourlyTempData.datasets);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -156,7 +155,7 @@ const Statistics = ({ navigation, route }) => {
         )}
       </View>
       <View style={styles.bottom}>
-        <Text style={styles.bottom_title}>Forcast</Text>
+        <Text style={styles.bottom_title}>Forecast</Text>
         <ScrollView
           style={styles.bottom_text_container}
           showsVerticalScrollIndicator={true}
@@ -219,7 +218,7 @@ const styles = StyleSheet.create({
   },
   bottom_text: {
     fontWeight: "400",
-    fontSize: SIZES.medium,
+    fontSize: 15,
     color: COLORS.black_icons,
   },
 

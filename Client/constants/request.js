@@ -1,7 +1,7 @@
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const BASE_URL = "http://192.168.0.2:8080/";
+const BASE_URL = "http://192.168.0.7:8080/";
 // const BASE_URL = "http://172.20.10.3:8080/";
 
 const login = async (email, password) => {
@@ -157,8 +157,7 @@ const fetchAndTransformForestData = async (forestId) => {
 
     const hourlyTempData = {
       labels: forestData.todaysData.temperature
-        .filter((data) => data.source === "real")
-        .map((data) => `${data.hour}:00`),
+      .map((data) => `${data.hour}:00`),
       datasets: [
         {
           data: forestData.todaysData.temperature.map((data) => data.value),
@@ -201,8 +200,7 @@ const fetchAndTransformForestData = async (forestId) => {
 
     const hourlyHumidData = {
       labels: forestData.todaysData.humidity
-        .filter((data) => data.source === "real")
-        .map((data) => `${data.hour}:00`),
+      .map((data) => `${data.hour}:00`),
       datasets: [
         {
           data: forestData.todaysData.humidity.map((data) => data.value),
