@@ -96,15 +96,15 @@ const getCurrentDayData = (daily_values) => {
   const currentDate = new Date();
   const dayOfMonth = currentDate.getDate();
   
-  console.log("Day of the month:", dayOfMonth);
+  // console.log("Day of the month:", dayOfMonth);
 
   const currentDayData = daily_values.filter((data) => {
     const dataDay = data.day;
-    console.log(dataDay)
+    // console.log(dataDay)
     return dataDay == dayOfMonth;
   });
   // console.log(daily_values)
-  console.log(currentDayData)
+  // console.log(currentDayData)
   return currentDayData;
 };
 
