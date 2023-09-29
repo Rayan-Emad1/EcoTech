@@ -142,13 +142,29 @@ After prediction:
 
 EcoTech is built using the following technologies: 
 
-- React Native (Expo) for the mobile app development.   
-- Node.js with Express for the backend server. 
-- MongoDB Atlas for database storage. 
-- AWS server for cloud infrastructure.    
-- Arduino for sensor data collection. 
-- OpenAI for predictive analytics. 
-- Firebase for real-time notifications. 
+## Frontend (Mobile App)
+
+- **React Native (Expo):** Used for cross-platform mobile app development.
+- **Expo Packages:** Various Expo packages for accessing device features and UI components.
+- **React Navigation:** Handles navigation within the app.
+- **Redux:** Manages app data and state effectively.
+- **Expo Notifications:** Handles push notifications.
+- **Axios:** Enables network requests to the backend.
+
+## Backend (Server)
+
+- **Node.js with Express:** Powers the backend server for API requests and logic.
+- **MongoDB Atlas:** Cloud-based database service for data storage.
+- **AWS (Amazon Web Services):** Cloud infrastructure for hosting the server and application.
+- **Arduino:** Utilized for sensor data collection in the field.
+- **OpenAI:** Empowers predictive analytics and AI capabilities.
+- **Native Notify:** Used for real-time notifications.
+- **Express Rate Limit:** Middleware for rate limiting API requests.
+- **Joi:** Data validation library.
+- **Jsonwebtoken:** Manages JSON Web Tokens (JWT) for authentication.
+- **Mailgen:** Generates email content.
+- **Mongoose:** Object Data Modeling (ODM) library for MongoDB.
+- **Nodemailer:** Handles email sending.
 
 EcoTech utilizes these technologies to provide a seamless and comprehensive wildfire prevention and community engagement experience. 
 
