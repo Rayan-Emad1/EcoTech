@@ -8,9 +8,10 @@
 - [Project Description](#project-description)
 - [User Types](#user-types)
 - [Features of the App](#features-of-the-app)
-- [Prototyping](#prototyping)
-- [Implementation](#implementation)
 - [Tech Stack](#tech-stack)
+- [Prototyping](#prototyping)
+- [Demo](#Demo)
+- [OpenAi](#OpenAi)
 - [How to Run](#how-to-run)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -75,67 +76,6 @@ As a General User, I want to:
 
 <br><br> 
 
-
-<a name="implementation" ></a>
-<img src="./readme/title4.svg"/>
-
-
-> Based on the wireframes and mockups, we implemented the EcoTech app with the following features: 
-
-
-### Screens 
-
-| Register  | Map | Statistic | Profile | Push Notification | 
-| ---| ---| ---| ---| ---|
-| ![Register](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Register.GIF) | ![Map](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Map.GIF)  | ![Statistic](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Statistics.GIF) | ![Profile](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Profile.GIF) | ![Push Notification](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Push%20Notification.GIF) | 
-
-### Admin Screen
-
-| Create Forest |
----|
-| ![Create_Forest](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Admin.GIF) |
-
-
-### Arduino
-
-| Circuit diagram |
----|
-| ![Circuit Diagram](readme/Circuit.jpg) |
-
-### OpenAI
- 
-Before prediction:
-```sh
-{
-  forestId: '650feb23594bb545d4cdd338',
-  temperature: [ { value: 17.5, hour: 10, day: 4, source: 'real' } ],
-  humidity: [ { value: 35, hour: 10, day: 4, source: 'real' } ]
-}
-```
-After prediction: 
-```sh 
-  {
-  forestId: '650feb23594bb545d4cdd338',
-  temperature: [
-    { value: 17.5, hour: 10, day: 4, source: 'real' },
-    { value: 18.2, hour: 11, day: 4, source: 'predicted' },
-    { value: 19.1, hour: 12, day: 4, source: 'predicted' }
-  ],
-  humidity: [
-    { value: 35, hour: 10, day: 4, source: 'real' },
-    { value: 33, hour: 11, day: 4, source: 'predicted' },
-    { value: 32, hour: 12, day: 4, source: 'predicted' }
-  ],
-  forecast: 'The forecast for the next two hours is warmer temperatures and lower humidity. The temperature is expected to reach a high of 19.1°C, with a humidity of 32%. Conditions are expected to be sunny.',
-  fire_alarm: false,
-  condition: 'sunny'
-}
-
-```
-
-<br><br> 
-
-
 <a name="tech-stack" ></a>
 <img src="./readme/title5.svg"/>
 > The application utilizes React Native (Expo) for the mobile app, Node.js with Express for the backend, MongoDB Atlas for database storage, AWS server for cloud infrastructure, Arduino for sensor data collection, OpenAI for predictive analytics, and Firebase for real-time notifications. 
@@ -170,6 +110,74 @@ EcoTech is built using the following technologies:
 EcoTech utilizes these technologies to provide a seamless and comprehensive wildfire prevention and community engagement experience. 
 
 <br><br> 
+
+
+<a name="Demo" ></a>
+<img src="./readme/title4.svg"/>
+
+
+> Based on the wireframes and mockups, we implemented the EcoTech app with the following features: 
+
+
+### Screens 
+
+| Register  | Map | Statistic | Profile | Push Notification | 
+| ---| ---| ---| ---| ---|
+| ![Register](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Register.GIF) | ![Map](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Map.GIF)  | ![Statistic](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Statistics.GIF) | ![Profile](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Profile.GIF) | ![Push Notification](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Push%20Notification.GIF) | 
+
+### Admin Screen
+
+| Create Forest |
+---|
+| ![Create_Forest](https://github.com/Rayan-Emad1/EcoTech/blob/main/readme/demo/Admin.GIF) |
+
+
+### Arduino
+
+| Circuit diagram |
+---|
+| ![Circuit Diagram](readme/Circuit.jpg) |
+
+
+<br><br> 
+
+<a name="OpenAI" ></a>
+<img src="./readme/title8.svg"/>
+
+ 
+Before prediction:
+```sh
+{
+  forestId: '650feb23594bb545d4cdd338',
+  temperature: [ { value: 17.5, hour: 10, day: 4, source: 'real' } ],
+  humidity: [ { value: 35, hour: 10, day: 4, source: 'real' } ]
+}
+```
+After prediction: 
+```sh 
+  {
+  forestId: '650feb23594bb545d4cdd338',
+  temperature: [
+    { value: 17.5, hour: 10, day: 4, source: 'real' },
+    { value: 18.2, hour: 11, day: 4, source: 'predicted' },
+    { value: 19.1, hour: 12, day: 4, source: 'predicted' }
+  ],
+  humidity: [
+    { value: 35, hour: 10, day: 4, source: 'real' },
+    { value: 33, hour: 11, day: 4, source: 'predicted' },
+    { value: 32, hour: 12, day: 4, source: 'predicted' }
+  ],
+  forecast: 'The forecast for the next two hours is warmer temperatures and lower humidity. The temperature is expected to reach a high of 19.1°C, with a humidity of 32%. Conditions are expected to be sunny.',
+  fire_alarm: false,
+  condition: 'sunny'
+}
+
+```
+
+<br><br> 
+
+
+
 
 <a name="how-to-run" ></a>
 <img src="./readme/title6.svg"/> 
