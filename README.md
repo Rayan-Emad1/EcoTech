@@ -134,14 +134,19 @@ EcoTech utilizes these technologies to provide a seamless and comprehensive wild
 
 ### Arduino
 
-| Circuit diagram |
+| Circuit Diagram | 
 ---|
-| ![Circuit Diagram](readme/Circuit.jpg) |
+| ![Circuit Diagram](readme/Circuit_Diagram.png) |
+
+Circuit Design |
+---| 
+ | ![Circuit Design](readme/Circuit.jpg) |
+
 
 
 <br><br> 
 
-<a name="OpenAI" ></a>
+<a name="OpenAi" ></a>
 <img src="./readme/title8.svg"/>
 
  
