@@ -25,10 +25,8 @@
 <!-- Project Description -->
 <a name="project-description"></a>
 <img src="./readme/title2.svg"/> 
-
-
 > The aim of the EcoTech project is to develop a comprehensive application that harnesses various technologies to help prevent and alert forest guards about potential wildfire outbreaks. 
-
+<br>
 
 
 EcoTech's primary goal is to enhance forest safety by collecting vital data such as temperature, humidity, and other factors that can indicate a wildfire. This data is gathered through sensors connected to an Arduino and sent to an AI system that predicts potential fire outbreaks. If a threat is detected, the app sends real-time notifications to nearby firefighting stations and forest guards, enabling prompt and efficient response. The user base for this application includes firefighters, forest guards, and environmentally-conscious individuals committed to safeguarding forests and wildlife. 
@@ -37,11 +35,15 @@ In addition to its critical wildfire prevention functionality, EcoTech offers a 
 
 Potential challenges for EcoTech include ensuring accurate and timely data collection and analysis, securing funding for sensor installation and maintenance, and fostering user engagement for the tree-planting feature. 
 
+<br>
 
 ### User Types 
 
 1. Admin 
 2. General Users (Environmentally-conscious individuals)
+
+
+<br>
 
 ### Features of the App 
 
@@ -63,9 +65,8 @@ As a General User, I want to:
  
 <a name="prototyping"></a>
 <img src="./readme/title3.svg"/>
-
-
-> We designed EcoTech using wireframes and mockups using Figma, iterating on the design to ensure easy navigation and a seamless user experience. 
+> We designed EcoTech using wireframes and mockups using Figma, iterating on the design to ensure easy navigation and a seamless user experience.
+<br>
 
 
 ### Mockups 
@@ -82,7 +83,7 @@ As a General User, I want to:
 <a name="tech-stack" ></a>
 <img src="./readme/title5.svg"/>
 > The application utilizes React Native (Expo) for the mobile app, Node.js with Express for the backend, MongoDB Atlas for database storage, AWS server for cloud infrastructure, Arduino for sensor data collection, OpenAI for predictive analytics, and Firebase for real-time notifications. 
-
+<br>
 
 EcoTech is built using the following technologies: 
 
@@ -94,6 +95,8 @@ EcoTech is built using the following technologies:
 - **Redux:** Manages app data and state effectively.
 - **Expo Notifications:** Handles push notifications.
 - **Axios:** Enables network requests to the backend.
+
+<br>
 
 ## Backend (Server)
 <a name="Backend" ></a>
@@ -117,10 +120,8 @@ EcoTech utilizes these technologies to provide a seamless and comprehensive wild
 
 <a name="Demo" ></a>
 <img src="./readme/title4.svg"/>
-
-
 > Based on the wireframes and mockups, we implemented the EcoTech app with the following features: 
-
+<br>
 
 ### Screens 
 
@@ -140,6 +141,7 @@ EcoTech utilizes these technologies to provide a seamless and comprehensive wild
 | Circuit Diagram | 
 ---|
 | ![Circuit Diagram](readme/Circuit_Diagram.png) |
+<br>
 
 Circuit Design |
 ---| 
@@ -151,6 +153,7 @@ Circuit Design |
 
 <a name="OpenAi" ></a>
 <img src="./readme/title8.svg"/>
+<br>
 
  
 Before prediction:
@@ -161,6 +164,8 @@ Before prediction:
   humidity: [ { value: 35, hour: 10, day: 4, source: 'real' } ]
 }
 ```
+<br>
+
 After prediction: 
 ```sh 
   {
@@ -189,16 +194,41 @@ After prediction:
 
 <a name="Performance" ></a>
 <img src="./readme/title9.svg"/> 
+> The following tests were conducted in Postman to assess the functionality of my application's primary APIs
+<br>
+
+URL: http://63.35.223.98:8080/user/get_forests
 
 ```sh 
-
-URL: http://63.35.223.98:8080/forest/update-forest-data 
-  {
-  forestId: '650feb23594bb545d4cdd338',
-}
+PASS: Response time is within acceptable range //199 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+PASS: Response has the required field - message
+PASS: Response content type is JSON
 
 ```
 
+<br>
+URL: http://63.35.223.98:8080/user/get_forest_data
+
+```sh 
+PASS: Response time is within acceptable range //258 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+PASS: Response has the required field - message
+PASS: Response content type is JSON
+```
+<br>
+URL: http://63.35.223.98:8080/forest/update-forest-data
+
+```sh 
+FAIL: Response time is within acceptable range | AssertionError: Response time should be below 1000ms: expected 6938 to be below 1000
+PASS: Response content type is JSON
+PASS: Response schema is valid
+PASS: Response has the required field - message
+PASS: Response content type is JSON
+```
+<span style="font-size: 12px;">Note: This API isn't for regular user interactions; it uses unique logic, including OpenAI integration and array searching, for forest updates.</span>
 
 
 
@@ -209,13 +239,11 @@ URL: http://63.35.223.98:8080/forest/update-forest-data
 
 <a name="how-to-run" ></a>
 <img src="./readme/title6.svg"/> 
-
-
 > To set up EcoTech locally, follow these steps: 
-
+<br>
 
 ### Prerequisites 
-
+<br>
 Ensure you have the following software and dependencies installed: 
 
 1. Node.js and npm (Node Package Manager). You can install them from [nodejs.org](https://nodejs.org/). 
@@ -230,10 +258,11 @@ npm install -g expo-cli
 git clone https://github.com/Rayan-Emad1/EcoTech  
 ```
 
+<br>
 
 ### Installation 
 
-
+<br>
 
 #### Frontend (Mobile App) 
 
@@ -253,6 +282,7 @@ git clone https://github.com/Rayan-Emad1/EcoTech
    ```bash  
    npx expo start  
    ``` 
+<br>
 
 #### Backend (Server) 
 
