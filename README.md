@@ -9,9 +9,12 @@
 - [User Types](#user-types)
 - [Features of the App](#features-of-the-app)
 - [Tech Stack](#tech-stack)
+  - [Frontend](#Frontend)
+  - [Backend](#Backend)
 - [Prototyping](#prototyping)
 - [Demo](#Demo)
 - [OpenAi](#OpenAi)
+- [Performance](#Performance)
 - [How to Run](#how-to-run)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -84,7 +87,7 @@ As a General User, I want to:
 EcoTech is built using the following technologies: 
 
 ## Frontend (Mobile App)
-
+<a name="Frontend" ></a>
 - **React Native (Expo):** Used for cross-platform mobile app development.
 - **Expo Packages:** Various Expo packages for accessing device features and UI components.
 - **React Navigation:** Handles navigation within the app.
@@ -93,7 +96,7 @@ EcoTech is built using the following technologies:
 - **Axios:** Enables network requests to the backend.
 
 ## Backend (Server)
-
+<a name="Backend" ></a>
 - **Node.js with Express:** Powers the backend server for API requests and logic.
 - **MongoDB Atlas:** Cloud-based database service for data storage.
 - **AWS (Amazon Web Services):** Cloud infrastructure for hosting the server and application.
@@ -178,6 +181,26 @@ After prediction:
 }
 
 ```
+
+<br><br> 
+
+
+
+
+<a name="Performance" ></a>
+<img src="./readme/title9.svg"/> 
+
+```sh 
+
+URL: http://63.35.223.98:8080/forest/update-forest-data 
+  {
+  forestId: '650feb23594bb545d4cdd338',
+}
+
+```
+
+
+
 
 <br><br> 
 
