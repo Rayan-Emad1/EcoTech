@@ -2,8 +2,9 @@
 <img src="./readme/title1.svg"/> 
 <br><br> 
 
+<img src="./readme/title2.svg"/> 
 
-## Table of Contents
+
 - [Project Description](#project-description)
 - [User Types](#user-types)
 - [Features of the App](#features-of-the-app)
