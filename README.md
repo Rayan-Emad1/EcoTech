@@ -5,19 +5,19 @@
 <img src="./readme/title7.svg"/> 
 
 
-- [Project Description](#project-description)
+- [Project Philosophy](#project-description)
 - [User Types](#user-types)
-- [Features of the App](#features-of-the-app)
+- [Prototyping](#prototyping)
 - [Tech Stack](#tech-stack)
   - [Frontend](#Frontend)
   - [Backend](#Backend)
-- [Prototyping](#prototyping)
 - [Demo](#Demo)
 - [OpenAi](#OpenAi)
 - [Performance](#Performance)
 - [How to Run](#how-to-run)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+
 
 
 <br><br>  
