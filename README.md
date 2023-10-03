@@ -6,7 +6,7 @@
 
 
 - [Project Philosophy](#project-description)
-- [User Types](#user-types)
+  - [User Types](#user-types)
 - [Prototyping](#prototyping)
 - [Tech Stack](#tech-stack)
   - [Frontend](#Frontend)
