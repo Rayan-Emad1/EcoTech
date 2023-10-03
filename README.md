@@ -69,7 +69,6 @@ As a General User, I want to:
 <br>
 
 
-### Mockups 
 
 | Login  | Sign up-1 | Sign up-2 | Sign up-3 | Sign up-4 | 
 | ---| ---| ---| ---| ---|
