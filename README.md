@@ -300,7 +300,7 @@ git clone https://github.com/Rayan-Emad1/EcoTech
 3. Create a `.env` file with your credentials
 
    ```bash  
-   cp .env.example .env
+   cp env.example .env
    ``` 
   
 4. Start the server: 
