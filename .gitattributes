@@ -1,1 +1,2 @@
-/readme export-ignore
+readme/* export-ignore
+readme/*/* export-ignore
