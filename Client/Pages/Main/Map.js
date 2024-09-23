@@ -4,6 +4,7 @@ import {
   Text,
   View,
   Image,
+  Platform,
   Keyboard,
   Animated,
   Dimensions,
