@@ -5,6 +5,8 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "jsEngine": "hermes",
+    "newArchEnabled": true,
     "notification": {
       "icon": "./assets/images/push_notification_icon.png"
     },
