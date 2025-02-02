@@ -7,6 +7,8 @@ const CustomInput = ({
   title,
   value,
   onChangeText,
+  onPress = () => {},
+  editable  = true,
   secureTextEntry,
   keyboardType = "default",
   customWidth = "80%",
@@ -19,6 +21,8 @@ const CustomInput = ({
         placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}
+        onPress = {onPress}
+        editable= {editable}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
         maxLength={title === "Date of Birth" ? 9 : 70}

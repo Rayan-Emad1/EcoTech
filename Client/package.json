@@ -33,7 +33,8 @@
     "react-native-web": "~0.19.13",
     "react-redux": "^9.2.0",
     "redux": "^5.0.1",
-    "expo-device": "~7.0.2"
+    "expo-device": "~7.0.2",
+    "@react-native-community/datetimepicker": "8.2.0"
   },
   "devDependencies": {
     "react-native-svg-transformer": "^1.5.0"
