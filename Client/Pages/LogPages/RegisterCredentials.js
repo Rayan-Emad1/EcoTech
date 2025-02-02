@@ -87,7 +87,7 @@ const RegisterCredentials = ({ navigation }) => {
               mode="date"
               display={Platform.OS === "ios" ? "spinner" : "default"}
               onChange={(_, date) => {setDate(date)} }
-              minimumDate={new Date(1900, 0, 1)} 
+              minimumDate={new Date(1950, 0, 1)} 
               maximumDate={new Date()}
             />
           )}
@@ -100,7 +100,7 @@ const RegisterCredentials = ({ navigation }) => {
             text="Next"
             onPress={handleNext}
             set_color="green"
-            disabled={!!errorMessage}
+            disabled={!errorMessage}
           />
         </View>
       </SafeAreaView>
